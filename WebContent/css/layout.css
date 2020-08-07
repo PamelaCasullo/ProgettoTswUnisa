@@ -27,7 +27,7 @@ h4{
 footer{
     margin-top:100px;
     color: #ffffff;
-    background: #400080;
+    background: #222222;
     padding: 25px;
     font-weight: 300;
     text-align: center;
@@ -169,14 +169,16 @@ footer p a:hover{
 }
 /*LOGIN FORM*/
 #login {
-	background-color: white;
+	background-color: #222222;
     border-color: black;
+    color: white;
     border-style: solid;
     border-width: 1px;
     border-radius: 15px;
     padding: 15px;
     margin: 24px;
     float: right;
+   
 }
 
 #article-preview {
@@ -186,3 +188,23 @@ footer p a:hover{
     padding: 10px;
     margin: 15px;
 }
+
+.article {
+	background-color: white;
+    border-color: purple;
+    border-style: dashed;
+    border-width: 5px;
+    border-radius: 20px;
+    padding: 50px;
+    margin: 100px;
+    margin-right: 400px;
+}
+
+#logo {
+	border-radius: 70%;
+	float: left;
+	border-width: none;
+}
+    
+
+
