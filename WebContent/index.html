@@ -50,7 +50,7 @@
     
     <li >
     
-   <button class="btn btn-dark""><a class="nav-link" href="login.jsp">Login</a></button>
+   <button class="btn btn-dark"><a class="nav-link" href="login.jsp">Login</a></button>
     
   
     </ul>
@@ -60,20 +60,20 @@
     <!-- LOGIN -->
 
     <div id=login>
-    <form>
+    <form action ="<%=request.getContextPath()%>/Login" method="post">
   <div class="form-group">
-    <label for="exampleInputEmail1">Indirizzo E-mail</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label >Username</label>
+    <input type="text" class="form-control" name="nome_utente" placeholder="nome utente" >
     <small id="emailHelp" class="form-text text-muted">Non condividere la password con nessuno</small>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input type="text" class="form-control" name="password_utente">
   </div>
-  <div class="form-group"><label for="exampleInputPassword1"><a href="password.html">Password dimenticata?</a></label> </div>
+  <div class="form-group"><label><a href="password.html">Password dimenticata?</a></label> </div>
   <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Mantienimi registrato</label>
+    <input type="checkbox" class="form-check-input" >
+    <label class="form-check-label" >Mantienimi registrato</label>
   </div>
   <button type="submit" class="btn btn-primary">Accedi</button>
 </form>
@@ -125,8 +125,8 @@
                               <div class="carousel-caption d-none d-md-block">
                                 <h4>
                                    <span id="article-preview">
-                                    <button class="btn btn-primary btn-lg">LA NOSTRA LOBBY!!<br><br>
-                                    Unitevi a noi e vivete l'esport a 360 gradi!</button>
+                                   <a href=article1.html><button class="btn btn-primary btn-lg"> LA NOSTRA LOBBY!!<br><br>
+                                    Unitevi a noi e vivete l'esport a 360 gradi!</button></a> 
                                     </span> 
                                 </h4>
                               </div>

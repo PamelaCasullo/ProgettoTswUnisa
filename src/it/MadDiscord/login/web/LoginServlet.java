@@ -1,11 +1,13 @@
 package it.MadDiscord.login.web;
 
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+//import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSession;
 
 import it.MadDiscord.login.bean.LoginBean;
@@ -32,26 +34,27 @@ public class LoginServlet extends HttpServlet {
 		
 		String nome_utente = request.getParameter("nome_utente");
 		String password_utente = request.getParameter("password_utente");
+		
 		LoginBean logBean = new LoginBean();
 		logBean.setNome_utente(nome_utente);
 		logBean.setPassword_utente(password_utente);
 		
 		try {
-			if(loginDat.validate(logBean)) {
-			//	HttpSession session= request.getSession();
-			 //session.setAttribute("username", nome_utente);
+			
+			if(loginDat.validate(logBean) != null) {
+				HttpSession session= request.getSession();
+			    session.setAttribute("nome_utente", nome_utente);
 				response.sendRedirect("index_user.jsp");
 			} else {
-			//	HttpSession session = request.getSession();
-			//	session.setAttribute("user", nome_utente);
-				response.sendRedirect("login.jsp");
+				String message = "Hai sbagliato qualcosa, riprova!";
+				request.setAttribute("message", message);
 			}
+			RequestDispatcher disp = request.getRequestDispatcher("login.jsp");
+			disp.forward(request, response);
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			throw new ServletException(e);
 		}
 		
-		
-		doGet(request, response);
 	}
 
 	/**
