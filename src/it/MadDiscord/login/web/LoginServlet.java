@@ -48,9 +48,11 @@ public class LoginServlet extends HttpServlet {
 			} else {
 				String message = "Hai sbagliato qualcosa, riprova!";
 				request.setAttribute("message", message);
+				
+				response.sendRedirect("login.jsp");
 			}
-			RequestDispatcher disp = request.getRequestDispatcher("login.jsp");
-			disp.forward(request, response);
+			
+
 		} catch (ClassNotFoundException e) {
 			throw new ServletException(e);
 		}
