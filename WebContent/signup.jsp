@@ -6,7 +6,7 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-
+	<script type="text/javascript" src="script/signin.jsp"></script>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.6, shrink-to-fit=no">
@@ -26,43 +26,26 @@
 <body>
  
     <div class="registration-form">
-        <form>
+        <form action="<%=request.getContextPath() %>/Signin" method="post">
             <div class="form-icon">
                 <span><i class="icon icon-user"></i></span>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" id="username" placeholder="Nome Utente*" required>
+                <input type="text" class="form-control item" name="nome_utente" placeholder="Nome Utente*" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control item myInput"placeholder="Password*" required>
+                <input type="password" class="form-control item myInput"placeholder="Password*" name="password_utente" required>
                 <input type="checkbox" onclick="visualPassword('myInput')">Show Password
             </div>
             
             <div class="form-group">
                 <input type="password" class="form-control item myInput1" placeholder="Ripeti password*" required>
                 <input type="checkbox" onclick="visualPassword('myInput1')">Show Password
-            </div>
-            <div class="form-group">
-                <input type="email" class="form-control item" id="email" placeholder="E-mail*" required>
-            </div>
-            
-            <div class="form-group">
-                <input type="date" class="form-control item" id="birth-date" placeholder="Data di nascita" required>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control item" id="control-words" placeholder="Frase di sicurezza" required>
-            </div>
-            <div class="input-group">
-               <select class="form-control" id="sel1">
-                   <option selected disabled="disabled">Seleziona la domanda di sicurezza</option>
-                   <option>Qual è il tuo film preferito?</option>
-                   <option>Qual è il nome del tuo animale domestico?</option>
-                    <option>Qual è il nome della tua città?</option>
-                  </select>
-            </div>
+            </div>  
+  
             <div> <p>Creando un account accetterai la nostra <a href="#" style="color:dodgerblue">politica sulla Privacy.</a>.</p></div>
             <div class="form-group">
-                <button type="button" class="btn btn-block create-account " onClick="passwordCheck()">Crea un account</button>
+                <button type="submit" class="btn btn-block create-account " onClick="passwordCheck()">Crea un account</button>
             </div>
         </form>
     </div>
