@@ -1,7 +1,6 @@
 package it.MadDiscord.login.web;
 
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,7 +43,16 @@ public class LoginServlet extends HttpServlet {
 			if(loginDat.validate(logBean) != null) {
 				HttpSession session= request.getSession();
 			    session.setAttribute("nome_utente", nome_utente);
-				response.sendRedirect("index_user.jsp");
+			    
+			    
+			    String control = "admin";
+			    
+			    if(logBean.getNome_utente().contentEquals(control)) 
+			    	
+			    	response.sendRedirect("index_administrator.jsp");
+			    
+			    else 
+			    	response.sendRedirect("index_user.jsp");
 			} else {
 				String message = "Hai sbagliato qualcosa, riprova!";
 				request.setAttribute("message", message);
