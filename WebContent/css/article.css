@@ -1,0 +1,29 @@
+p {
+	font-family: "Arial Black", Gadget, sans-serif;
+	
+}
+h1 {
+	font-family: "Arial Black", Gadget, sans-serif;
+	
+}
+.article {
+	background-color: white;
+    border-color: purple;
+    border-style: dashed;
+    border-width: 5px;
+    border-radius: 20px;
+    padding: 50px;
+    margin: 100px;
+    margin-right: 400px;
+}
+
+#logo {
+	border-radius: 70%;
+	float: left;
+	border-width: none;
+}
+
+#video {
+	margin-left: 500px;
+	margin-right: 500px;
+}
