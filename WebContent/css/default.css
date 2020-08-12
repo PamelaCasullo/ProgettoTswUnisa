@@ -20,3 +20,10 @@ h3 {
 	font-family: "Arial Black", Gadget, sans-serif;
 	
 }
+
+#nav{ 
+	background-color: #222222;
+	position: -webkit-sticky; 
+	position: sticky;
+	top: 0;
+}
