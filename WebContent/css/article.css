@@ -1,5 +1,8 @@
 p {
 	font-family: "Arial Black", Gadget, sans-serif;
+	margin-left:80px;
+	margin-right:80px;
+	text-align: justify;
 	
 }
 h1 {
@@ -18,6 +21,7 @@ h1 {
     margin-right: 250px;
 }
 
+
 #logo {
 	border-radius: 70%;
 	float: left;
@@ -25,8 +29,7 @@ h1 {
 }
 
 .center {
-	
 	float: right;
-	margin-right:100px;
-
+	margin-left:25px;
+	margin-right:80px;
 }
