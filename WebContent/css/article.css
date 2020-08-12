@@ -14,7 +14,8 @@ h1 {
     border-radius: 20px;
     padding: 50px;
     margin: 100px;
-    margin-right: 400px;
+    margin-left: 250px;
+    margin-right: 250px;
 }
 
 #logo {
@@ -23,7 +24,9 @@ h1 {
 	border-width: none;
 }
 
-#video {
-	margin-left: 500px;
-	margin-right: 500px;
+.center {
+	
+	float: right;
+	margin-right:100px;
+
 }
