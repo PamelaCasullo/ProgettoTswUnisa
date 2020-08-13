@@ -27,3 +27,18 @@ h3 {
 	position: sticky;
 	top: 0;
 }
+
+footer{
+    margin-top:100px;
+    color: #ffffff;
+    background: #222222;
+    padding: 25px;
+    font-weight: 300;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+  
+    
+}

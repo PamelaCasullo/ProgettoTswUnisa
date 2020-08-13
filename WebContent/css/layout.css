@@ -24,20 +24,7 @@ h4{
 }
 
 
-footer{
-    margin-top:100px;
-    color: #ffffff;
-    background: #222222;
-    padding: 25px;
-    font-weight: 300;
-    text-align: center;
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-  
-    
-}
+
 
 .card.card-carousel {
     border: 0;
@@ -155,18 +142,7 @@ footer{
     height: 50px;
     margin: auto;
 }
-.footer p{
-    margin-bottom: 0;
-}
-footer p a{
-    color: #555;
-    font-weight: 400;
-}
 
-footer p a:hover{
-    color: #9f26aa;
-    text-decoration: none;
-}
 /*LOGIN FORM*/
 #login {
 	background-color: #222222;
