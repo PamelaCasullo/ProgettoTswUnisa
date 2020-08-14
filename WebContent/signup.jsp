@@ -5,9 +5,13 @@
 <head>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 	<script type="text/javascript" src="script/signin.jsp"></script>
-
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+	
+	<!--  SCRIPT PER ICONA  -->
+	<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.6, shrink-to-fit=no">
 	
@@ -15,39 +19,69 @@
 	<meta name="author" content="Paolo Apostolico, Pamela Casullo, Giulio Triggiani">
 	 
     <title>Pagina di Registrazione</title>
+    
     <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/signup.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    
-    <link rel="stylesheet" href="css/signup.css">
+   
     
     <script type="text/javascript" src="script/password.js"></script>
     
 </head>
 <body>
- 
+<!--  navbar -->
+ 	<nav id=nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="index.html">
+  <img id=logo alt="logo_azienda" src="https://media.tenor.com/images/1aa6e82e4cc8e7a367740f18ace6eba2/tenor.gif" width="60">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Teams</a>
+      </li>
+      <li>
+      <a class="nav-link" href="#">About</a>
+      </li>
+      <li>
+      <a class="nav-link" href="shop.jsp">Shop</a>
+      </li>
+   
+    </ul>
+   
+  </div>
+</nav>
+<!--  registration form -->
     <div class="registration-form">
-        <form action="<%=request.getContextPath() %>/Signin" method="post">
+        <form action="<%=request.getContextPath()%>/Signin" method="post">
             <div class="form-icon">
-                <span><i class="icon icon-user"></i></span>
+                <span class="iconify icon:ion-person-add-outline icon-inline:false"></span>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control item" name="nome_utente" placeholder="Nome Utente*" required>
             </div>
             <div class="form-group">
                 <input type="password" class="form-control item myInput"placeholder="Password*" name="password_utente" required>
-                <input type="checkbox" onclick="visualPassword('myInput')">Show Password
+                <input type="checkbox" onclick="visualPassword('myInput')"><p>Mostra password</p>
             </div>
             
             <div class="form-group">
                 <input type="password" class="form-control item myInput1" placeholder="Ripeti password*" required>
-                <input type="checkbox" onclick="visualPassword('myInput1')">Show Password
+                <input type="checkbox" onclick="visualPassword('myInput1')"><p>Mostra password</p>
             </div>  
   
-            <div> <p>Creando un account accetterai la nostra <a href="#" style="color:dodgerblue">politica sulla Privacy.</a>.</p></div>
+            <div> <p style="text-align:center">Creando un account accetterai la nostra <a href="#" id=privacy>politica sulla Privacy.</a>.</p></div>
             <div class="form-group">
                 <button type="submit" class="btn btn-block create-account " onClick="passwordCheck()">Crea un account</button>
             </div>
+            <p style="text-align:center"> Se non avete creato ancora un profilo,<br> siete pregati di crearne uno tramite la pagina di <a href="login.jsp">Login</a></p>
         </form>
     </div>
 

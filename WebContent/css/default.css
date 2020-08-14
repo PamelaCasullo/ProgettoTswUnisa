@@ -2,14 +2,16 @@
 /* DEFAULT CSS PAGE*/
 body{
 	background-image: url("https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-	 background-repeat: no-repeat;
- 	 background-attachment: fixed;
+	background-repeat: no-repeat;
+ 	background-attachment: fixed;
 	
 	background-size: cover;
 	background-position: absolute;
 	
-	
+
 }
+
+
 
 body div a{
 	
@@ -20,6 +22,10 @@ h3 {
 	font-family: "Arial Black", Gadget, sans-serif;
 	
 }
+p {
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
 
 #nav{ 
 	background-color: #222222;

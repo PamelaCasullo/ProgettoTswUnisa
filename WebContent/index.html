@@ -7,6 +7,7 @@
     <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
 
+	
 	<!-- META TAG -->
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.6, shrink-to-fit=no">
@@ -64,7 +65,7 @@
     <!-- LOGIN -->
 
     <div id=login>
-    <form action ="<%=request.getContextPath()%>/Login" method="post">
+    <form action ="<%=request.getContextPath%>/Login" method="post">
   <div class="form-group">
     <label >Username</label>
     <input type="text" class="form-control" name="nome_utente" placeholder="nome utente" >
@@ -137,11 +138,11 @@
                             </div>
                           </div>
                           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <i class="material-icons">{-</i>
+                            <i class="material-icons"><</i>
                             <span class="sr-only">Previous</span>
                           </a>
                           <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <i class="material-icons"> -} </i>
+                            <i class="material-icons"> > </i>
                             <span class="sr-only">Next</span>
                           </a>
                         </div>
