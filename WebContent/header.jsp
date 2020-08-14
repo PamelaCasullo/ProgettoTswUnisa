@@ -29,7 +29,7 @@
 
 <!--  SIDEBAR -->
 <nav id=nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="index.html">
+  <a class="navbar-brand" href="Homepage.jsp">
   <img id=logo alt="logo_azienda" src="https://media.tenor.com/images/1aa6e82e4cc8e7a367740f18ace6eba2/tenor.gif" width="60">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +39,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="Homepage.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Teams</a>
