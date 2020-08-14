@@ -49,7 +49,9 @@
       <li>
       <a class="nav-link" href="shop.jsp">Shop</a>
       </li>
-   
+   	<li>
+      <a class="nav-link" href="#">Pannello di Controllo</a>
+      </li>
     </ul>
 
   </div>
@@ -66,4 +68,4 @@
 </body>
 </html>
 
-
+</html>

@@ -61,12 +61,19 @@
     <li>
     
    <a class="nav-link" href="login.jsp"><button class="btn btn-dark">Login</button></a>
-    
-  
     </ul>
     </form>
   </div>
 </nav>
+
+		<footer>
+		<span><u>APOSTOLICO PAOLO, 
+		CASULLO PAMELA, 
+		TRIGGIANI GIULIO. 
+		Diritti ai rispettivi proprietari</u>©</span>
+		</footer>
+	
+</body>
 </body>
 </html>
 

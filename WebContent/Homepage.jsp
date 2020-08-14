@@ -120,12 +120,5 @@
     </div>
     </div>
 
-		<footer>
-		<span><u>APOSTOLICO PAOLO, 
-		CASULLO PAMELA, 
-		TRIGGIANI GIULIO. 
-		Diritti ai rispettivi proprietari</u>©</span>
-			</footer>
-	
 </body>
 </html>
