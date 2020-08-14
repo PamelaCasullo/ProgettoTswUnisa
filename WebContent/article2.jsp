@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,14 +66,14 @@
 <div class=article>
     <h1><img id=logo src="https://c7.uihere.com/files/213/439/710/discord-computer-icons-social-media-online-chat-internet-bot-remix.jpg" width=100>Nuova Stagione per i Mad Discord</h1>
     <br><br><br>
-	<p> Inizia la nuova stagione e-sport per il team ufficiale "Esport societ√†" nel torneo nazionale PG Nationals di lega prima dove si contenderanno numerosi team ben conosciuti nello scenario esport italiano (come gli imbattuti Team-Z) ma anche nuove entrate e nuovi volti pronti per mostrare il loro valore. Manager Daniele Basso e coach Marco Leandri rilasciano parole rassicuranti dicendo di poter garantire un buon posto per la loro squadra in questa stagione e nei vari tornei a venire usando tali parole "In questa stagione stagione i ragazzi riusciranno a dare spettacolo mostrando il duro lavoro messo durante gli allenamenti per creare l'impeccabile sinergia che ora possiedono".
-		Questa stagione, come le precedenti, prevede 3 tornei ufficiali con annessi qualifier per parteciparvi e dalle dichiarazioni fatte "Esport Societ√†" non salter√† alcuno di quest'ultimi mettendosi completamente in gioco per quello che sar√† questa stagione 2020-2021.
+	<p> Inizia la nuova stagione e-sport per il team ufficiale "Esport societ‡" nel torneo nazionale PG Nationals di lega prima dove si contenderanno numerosi team ben conosciuti nello scenario esport italiano (come gli imbattuti Team-Z) ma anche nuove entrate e nuovi volti pronti per mostrare il loro valore. Manager Daniele Basso e coach Marco Leandri rilasciano parole rassicuranti dicendo di poter garantire un buon posto per la loro squadra in questa stagione e nei vari tornei a venire usando tali parole "In questa stagione stagione i ragazzi riusciranno a dare spettacolo mostrando il duro lavoro messo durante gli allenamenti per creare l'impeccabile sinergia che ora possiedono".
+		Questa stagione, come le precedenti, prevede 3 tornei ufficiali con annessi qualifier per parteciparvi e dalle dichiarazioni fatte "Esport Societ‡" non salter‡ alcuno di quest'ultimi mettendosi completamente in gioco per quello che sar‡ questa stagione 2020-2021.
 		Non rimane che dare in bocca al lupo ai nostri ragazzi e soprattutto al nostro allenatore con la speranza che riusciranno a portare a casa risultati sensazionali!
 		<br><br><br><br><br>
 		
-		<button type="button" class="btn btn-dark"> <-- Articolo Precedente</button>
+		<a href=article1.html><button type="button" class="btn btn-dark"> <-- Articolo Precedente</button></a>
 
-		<a href=article1.html><button style="float:right;" type="button" class="btn btn-dark">Articolo Successivo --></button></a>
+		<a href=article3.html><button style="float:right;" type="button" class="btn btn-dark">Articolo Successivo --></button></a>
 		</p>
 </div>
 
