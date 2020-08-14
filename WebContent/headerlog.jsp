@@ -24,26 +24,39 @@
 	 <link rel="stylesheet" href="css/default.css">
  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-	<link rel="stylesheet" href="css/index.css">
-	<link rel="stylesheet" href="css/login.css">
-<title>Pagina di Login</title>
 </head>
 <body>
-<%@ include file="headerlog.jsp" %>
-<!--  LOGIN -->
-    <div class="login-dark">
-        <form action ="<%=request.getContextPath()%>/Login" method="post">
-            <h1>LOGIN</h1>
-            
-            <div class="illustration"><i class="icon ion-ios-game-controller-b-outline"> </i></div>
-            <div class="form-group"><input class="form-control" type="text" name="nome_utente" placeholder="nome utente"required></div>
-            <div class="form-group"><input class="form-control" type="password" name="password_utente" placeholder="password" required></div>
-            <div class="form-group">
-            <button class="btn btn-primary btn-block" type="submit">Log In</button></div><a href="password.html" class="forgot">Password dimenticata?</a>
-   			<p style="text-align:center"> Se non avete ancora creato un profilo, siete pregati di farlo attraverso la pagina di <a href="signup.jsp">Registrazione</a></p>
-			</form>
-   			</div>
+<!-- NAVBAR -->
+<nav id=nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="index.html">
+  <img id=logo alt="logo_azienda" src="https://media.tenor.com/images/1aa6e82e4cc8e7a367740f18ace6eba2/tenor.gif" width="60">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Teams</a>
+      </li>
+      <li>
+      <a class="nav-link" href="#">About</a>
+      </li>
+      <li>
+      <a class="nav-link" href="shop.jsp">Shop</a>
+      </li>
+   
+    </ul>
+
+  </div>
+</nav>
 
 
 </body>
 </html>
+
+

@@ -1,4 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -21,51 +24,11 @@
 	<link rel="stylesheet" href="css/layout.css">
 </head>
 <body> 
-
-<!--  SIDEBAR -->
-<nav id=nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="index.html">
-  <img id=logo alt="logo_azienda" src="https://media.tenor.com/images/1aa6e82e4cc8e7a367740f18ace6eba2/tenor.gif" width="60">
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Teams</a>
-      </li>
-      <li>
-      <a class="nav-link" href="#">About</a>
-      </li>
-      <li>
-      <a class="nav-link" href="shop.jsp">Shop</a>
-      </li>
-   
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-    
-    <ul class="navbar-nav mr-auto">
-    <li> 
-    <span><a class="nav-link" href="signup.jsp"><u> Sign-up</u></a></span>
-    
-    <li>
-    
-   <button class="btn btn-dark"><a class="nav-link" href="login.jsp">Login</a></button>
-    
-  
-    </ul>
-    </form>
-  </div>
-</nav>
+<%@include file="header.jsp"%>
     <!-- LOGIN -->
 
     <div id=login>
-    <form action ="<%=request.getContextPath%>/Login" method="post">
+    <form action ="<%=request.getContextPath()%>/Login" method="post">
   <div class="form-group">
     <label >Username</label>
     <input type="text" class="form-control" name="nome_utente" placeholder="nome utente" >
@@ -161,7 +124,7 @@
 		<span><u>APOSTOLICO PAOLO, 
 		CASULLO PAMELA, 
 		TRIGGIANI GIULIO. 
-		Diritti ai rispettivi proprietari</u>Â©</span>
+		Diritti ai rispettivi proprietari</u>©</span>
 			</footer>
 	
 </body>
