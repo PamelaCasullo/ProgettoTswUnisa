@@ -81,7 +81,7 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-block create-account " onClick="passwordCheck()">Crea un account</button>
             </div>
-            <p style="text-align:center"> Se non avete creato ancora un profilo,<br> siete pregati di crearne uno tramite la pagina di <a href="login.jsp">Login</a></p>
+            <p style="text-align:center"> Se avete già creato un profilo,<br> siete pregati di accedervi attraverso la pagina di<a href="login.jsp">Login</a></p>
         </form>
     </div>
 

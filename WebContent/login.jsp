@@ -66,7 +66,9 @@
             <div class="form-group"><input class="form-control" type="text" name="nome_utente" placeholder="nome utente"required></div>
             <div class="form-group"><input class="form-control" type="password" name="password_utente" placeholder="password" required></div>
             <div class="form-group">
-            <button class="btn btn-primary btn-block" type="submit">Log In</button></div><a href="password.html" class="forgot">Password dimenticata?</a></form>
+            <button class="btn btn-primary btn-block" type="submit">Log In</button></div><a href="password.html" class="forgot">Password dimenticata?</a>
+   			<p style="text-align:center"> Se non avete ancora creato un profilo, siete pregati di farlo attraverso la pagina di <a href="signup.jsp">Registrazione</a></p>
+			</form>
    			</div>
 
 
