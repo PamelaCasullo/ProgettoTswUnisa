@@ -18,8 +18,12 @@
 <body>
 <%@include file="headerlog.jsp"%>
 <!--  COMING SOON -->
+	<p style="color:orange">
 		Connessione effettuata con successo!
 		
 		BENVENUTO TRA I MAD DISCORD!
+		</p>
+<%@include file="Homepage.jsp" %>
+<%@include file="homeInclusive.jsp" %>
 </body>
 </html>
