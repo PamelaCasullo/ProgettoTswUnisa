@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
 			    String control = "admin";
 			    
 			    
-			    if(logBean.getNome_utente().contentEquals(control)&&logBean.getPassword_utente().contentEquals(control)&&logBean.getAdmUser()==1) 
+			    if(logBean.getNome_utente().contentEquals(control)) 
 			    	
 			    	response.sendRedirect("index_administrator.jsp");
 			    
