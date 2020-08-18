@@ -12,8 +12,6 @@ public class SigninDAO {
 public int registerUser(UtenteBean sigBean) throws ClassNotFoundException{
 		
 		
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		
 		int result = 0;
 	//	UtenteBean SigBean = null;
 		try(Connection conn = DBConnectionPool.getConnection(); )
@@ -31,6 +29,7 @@ public int registerUser(UtenteBean sigBean) throws ClassNotFoundException{
 			result=prepStat.executeUpdate();
 			
 		} catch (SQLException e) {
+
 			printSQLException(e);
 		}
 		
@@ -39,7 +38,7 @@ public int registerUser(UtenteBean sigBean) throws ClassNotFoundException{
 	}
 
 	private void printSQLException(SQLException e) {
-
+		System.out.println("eccezione");
 		System.out.println(e);
 		
 	}

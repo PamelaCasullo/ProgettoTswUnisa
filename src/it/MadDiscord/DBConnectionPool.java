@@ -22,17 +22,13 @@ public class DBConnectionPool  {
 	
 	private static synchronized Connection createDBConnection() throws SQLException {
 		Connection newConnection = null;
-		String ip = "localhost";
-		String port = "3306";
 		String db = "jdbc:sqlserver://data-a.database.windows.net:1433;database=DatabaseBadDiscord;user=dbroot@data-a;password=adminadmin1+;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-		String username = "root";
-		String password = "AntonioR99";
-
-		newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ port+"/"+db, username, password);
+		newConnection = DriverManager.getConnection(db);
 
 		newConnection.setAutoCommit(false);
 		return newConnection;
 	}
+
 
 
 	public static synchronized Connection getConnection() throws SQLException {
