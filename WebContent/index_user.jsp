@@ -23,6 +23,6 @@
 		
 		BENVENUTO TRA I MAD DISCORD!
 		</p>
-<%@include file="homeInclusive.jsp" %>
+<%@include file="homeInclusive.jsp"%>
 </body>
 </html>

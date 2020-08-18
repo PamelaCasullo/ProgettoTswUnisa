@@ -36,7 +36,7 @@
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="text" class="form-control" name="password_utente">
+    <input type="password" class="form-control" name="password_utente">
   </div>
   <div class="form-group"><label><a href="password.html">Password dimenticata?</a></label> </div>
   <div class="form-group form-check">
@@ -46,6 +46,7 @@
   <button type="submit" class="btn btn-primary">Accedi</button>
 </form>
 </div>
+
 <%@include file="homeInclusive.jsp" %>
 
 </body>
