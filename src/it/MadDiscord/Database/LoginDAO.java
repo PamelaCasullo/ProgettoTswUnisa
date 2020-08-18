@@ -1,24 +1,22 @@
 package it.MadDiscord.Database;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import it.MadDiscord.DBConnectionPool;
 import it.MadDiscord.Model.UtenteBean;
 
 public class LoginDAO {
 	
 	public UtenteBean validate(UtenteBean utenteBean) throws ClassNotFoundException{
 		
-		
-		Class.forName("com.mysql.cj.jdbc.Driver");
+	
 		UtenteBean logBean = null;
-		try
+		try (Connection conn = DBConnectionPool.getConnection(); )
 		{		
-		
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Società_di_esports?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false","root","AntonioR99");
+
 			
 			//eseguiamo la query
 			
