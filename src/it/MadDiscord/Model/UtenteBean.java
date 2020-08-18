@@ -1,8 +1,8 @@
-package it.MadDiscord.login.bean;
+package it.MadDiscord.Model;
 
 import java.io.Serializable;
 
-public class LoginBean implements Serializable {
+public class UtenteBean implements Serializable {
 
 	/**
 	 * 

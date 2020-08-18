@@ -1,4 +1,4 @@
-package it.MadDiscord.login.web;
+package it.MadDiscord.Control;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 //import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSession;
 
-import it.MadDiscord.login.bean.LoginBean;
-import it.MadDiscord.login.database.LoginDat;
+import it.MadDiscord.Database.LoginDAO;
+import it.MadDiscord.Model.UtenteBean;
 
 /**
  * Servlet implementation class LoginServlet
@@ -18,13 +18,13 @@ import it.MadDiscord.login.database.LoginDat;
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private LoginDat loginDat;
+	private LoginDAO loginDat;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
 	public void init() {
-		loginDat = new LoginDat();
+		loginDat = new LoginDAO();
 	}
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 		String nome_utente = request.getParameter("nome_utente");
 		String password_utente = request.getParameter("password_utente");
 		
-		LoginBean logBean = new LoginBean();
+		UtenteBean logBean = new UtenteBean();
 		logBean.setNome_utente(nome_utente);
 		logBean.setPassword_utente(password_utente);
 		
@@ -47,7 +47,8 @@ public class LoginServlet extends HttpServlet {
 			    
 			    String control = "admin";
 			    
-			    if(logBean.getNome_utente().contentEquals(control)) 
+			    
+			    if(logBean.getNome_utente().contentEquals(control)&&logBean.getPassword_utente().contentEquals(control)&&logBean.getAdmUser()==1) 
 			    	
 			    	response.sendRedirect("index_administrator.jsp");
 			    

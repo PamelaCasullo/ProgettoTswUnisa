@@ -1,22 +1,21 @@
-package it.MadDiscord.signin.database;
+package it.MadDiscord.Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import it.MadDiscord.Model.UtenteBean;
 
-import it.MadDiscord.signin.bean.SigninBean;
-
-public class SigninDat {
+public class SigninDAO {
 	
-public int registerUser(SigninBean sigBean) throws ClassNotFoundException{
+public int registerUser(UtenteBean sigBean) throws ClassNotFoundException{
 		
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		
 		int result = 0;
-	//	SigninBean SigBean = null;
+	//	UtenteBean SigBean = null;
 		try
 		{		
 		

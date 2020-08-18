@@ -1,4 +1,4 @@
-package it.MadDiscord.login.database;
+package it.MadDiscord.Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,16 +6,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import it.MadDiscord.Model.UtenteBean;
 
-import it.MadDiscord.login.bean.LoginBean;
-
-public class LoginDat {
+public class LoginDAO {
 	
-	public LoginBean validate(LoginBean loginBean) throws ClassNotFoundException{
+	public UtenteBean validate(UtenteBean utenteBean) throws ClassNotFoundException{
 		
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		LoginBean logBean = null;
+		UtenteBean logBean = null;
 		try
 		{		
 		
@@ -25,8 +24,8 @@ public class LoginDat {
 			
 			PreparedStatement prepStat = conn.prepareStatement("Select nome_utente, password_utente from UserTable where nome_utente =? and password_utente=?");
 			
-			prepStat.setString(1, loginBean.getNome_utente());
-			prepStat.setString(2, loginBean.getPassword_utente());
+			prepStat.setString(1, utenteBean.getNome_utente());
+			prepStat.setString(2, utenteBean.getPassword_utente());
 			
 			System.out.println(prepStat);
 			
@@ -34,7 +33,7 @@ public class LoginDat {
 			
 			
 			if(rs.next()) {
-				logBean = new LoginBean();
+				logBean = new UtenteBean();
 				logBean.setNome_utente(rs.getString("nome_utente"));
 				logBean.setPassword_utente(rs.getString("password_utente"));
 			}

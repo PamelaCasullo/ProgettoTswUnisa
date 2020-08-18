@@ -1,4 +1,4 @@
-package it.MadDiscord.signin.web;
+package it.MadDiscord.Control;
 
 import java.io.IOException;
 
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import it.MadDiscord.signin.bean.SigninBean;
-import it.MadDiscord.signin.database.SigninDat;
+import it.MadDiscord.Database.SigninDAO;
+import it.MadDiscord.Model.UtenteBean;
 
 /**
  * Servlet implementation class SigninServlet
@@ -21,7 +21,7 @@ public class SigninServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	
-	private SigninDat sigDat = new SigninDat();
+	private SigninDAO sigDat = new SigninDAO();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -41,8 +41,6 @@ public class SigninServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	//	response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		RequestDispatcher disp = request.getRequestDispatcher("index.html");
 		disp.forward(request, response);
@@ -57,7 +55,7 @@ public class SigninServlet extends HttpServlet {
 		String password_utente = request.getParameter("password_utente");
 		
 		
-		SigninBean sigBean = new SigninBean();
+		UtenteBean sigBean = new UtenteBean();
 		sigBean.setNome_utente(nome_utente);
 		sigBean.setPassword_utente(password_utente);
 		

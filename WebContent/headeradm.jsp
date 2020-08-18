@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +55,10 @@
       <a class="nav-link" href="#">Pannello di Controllo</a>
       </li>
     </ul>
-
+	<span>
+	<li> Effettuato l'accesso con </li>
+   </span>
+    </form>
   </div>
 </nav>
 
@@ -66,6 +71,4 @@
 	
 </body>
 </body>
-</html>
-
 </html>
