@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 		logBean.setNome_utente(nome_utente);
 		logBean.setPassword_utente(password_utente);
 		
-		try {//GIULIO MERDA
+		try {
 			
 			if(loginDat.validate(logBean) != null) {
 				HttpSession session= request.getSession();
