@@ -52,6 +52,7 @@
       </li>
    
     </ul>
+ <%if(request.getSession().getAttribute("nome_utente")==null){ %> 
     <form class="form-inline my-2 my-lg-0">
     
     <ul class="navbar-nav mr-auto">
@@ -63,7 +64,19 @@
    <button class="btn btn-dark"> <a class="nav-link" href="login.jsp">Login</a> </button>
     </ul>
     </form>
-  </div>
+    <% } else { %>
+    <nav id=nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+	 <li class="nav-item">
+		<p style="color:orange;">Benvenuto, <%=request.getSession().getAttribute("nome_utente") %></p> 
+		<a href="<%=request.getContextPath()%>/Logout">Logout</a>
+	</li> 
+    </ul>
+      </div>
+	</nav>
+ <% } %>
+  </div>	
 </nav>
 
 		<footer>

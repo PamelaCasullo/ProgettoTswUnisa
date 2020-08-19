@@ -16,11 +16,19 @@
 	<link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
-<%@include file="headerlog.jsp"%>
+<%@include file="header.jsp"%>
+<nav id=nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+	 <li class="nav-item">
+		<p style="color:orange;">Benvenuto, <%=request.getSession().getAttribute("nome_utente") %></p>
+	</li> 
+    </ul>
+  </div>
+</nav>
+
 <!--  COMING SOON -->
 	<p style="color:orange">
-		Connessione effettuata con successo!
-		
 		BENVENUTO TRA I MAD DISCORD!
 		</p>
 <%@include file="homeInclusive.jsp"%>
