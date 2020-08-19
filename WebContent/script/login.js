@@ -1,25 +1,16 @@
+    function validate(){
+            var nome=document.getElementsByName("nome_utente").value;
+            var pw=document.getElementsByName("password_utente").value;
+
+
+            if(nome!=''||pw!='')
+                return(true);
+            else{
+                alert("Non hai compilato il nome utente");
+                return(false);
+            }
+    }
+
 
  
-    $(document).ready(function() {
-        $("#loginForm").validate({
-            rules: {
-                email: {
-                    required: true,
-                    email: true
-                },
-         
-                password: "required",
-            },
-             
-            messages: {
-                email: {
-                    required: "Please enter email",
-                    email: "Please enter a valid email address"
-                },
-                 
-                password: "Please enter password"
-            }
-        });
- 
-    });
 
