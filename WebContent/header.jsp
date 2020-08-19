@@ -64,20 +64,13 @@
     </ul>
     </form>
   </div>
-  <li>
-    <form id="logout-form" style="display:none" action="/logout" method="POST" onclick="document.getElementById('logout-form').submit();"></form>
-  </li>
-    
-
-
-
 </nav>
 
 		<footer>
 		<span><u>APOSTOLICO PAOLO, 
 		CASULLO PAMELA, 
 		TRIGGIANI GIULIO. 
-		Diritti ai rispettivi proprietari</u>ï¿½</span>
+		Diritti ai rispettivi proprietari</u>©</span>
 		</footer>
 	
 </body>

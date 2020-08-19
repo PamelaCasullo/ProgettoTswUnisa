@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import it.MadDiscord.Model.SigninDAO;
+import it.MadDiscord.Database.SigninDAO;
 import it.MadDiscord.Model.UtenteBean;
 
 /**

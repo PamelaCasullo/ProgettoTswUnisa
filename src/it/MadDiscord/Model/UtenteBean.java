@@ -25,7 +25,7 @@ public class UtenteBean implements Serializable {
 	public void setPassword_utente(String password_utente) {
 		this.password_utente=password_utente;
 	}
-//da levare
+
 	public int getAdmUser() {
 		return admUser;
 	}

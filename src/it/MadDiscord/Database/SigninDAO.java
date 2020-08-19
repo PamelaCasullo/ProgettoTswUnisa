@@ -1,11 +1,11 @@
-package it.MadDiscord.Model;
+package it.MadDiscord.Database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import it.MadDiscord.DBConnectionPool;
-
+import it.MadDiscord.Model.UtenteBean;
 
 public class SigninDAO {
 	
