@@ -17,8 +17,8 @@
 	  	var y= $(".myInput1");
 	
     		if(x.val()===y.val()) 
-    			alert("brav");
+    			alert("Le due password coincidono");
   			else 
-  				alert("cattiv");
+  				alert("Le password non coincidono");
     	
   	}

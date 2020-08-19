@@ -1,25 +1,13 @@
+    function validate(){
+        if(document.getElementsByName("nome_utente").value==""){
+            alert("Inserisci un nome utente valido");
+           
+        }
+        if(document.getElementsByName("password_utente").value==""){
+            alert("Inserisci una password valida");
+        }
+    }
+
 
  
-    $(document).ready(function() {
-        $("#loginForm").validate({
-            rules: {
-                email: {
-                    required: true,
-                    email: true
-                },
-         
-                password: "required",
-            },
-             
-            messages: {
-                email: {
-                    required: "Please enter email",
-                    email: "Please enter a valid email address"
-                },
-                 
-                password: "Please enter password"
-            }
-        });
- 
-    });
 
