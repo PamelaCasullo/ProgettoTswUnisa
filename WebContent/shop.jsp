@@ -24,10 +24,8 @@
 <%@ include file="header.jsp" %>
 
 	<!-- SHOP   -->
-	
-
-    <header class="text-center mb-5">
-        <h1 class="display-4 font-weight-bold">SHOP UFFICIALE DEI MAD DISCORD</h1>  
+    <header>
+        <h1 class="shop_header">SHOP UFFICIALE DEI MAD DISCORD</h1>  
     </header>
 
 

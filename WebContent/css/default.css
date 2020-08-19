@@ -7,12 +7,13 @@ body{
 	
 	background-size: cover;
 	background-position: absolute;
-	
+
 
 }
 
-
-
+h1.shop_header{
+	color: orange;
+}
 body div a{
 	
 	font-family: "Arial Black", Gadget, sans-serif;
