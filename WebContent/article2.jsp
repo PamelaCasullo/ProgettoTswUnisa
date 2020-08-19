@@ -22,46 +22,7 @@
 
 </head>
 <body>
-
-<nav id= nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #171717;">
-  <a class="navbar-brand" href="index.html">
-  <img id=logo alt="logo_azienda" src="https://media.tenor.com/images/1aa6e82e4cc8e7a367740f18ace6eba2/tenor.gif" width="60">
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Teams</a>
-      </li>
-      <li>
-      <a class="nav-link" href="#">About</a>
-      </li>
-      <li>
-      <a class="nav-link" href="#">Shop</a>
-      </li>
-   
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-    
-    <ul class="navbar-nav mr-auto">
-    <li> 
-    <span><a class="nav-link" href="signup.jsp"><u> Sign-up</u></a></span>
-    
-    <li>
-    
-  <a class="nav-link" href="login.jsp"><button class="btn btn-dark">Login</button></a>
-    
-  
-    </ul>
-    </form>
-  </div>
-</nav>
+<%@include file="header.jsp"%>
 	
 <div class=article>
     <h1><img id=logo src="https://c7.uihere.com/files/213/439/710/discord-computer-icons-social-media-online-chat-internet-bot-remix.jpg" width=100>Nuova Stagione per i Mad Discord</h1>

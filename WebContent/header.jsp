@@ -45,7 +45,7 @@
         <a class="nav-link" href="#">Teams</a>
       </li>
       <li>
-      <a class="nav-link" href="#">About</a>
+      <a class="nav-link" href="about.jsp">About</a>
       </li>
       <li>
       <a class="nav-link" href="shop.jsp">Shop</a>
