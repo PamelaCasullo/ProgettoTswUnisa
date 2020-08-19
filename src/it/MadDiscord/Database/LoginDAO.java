@@ -1,4 +1,4 @@
-package it.MadDiscord.Database;
+package it.MadDiscord.Model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import it.MadDiscord.DBConnectionPool;
-import it.MadDiscord.Model.UtenteBean;
+
 
 public class LoginDAO {
 	
-	public UtenteBean validate(UtenteBean utenteBean) throws ClassNotFoundException{
+	public static UtenteBean validate(UtenteBean utenteBean) throws ClassNotFoundException{
 		
 	
 		UtenteBean logBean = null;
@@ -44,7 +44,7 @@ public class LoginDAO {
 		
 	}
 
-	private void printSQLException(SQLException e) {
+	private static void printSQLException(SQLException e) {
 
 		System.out.println(e);
 		

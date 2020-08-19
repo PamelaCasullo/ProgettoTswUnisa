@@ -18,6 +18,7 @@
 	<meta name="description" content="layout template responsive">
 	<meta name="author" content="Paolo Apostolico, Pamela Casullo, Giulio Triggiani">
 	 <!--  LINK TAG -->
+	<link rel="icon" type="image/x-icon" href="images/Logo.png">
 	<title>HomePage</title>
 	<link rel="stylesheet" href="css/default.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigins=anomymous >
