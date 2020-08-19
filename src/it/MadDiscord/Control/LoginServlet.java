@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 //import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSession;
 
-import it.MadDiscord.Database.LoginDAO;
+import it.MadDiscord.Model.LoginDAO;
 import it.MadDiscord.Model.UtenteBean;
 
 /**
@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 		
 		try {
 			
-			if(loginDat.validate(logBean) != null) {
+			if(LoginDAO.validate(logBean) != null) {
 				HttpSession session= request.getSession();
 			    session.setAttribute("nome_utente", nome_utente);
 			    
