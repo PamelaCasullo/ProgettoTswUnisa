@@ -70,7 +70,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
 	 <li class="nav-item">
-		<p style="color:orange;">Benvenuto, <%=request.getSession().getAttribute("nome_utente") %></p> 
+		<p style="color:orange;">Benvenuto, <%=request.getSession().getAttribute("nome_utente") %>
 		<a href="<%=request.getContextPath()%>/Logout">Logout</a>
 	</li> 
     </ul>

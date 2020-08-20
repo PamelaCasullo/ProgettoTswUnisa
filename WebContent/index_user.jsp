@@ -17,15 +17,6 @@
 </head>
 <body>
 <%@include file="header.jsp"%>
-<nav id=nav class="navbar navbar-expand-lg navbar-dark">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-	 <li class="nav-item">
-		<p style="color:orange;">Benvenuto, <%=request.getSession().getAttribute("nome_utente") %></p>
-	</li> 
-    </ul>
-  </div>
-</nav>
 
 <!--  COMING SOON -->
 	<p style="color:orange">
