@@ -42,10 +42,10 @@ footer{
     padding: 25px;
     font-weight: 300;
     text-align: center;
+    text-decoration: underline;
     position: fixed;
     bottom: 0px;
     left: 0px;
-    right: 0px;
-  
-    
+    right: 0px;  
 }
+

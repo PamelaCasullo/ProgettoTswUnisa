@@ -81,10 +81,10 @@
 </nav>
 <div class="background_effect"></div>
 		<footer>
-		<span><u>APOSTOLICO PAOLO, 
+		<span>APOSTOLICO PAOLO, 
 		CASULLO PAMELA, 
 		TRIGGIANI GIULIO. 
-		Diritti ai rispettivi proprietari</u>©</span>
+		Diritti ai rispettivi proprietari©</span>
 		</footer>
 	
 </body>
