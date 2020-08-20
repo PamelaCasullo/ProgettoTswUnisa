@@ -30,7 +30,8 @@
 <!--  SIDEBAR -->
 <nav id=nav class="navbar navbar-expand-lg navbar-dark">
   <a class="navbar-brand" href="Homepage.jsp">
-  <img id=logo alt="logo_azienda" src="https://media.tenor.com/images/1aa6e82e4cc8e7a367740f18ace6eba2/tenor.gif" width="60">
+  <img id=logo alt="logo_azienda" src="./images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
+  
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -45,13 +46,14 @@
         <a class="nav-link" href="#">Teams</a>
       </li>
       <li>
-      <a class="nav-link" href="#">About</a>
+      <a class="nav-link" href="about.jsp">About</a>
       </li>
       <li>
       <a class="nav-link" href="shop.jsp">Shop</a>
       </li>
    
     </ul>
+ <%if(request.getSession().getAttribute("nome_utente")==null){ %> 
     <form class="form-inline my-2 my-lg-0">
     
     <ul class="navbar-nav mr-auto">
@@ -63,21 +65,26 @@
    <button class="btn btn-dark"> <a class="nav-link" href="login.jsp">Login</a> </button>
     </ul>
     </form>
-  </div>
-  <li>
-    <form id="logout-form" style="display:none" action="/logout" method="POST" onclick="document.getElementById('logout-form').submit();"></form>
-  </li>
-    
-
-
-
+    <% } else { %>
+    <nav id=nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+	 <li class="nav-item">
+		<p style="color:orange;">Benvenuto, <%=request.getSession().getAttribute("nome_utente") %></p> 
+		<a href="<%=request.getContextPath()%>/Logout">Logout</a>
+	</li> 
+    </ul>
+      </div>
+	</nav>
+ <% } %>
+  </div>	
 </nav>
-
+<div class="background_effect"></div>
 		<footer>
 		<span><u>APOSTOLICO PAOLO, 
 		CASULLO PAMELA, 
 		TRIGGIANI GIULIO. 
-		Diritti ai rispettivi proprietari</u>ï¿½</span>
+		Diritti ai rispettivi proprietari</u>©</span>
 		</footer>
 	
 </body>

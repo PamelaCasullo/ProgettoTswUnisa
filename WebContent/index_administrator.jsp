@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
-<%@include file="headeradm.jsp"%>
+<%@include file="header.jsp"%>
 <!--  COMING SOON -->
 		Connessione effettuata con successo!
 		

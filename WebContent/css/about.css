@@ -1,0 +1,39 @@
+#about { 
+	background-color: white;
+    border-color: purple;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 20px;
+    padding: 50px;
+    margin: 50px;	
+	
+}
+
+
+.big {
+	font-size: 60px;
+	font-family: Italic;
+	text-align: center;
+	
+}
+
+img {
+	
+
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.tableclass {
+	float: right;
+}

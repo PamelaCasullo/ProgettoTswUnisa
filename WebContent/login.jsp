@@ -30,7 +30,7 @@
 <title>Pagina di Login</title>
 </head>
 <body>
-<%@ include file="headerlog.jsp" %>
+<%@include file="header.jsp"%>
 <!--  LOGIN -->
     <div class="login-dark" name="login">
         <form action ="<%=request.getContextPath()%>/Login" method="post">

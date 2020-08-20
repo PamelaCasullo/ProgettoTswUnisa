@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 //import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSession;
 
-import it.MadDiscord.Model.LoginDAO;
+import it.MadDiscord.Database.LoginDAO;
 import it.MadDiscord.Model.UtenteBean;
 
 /**
@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 		
 		try {
 			
-			if(LoginDAO.validate(logBean) != null) {
+			if(loginDat.validate(logBean) != null) {
 				HttpSession session= request.getSession();
 			    session.setAttribute("nome_utente", nome_utente);
 			    
@@ -48,12 +48,14 @@ public class LoginServlet extends HttpServlet {
 			    String control = "admin";
 			    
 			    
-			    if(logBean.getNome_utente().contentEquals(control)) 
-			    	
+			    if(logBean.getNome_utente().contentEquals(control)) {
+			    	request.getSession().setAttribute("nome_utente", nome_utente);
 			    	response.sendRedirect("index_administrator.jsp");
 			    
-			    else 
+			    } else {
+			    	request.getSession().setAttribute("nome_utente", nome_utente);
 			    	response.sendRedirect("index_user.jsp");
+			    }
 			} else {
 				String message = "Hai sbagliato qualcosa, riprova!";
 				request.setAttribute("message", message);
