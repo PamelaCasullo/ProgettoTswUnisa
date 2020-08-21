@@ -20,14 +20,14 @@
             <div class="row">
                 <div class="col-md-8 mr-auto ml-auto">
 <!-- CAROSELLO -->
-                    <div class="carousel slide carousel-fade">
+                    <div class="card card-raised card-carousel">
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
                           <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="2" class=""></li>
                           </ol>
-                          <div class="carousel-inner" role="listbox">
+                          <div class="carousel-inner">
                             <div class="carousel-item active">
                                <img class="d-block w-100" src="https://media-cdn.tripadvisor.com/media/photo-s/12/28/ef/0f/getlstd-property-photo.jpg" alt="Third slide">
                               <div class="carousel-caption d-none d-md-block">

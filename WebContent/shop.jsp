@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +29,16 @@
         <h1 class="shop_header">SHOP UFFICIALE DEI MAD DISCORD</h1>  
     </header>
 
-<div class="Shop_container">
+<div class="Shop_container" align="center">
+<table>
+	<tr>
+		<th>NOME</th>
+		<th>ID</th>
+		<th>PREZZO</th>
+	</tr>
+	
+</table>
+	
 
 </div>
 <!-- SCHEDE NEGOZIO -->
