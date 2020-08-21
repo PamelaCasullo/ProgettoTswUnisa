@@ -4,10 +4,5 @@
 .settings/org.eclipse.jdt.core.prefs
 .settings/org.eclipse.wst.common.project.facet.core.xml
 build/classes/it/MadDiscord/Model/UtenteBean.class
-<<<<<<< HEAD
-.classpath
-=======
-
->>>>>>> 83651ace6fdd9c13b26722f7b76b97039f3a8e63
 build/classes/it/MadDiscord/Database/ShopDAO.class
 build/classes/it/MadDiscord/Model/ShopBean.class
