@@ -32,7 +32,7 @@
 <body>
 <%@include file="header.jsp"%>
 <!--  LOGIN -->
-    <div class="login-dark">
+    <div class="login-dark" name="login">
         <form action ="<%=request.getContextPath()%>/Login" method="post">
             <h1>LOGIN</h1>
             
