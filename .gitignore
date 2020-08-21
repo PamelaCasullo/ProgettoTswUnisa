@@ -4,3 +4,5 @@
 .settings/org.eclipse.jdt.core.prefs
 .settings/org.eclipse.wst.common.project.facet.core.xml
 build/classes/it/MadDiscord/Model/UtenteBean.class
+.classpath
+.settings/org.eclipse.wst.common.project.facet.core.xml
