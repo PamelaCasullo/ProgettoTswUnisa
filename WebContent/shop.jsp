@@ -28,6 +28,8 @@
         <h1 class="shop_header">SHOP UFFICIALE DEI MAD DISCORD</h1>  
     </header>
 
+<div class="Shop_container">
 
+</div>
 <!-- SCHEDE NEGOZIO -->
 </html>
