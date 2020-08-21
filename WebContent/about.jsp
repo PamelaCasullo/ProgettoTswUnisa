@@ -35,7 +35,7 @@
   	<table>
   	<tr>
   		<th><span class=big>15</span>years at the top</th>
-  		<th><span>15</span>years at the top</th>
+  		<th><span>15 years</span>years at the top</th>
   		<th><span>15</span>years at the top</th>
   	</tr>
   	<tr>
