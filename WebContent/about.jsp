@@ -19,42 +19,41 @@
 	<meta name="author" content="Paolo Apostolico, Pamela Casullo, Giulio Triggiani">
 	 <!--  LINK TAG -->
 	<title>HomePage</title>
+	<link rel="stylesheet" href="css/about.css">
 	<link rel="stylesheet" href="css/default.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigins=anomymous >
 	<link rel="stylesheet" href="css/layout.css">
-	<link rel="stylesheet" href="css/about.css">
+	
 </head>
 <body> 
 <%@include file="header.jsp"%>
 
 <div id=about>
 	
-    
-    <img src="images/esultanza.gif" width=500>
-    <div class=tableclass>
-  	<table>
-  	<tr>
-  		<th><span class=big>15</span>years at the top</th>
-  		<th><span>15 years</span>years at the top</th>
-  		<th><span>15</span>years at the top</th>
-  	</tr>
-  	<tr>
-  		<th><span>15</span>years at the top</th>
-  		<th><span>15</span>years at the top</th>
-  		<th><span>15</span>years at the top</th>
-  	</tr>
-  </table>
-  </div>
-  
-  <p>Mad Discord ormai conosciuta a livello nazionale Ë in continua crescita e punta alla vetta del settore Esports italiano. Fondata nel 2012 al centro di Salerno sotto il nome di "Discord E-sport" siamo la societ‡ pi˘ conosciuta e rinomata di tutto il sud Italia con numerosi premi vinti e diversi eventi ospitati dalla societ‡ stessa per far appassionare gamers e fanatici ad un ambiente al tempo visto quasi come un "insulto agli sport".
-Nel 2016 con il famoso cambio di roster e con la vittoria del torneo "PG-Esport Nats ITALIA" la societ‡ cambia nome in "Mad Discord" affamati sempre pi˘ di successo e fama.
-Il nostro scopo Ë cercare di portare ogni fanatico dei videogiochi in un ambiente competitivo e intrattenente fornendogli il massimo delle prestazioni e diverse possibilit‡ di approccio in questo nuovo mondo.
-Con la nuova apertura della nostra gaming lobby al centro di Salerno sar‡ tutto pi˘ realizzabile e siamo sicuri di poter fornire nuove esperienze avvincenti per tutti i nuovi utenti. Vi Aspettiamo!
+    <h1>About Us</h1>
+    <img style=float:left src="images/esultanza.gif" width=600>
+  	
+  	<table id=tableclass>
+  		<tr>
+  			<th><span class=first>15</span><br><span class=second>years at the top</span></th>
+  			<th><span class=first>‚Ç¨15m</span><br><span class=second>Prize Money won</span></th>
+  			<th><span class=first>55m</span><br><span class=second>Global Audience</span></th>
+  		</tr>
+  		<tr>
+  			<th><span class=first>209</span><br><span class=second>CHAMPIONSHIPS</span></th>
+  			<th><span class=first>370+</span><br><span class=second>Medal Wins</span></th>
+  			<th><span class=first>30</span><br><span class=second>Different Games</span></th>
+  		</tr>
+	</table>
+	<br><br>
 
-Per maggiori info guardare il nuovo articolo: (url)
+	<p class=clear>Mad Discord ormai conosciuta a livello nazionale √® in continua crescita e punta alla vetta del settore Esports italiano. Fondata nel 2012 al centro di Salerno sotto il nome di "Discord E-sport" siamo la societ√† pi√π conosciuta e rinomata di tutto il sud Italia con numerosi premi vinti e diversi eventi ospitati dalla societ√† stessa per far appassionare gamers e fanatici ad un ambiente al tempo visto quasi come un "insulto agli sport".
+		Nel 2016 con il famoso cambio di roster e con la vittoria del torneo "PG-Esport Nats ITALIA" la societ√† cambia nome in "Mad Discord" affamati sempre pi√π di successo e fama.
+		Il nostro scopo √® cercare di portare ogni fanatico dei videogiochi in un ambiente competitivo e intrattenente fornendogli il massimo delle prestazioni e diverse possibilit√† di approccio in questo nuovo mondo.
+		Con la nuova apertura della nostra gaming lobby al centro di Salerno sar√† tutto pi√π realizzabile e siamo sicuri di poter fornire nuove esperienze avvincenti per tutti i nuovi utenti. Vi Aspettiamo!
+		<br><br>
+		Per maggiori info guardare il nuovo articolo: <a href=article1.jsp>Nuova Gaming Lobby A Salerno</a>
   </p>
-  
-    <br>
   
 </div>
 

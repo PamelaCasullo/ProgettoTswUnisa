@@ -10,30 +10,49 @@
 }
 
 
-.big {
-	font-size: 60px;
+.first {
+	font-size: 45px;
 	font-family: Italic;
-	text-align: center;
+	
+}
+
+.second {
+    font-size: 20px;
+    
+
 	
 }
 
 img {
+	padding:15px;
 	
 
 }
 
 table {
-  border-collapse: collapse;
-  width: 100%;
-  overflow-x: auto;
+	float: right;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
+
 th, td {
-  padding: 8px;
+  padding: 25px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
 
-.tableclass {
+#tableclass {
 	float: right;
+	
+}
+
+h1 {
+	text-align: center;
+
+}
+
+p.clear {
+  clear: both;
+ 
 }
