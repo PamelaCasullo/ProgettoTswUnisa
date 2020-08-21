@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +54,7 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-block create-account " onClick="passwordCheck()">Crea un account</button>
             </div>
-            <p style="text-align:center"> Se avete gi‡ creato un profilo,<br> siete pregati di accedervi attraverso la pagina di<a href="login.jsp">Login</a></p>
+            <p style="text-align:center"> Se avete gi√† creato un profilo,<br> siete pregati di accedervi attraverso la pagina di<a href="login.jsp">Login</a></p>
         </form>
     </div>
 

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,11 +31,11 @@
     <video class=video width="700" height="330" controls autoplay>
     		<source src="videos/Op_MaDiscord.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 	</video>
-	<p> Su tanta richiesta da voi fan e gamers Ë stata inaugurata l'apertura della nuova gaming lobby proprio al centro di Salerno raggiungibile anche tramite navetta dalla stazione.
-		Con uno spazio di oltre 100 m≤ essa potr‡ ospitare oltre 20 postazioni pc dotati di componenti di ultima generazione che permetteranno performance eccezionali per qualunque tipo di gioco, una couch zone per riposarsi dopo lunghe sessione di gaming, una zona bar che aprir‡ durante la serata e un'ulteriore zona gaming con diverse console tra quali: playstation IV, Xbox, e altro...
-		Siamo ansiosi di annunciarvi che a breve sar‡ anche aperta una zona dedicata alla realt‡ virtuale con stanza dedicata e diversi visori in modo da poter giocare in cooperativa in fantastiche avventure in mondi virtuali.
-		Inoltre vi Ë un piano superiore con diversi uffici nei quali Ë possibile fare abbonamenti ed iscriversi al club in modo da poter usufruire di diversi sconti e non perdersi i diversi eventi di gaming organizzati dagli amministratori della lobby.
-		Su che aspetti? Vieni tu stesso a testare il brivido del gaming a "Lobby a salerno" e avrai in omaggio ß <br><br><br><br><br>
+	<p> Su tanta richiesta da voi fan e gamers √® stata inaugurata l'apertura della nuova gaming lobby proprio al centro di Salerno raggiungibile anche tramite navetta dalla stazione.
+		Con uno spazio di oltre 100 m¬≤ essa potr√† ospitare oltre 20 postazioni pc dotati di componenti di ultima generazione che permetteranno performance eccezionali per qualunque tipo di gioco, una couch zone per riposarsi dopo lunghe sessione di gaming, una zona bar che aprir√† durante la serata e un'ulteriore zona gaming con diverse console tra quali: playstation IV, Xbox, e altro...
+		Siamo ansiosi di annunciarvi che a breve sar√† anche aperta una zona dedicata alla realt√† virtuale con stanza dedicata e diversi visori in modo da poter giocare in cooperativa in fantastiche avventure in mondi virtuali.
+		Inoltre vi √® un piano superiore con diversi uffici nei quali √® possibile fare abbonamenti ed iscriversi al club in modo da poter usufruire di diversi sconti e non perdersi i diversi eventi di gaming organizzati dagli amministratori della lobby.
+		Su che aspetti? Vieni tu stesso a testare il brivido del gaming a "Lobby a salerno" e avrai in omaggio ¬ß <br><br><br><br><br>
 		
 		<a href=article3.jsp><button type="button" class="btn btn-dark"> <-- Articolo Precedente</button></a>
 
