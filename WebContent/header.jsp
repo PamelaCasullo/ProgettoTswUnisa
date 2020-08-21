@@ -79,7 +79,7 @@
  <% } %>
   </div>	
 </nav>
-
+<div class="background_effect"></div>
 		<footer>
 		<span>APOSTOLICO PAOLO, 
 		CASULLO PAMELA, 
