@@ -10,7 +10,7 @@ public class ShopBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	protected int id;
 	protected String nome_oggetto;
-	protected float price;
+	protected float prezzo;
 	
 	public int getId() {
 		return id;
@@ -24,12 +24,12 @@ public class ShopBean implements Serializable {
 		this.nome_oggetto = nome_oggetto;
 	}
 
-	public float getPrice() {
-		return price;
+	public float getPrezzo() {
+		return prezzo;
 	}
 
-	public void setPrice(float price) {
-		this.price = price;
+	public void setPrezzo(float prezzo) {
+		this.prezzo = prezzo;
 	}
 
 	public void setId(int id) {

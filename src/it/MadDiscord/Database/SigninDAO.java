@@ -13,7 +13,7 @@ public int registerUser(UtenteBean sigBean) throws ClassNotFoundException{
 		
 		
 		int result = 0;
-	//	UtenteBean SigBean = null;
+	
 		try(Connection conn = DBConnectionPool.getConnection(); )
 		{		
 			
