@@ -7,27 +7,27 @@
 <title>Homepage</title>
 </head>
 <body>
-	<!-- CAROSELLO IMMAGINI -->
+
 <div class=article-preview>
 <div class="container-sm">
   <div class="container left">
         <div class="title">
             <h3 class="mt-5">Articoli</h3>
         </div>
-        
+	<!-- CAROSELLO IMMAGINI -->        
         <div class="section" id="carousel">
         <div class="container left">
             <div class="row">
                 <div class="col-md-8 mr-auto ml-auto">
 <!-- CAROSELLO -->
-                    <div class="card card-raised card-carousel">
+                    <div class="carousel slide carousel-fade">
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
                           <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="2" class=""></li>
                           </ol>
-                          <div class="carousel-inner">
+                          <div class="carousel-inner" role="listbox">
                             <div class="carousel-item active">
                                <img class="d-block w-100" src="https://media-cdn.tripadvisor.com/media/photo-s/12/28/ef/0f/getlstd-property-photo.jpg" alt="Third slide">
                               <div class="carousel-caption d-none d-md-block">
