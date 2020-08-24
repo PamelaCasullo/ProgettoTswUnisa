@@ -49,8 +49,8 @@ public class ShopDAO {
 			//eseguiamo la query
 			PreparedStatement prepStat = conn.prepareStatement("Update ShopTable set nome_oggetto=?, prezzo=? where id=?");
 			prepStat.setString(1, sBean.getNome_oggetto());
-			prepStat.setFloat(1, sBean.getPrezzo());
-			prepStat.setInt(1, sBean.getId());
+			prepStat.setFloat(2, sBean.getPrezzo());
+			prepStat.setInt(3, sBean.getId());
 			
 			System.out.println(prepStat);
 			result=prepStat.executeUpdate();
@@ -120,6 +120,7 @@ public class ShopDAO {
 		}
 		return all;
 	}
+	
 /*Maibe for carrello*/
 	public ShopBean getShop(int id) {
 		ShopBean sBean = null;

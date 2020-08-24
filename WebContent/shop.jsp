@@ -36,7 +36,7 @@
 		<th>ID</th>
 		<th>PREZZO</th>
 	</tr>
-	
+	<col>
 </table>
 	
 
