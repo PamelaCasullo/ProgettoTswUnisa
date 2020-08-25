@@ -42,11 +42,12 @@ public class ShopServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		
 		try {
-			
+		if(action!=null) {
 			if(action.equals("details")) {
 				String id = request.getParameter("id");
 				request.removeAttribute("product");
 				request.setAttribute("product", model.doRetrieveBy(id) );
+				
 			} else if(action.equals("addCart")) {
 					String id=request.getParameter("id");
 					ShopBean bean = model.doRetrieveBy(id);
@@ -103,6 +104,7 @@ public class ShopServlet extends HttpServlet {
 					model.doUpdate(bean);	
 					request.setAttribute("message", "Prodotto "+bean.getNome_oggetto()+" aggiornato");
 				}
+		}
 		
 	} catch (SQLException | NumberFormatException e) {
 		System.out.println("Error: "+e.getMessage());

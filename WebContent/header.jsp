@@ -77,8 +77,15 @@
       </div>
 	</nav>
  <% } %>
+ 	
   </div>	
-</nav>
+   	<% if(request.getSession().equals("shop.jsp")) { %>
+   	<div class= carrello>
+   		<a href="carrello.jsp"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+   	
+   	</div>
+   	<%} %>
+   	</nav>
 <div class="background_effect"></div>
 		<footer>
 		<span>APOSTOLICO PAOLO, 
