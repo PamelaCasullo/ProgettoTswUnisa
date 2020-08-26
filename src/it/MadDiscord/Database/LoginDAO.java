@@ -16,12 +16,8 @@ public class LoginDAO {
 		UtenteBean logBean = null;
 		try (Connection conn = DBConnectionPool.getConnection(); )
 		{		
-
-			
 			//eseguiamo la query
-			
 			PreparedStatement prepStat = conn.prepareStatement("Select nome_utente, password_utente from UserTable where nome_utente =? and password_utente=?");
-			
 			prepStat.setString(1, utenteBean.getNome_utente());
 			prepStat.setString(2, utenteBean.getPassword_utente());
 			
@@ -43,7 +39,8 @@ public class LoginDAO {
 		return logBean;
 		
 	}
-
+	
+	
 	private void printSQLException(SQLException e) {
 
 		System.out.println(e);

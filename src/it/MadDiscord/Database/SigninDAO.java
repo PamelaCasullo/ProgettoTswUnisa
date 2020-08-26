@@ -19,9 +19,7 @@ public int registerUser(UtenteBean sigBean) throws ClassNotFoundException{
 	
 		try(Connection conn = DBConnectionPool.getConnection(); )
 		{		
-			
-			//e la query
-			
+			//eseguiamo la query
 			PreparedStatement prepStat = conn.prepareStatement("INSERT into UserTable values (? ,?, 0)");
 			
 			prepStat.setString(1, sigBean.getNome_utente());
@@ -40,126 +38,124 @@ public int registerUser(UtenteBean sigBean) throws ClassNotFoundException{
 		
 	}
 
-
-/**   IO DAO   **/
+	/**   IO DAO   **/
 
 public int deleteUser(UtenteBean utenteBean) throws ClassNotFoundException{
-
-int result = 0;
-
-try(Connection conn = DBConnectionPool.getConnection(); )
-{
-	//eseguiamo la query
-	PreparedStatement prepStat = conn.prepareStatement("delete from UserTable where nome_utente=?");
 	
-	prepStat.setString(1, utenteBean.getNome_utente());
-	prepStat.setString(2, utenteBean.getPassword_utente());
+	int result = 0;
 	
-	System.out.println(prepStat);
+	try(Connection conn = DBConnectionPool.getConnection(); )
+	{
+		//eseguiamo la query
+		PreparedStatement prepStat = conn.prepareStatement("delete from UserTable where nome_utente=?");
+		
+		prepStat.setString(1, utenteBean.getNome_utente());
+		prepStat.setString(2, utenteBean.getPassword_utente());
+		
+		System.out.println(prepStat);
+		
+		result=prepStat.executeUpdate();
+		
+		prepStat.close();
+		
+	} catch (SQLException e) {
+		printSQLException(e);
+	}
 	
-	result=prepStat.executeUpdate();
-	
-	prepStat.close();
-	
-} catch (SQLException e) {
-	printSQLException(e);
-}
-
-return result;
+	return result;
 }
 
 
 public int updateUser(UtenteBean utenteBean) throws ClassNotFoundException{
-
-int result = 0;
-
-try(Connection conn = DBConnectionPool.getConnection(); )
-{
-	//eseguo query
-	PreparedStatement prepStat = conn.prepareStatement("update UserTable set password_utente=?, where id=?");
 	
-	prepStat.setString(1, utenteBean.getNome_utente());
-	prepStat.setString(2, utenteBean.getPassword_utente());
+	int result = 0;
 	
-	System.out.println(prepStat);
+	try(Connection conn = DBConnectionPool.getConnection(); )
+	{
+		//eseguo query
+		PreparedStatement prepStat = conn.prepareStatement("update UserTable set password_utente=?, where id=?");
+		
+		prepStat.setString(1, utenteBean.getNome_utente());
+		prepStat.setString(2, utenteBean.getPassword_utente());
+		
+		System.out.println(prepStat);
+		
+		result=prepStat.executeUpdate();
+		
+		prepStat.close();
+		
+	} catch (SQLException e) {
+		printSQLException(e);
+	}
 	
-	result=prepStat.executeUpdate();
-	
-	prepStat.close();
-	
-} catch (SQLException e) {
-	printSQLException(e);
-}
-
-return result;
+	return result;
 }
 
 
 public List<UtenteBean> allUser() {
-
-List<UtenteBean> all = new ArrayList<>();
-
-try (Connection conn = DBConnectionPool.getConnection(); )
-{
-	//query
-	PreparedStatement prepStat = conn.prepareStatement("select * from UserTable");
 	
-	ResultSet rs = prepStat.executeQuery();
+	List<UtenteBean> all = new ArrayList<>();
 	
-	while (rs.next()) {
-		String nome_utente = rs.getString("nome_utente");
-		String password_utente = rs.getString("password_utente");
+	try (Connection conn = DBConnectionPool.getConnection(); )
+	{
+		//query
+		PreparedStatement prepStat = conn.prepareStatement("select * from UserTable");
 		
-		UtenteBean uBean = new UtenteBean();
-		uBean.setNome_utente(nome_utente);
-		uBean.setPassword_utente(password_utente);
-		all.add(uBean);
+		ResultSet rs = prepStat.executeQuery();
+		
+		while (rs.next()) {
+			String nome_utente = rs.getString("nome_utente");
+			String password_utente = rs.getString("password_utente");
+			
+			UtenteBean uBean = new UtenteBean();
+			uBean.setNome_utente(nome_utente);
+			uBean.setPassword_utente(password_utente);
+			all.add(uBean);
+		}
+		
+		rs.close();
+		prepStat.close();
+		
+	} catch (SQLException e) {
+		printSQLException(e);
 	}
 	
-	rs.close();
-	prepStat.close();
-	
-} catch (SQLException e) {
-	printSQLException(e);
-}
-
-return all;
+	return all;
 }
 
 
-//è buono cosi questo????
-//controllare se funziona
+// è buono cosi questo????
 public UtenteBean getUtente(String nome_utente) {
-
-UtenteBean uBean = null;
-
-try (Connection conn = DBConnectionPool.getConnection(); )
-{
-	//query
-	PreparedStatement prepStat = conn.prepareStatement("select from UserTable where nome_utente=?");
 	
-	prepStat.setString(1, nome_utente);
-	ResultSet rs = prepStat.executeQuery();
+	UtenteBean uBean = null;
 	
-	while (rs.next()) {
-		String password_utente = rs.getString("password_utente");
+	try (Connection conn = DBConnectionPool.getConnection(); )
+	{
+		//query
+		PreparedStatement prepStat = conn.prepareStatement("select from UserTable where nome_utente=?");
 		
-		uBean = new UtenteBean();
+		prepStat.setString(1, nome_utente);
+		ResultSet rs = prepStat.executeQuery();
 		
-		uBean.setPassword_utente(password_utente);
+		while (rs.next()) {
+			String password_utente = rs.getString("password_utente");
+			
+			uBean = new UtenteBean();
+			
+			uBean.setPassword_utente(password_utente);
+		}
+		
+		rs.close();
+		prepStat.close();
+		
+	} catch (SQLException e) {
+		printSQLException(e);
 	}
 	
-	rs.close();
-	prepStat.close();
-	
-} catch (SQLException e) {
-	printSQLException(e);
+	return uBean;
 }
 
-return uBean;
-}
-
-/**   IO DAO   **/
+	/**   IO DAO   **/
 
 	private void printSQLException(SQLException e) {
 		System.out.println("eccezione");
