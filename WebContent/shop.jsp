@@ -7,7 +7,7 @@
 
 
 	if(products==null){
-		response.sendRedirect(response.encodeRedirectURL("./Shop"));
+		response.sendRedirect(response.encodeRedirectURL("./Shop")); //QUI
 		return;
 	}
  	

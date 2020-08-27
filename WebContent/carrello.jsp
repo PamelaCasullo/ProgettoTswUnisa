@@ -7,7 +7,7 @@
 	Cart<ShopBean> cart = (Cart<ShopBean>)request.getAttribute("cart");
 	
  	if(cart == null) {
- 		response.sendRedirect(response.encodeRedirectURL("./Shop"));
+ 		response.sendRedirect(response.encodeRedirectURL("./Shop")); //QUI
  		return;
  	}	
  	
@@ -43,13 +43,13 @@
 		%>
 		<tr>
 		<td><%=prod.getNome_oggetto() %></td>
-		<td><a href="<%=response.encodeURL("Shop?action=deleteCart&id="+prod.getId())%>"> Delete </a></td>
+		<td><a href="<%=response.encodeURL("Shop?action=deleteCart&id="+prod.getId())%>"> Delete from cart </a></td>
 		</tr>
 		
 		<%}
 		}else { 
 		%>
-		<tr><td colspan = 2>No product Available in the cart</td></tr>
+		<tr><td colspan = "2">No product Available in the cart</td></tr>
 		<%} %>
 	</table>
 </body>
