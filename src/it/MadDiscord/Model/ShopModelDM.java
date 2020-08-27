@@ -17,7 +17,7 @@ public class ShopModelDM implements ShopModel<ShopBean> {
 		
 		ShopBean bean = new ShopBean();
 		
-		String selectSQL ="SELECT * FROM ShopTable WHERE code=?";
+		String selectSQL ="SELECT * FROM ShopTable WHERE id=?";
 		
 		try {
 			connection = DBConnectionPool.getConnection(); 
@@ -157,7 +157,7 @@ public class ShopModelDM implements ShopModel<ShopBean> {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String deleteSQL= "DELETE FROM product WHERE code=?";
+		String deleteSQL= "DELETE FROM product WHERE id=?";
 		try {
 			connection = DBConnectionPool.getConnection();
 			preparedStatement = connection.prepareStatement(deleteSQL);

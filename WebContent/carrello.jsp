@@ -1,16 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
  <%@page import="java.util.Collection, it.MadDiscord.Model.Cart, it.MadDiscord.Model.ShopBean, java.util.*"%>
  
 <%
-	Collection<?> products = (Collection<?>)request.getAttribute("products");
 
-	String error =(String)request.getAttribute("error");
-
-	if(products==null&&error==null){
-		response.sendRedirect(response.encodeRedirectURL("./Shop"));
-		return;
-	}
 	Cart<ShopBean> cart = (Cart<ShopBean>)request.getAttribute("cart");
 	
  	if(cart == null) {
@@ -18,15 +11,15 @@
  		return;
  	}	
  	
- 	ShopBean product = (ShopBean) request.getAttribute("product");
+
 	
 %>
  
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+
+<title>carrello</title>
 </head>
 <body>
 <%@ include file="header.jsp" %>
@@ -36,7 +29,7 @@
 	
 	if(prodCart.size()>0){
 	%>
-	<a href="<%=response.encodeURL("ProductControl?action=clearCart")%>">Clear</a>
+	<a href="<%=response.encodeURL("Shop?action=clearCart")%>">Clear</a>
 	<a href="">Buy</a>
 	<%} %>
 	<table>
@@ -50,7 +43,7 @@
 		%>
 		<tr>
 		<td><%=prod.getNome_oggetto() %></td>
-		<td><a href="<%=response.encodeURL("ProductControl?action=deleteCart&id="+prod.getId())%>"> Delete </a></td>
+		<td><a href="<%=response.encodeURL("Shop?action=deleteCart&id="+prod.getId())%>"> Delete </a></td>
 		</tr>
 		
 		<%}
