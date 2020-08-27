@@ -1,4 +1,4 @@
-<%@page import="java.util.Collection, it.MadDiscord.Model.Cart, it.MadDiscord.Model.ShopBean, java.util.*"%>
+<%@page import=" it.MadDiscord.Model.*,  java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -48,6 +48,7 @@
 	<!-- SHOP   -->
     <header>
         <h1 class="shop_header">SHOP UFFICIALE DEI MAD DISCORD</h1>  
+        <a href="carrello.jsp">CARRELLO</a>
     </header>
 
 <div class="Shop_container" align="center">
@@ -78,7 +79,7 @@
 		} else {
 		%>
 		<tr>
-			<td colspan=4>No product Available</td>
+			<td colspan=4>Nessun prodotto disponibile</td>
 		</tr>
 		<%} %>
 	</table>

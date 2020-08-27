@@ -8,9 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import it.MadDiscord.Model.Cart;
 import it.MadDiscord.Model.ShopBean;
 import it.MadDiscord.Model.ShopModelDM;
+
 
 
 @WebServlet("/Shop")
@@ -18,10 +20,7 @@ public class ShopServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	static ShopModelDM model = new ShopModelDM();
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public ShopServlet() {
         super();
 
@@ -43,19 +42,13 @@ public class ShopServlet extends HttpServlet {
 		
 		try {
 		if(action!=null) {
-			if(action.equals("details")) {
-				String id = request.getParameter("id");
-				request.removeAttribute("product");
-				request.setAttribute("product", model.doRetrieveBy(id) );
-				
-			} else if(action.equals("addCart")) {
+			if(action.equals("addCart")) {
 					String id=request.getParameter("id");
 					ShopBean bean = model.doRetrieveBy(id);
 					if(bean!=null && !bean.isEmpty()) {
 						cart.addItem(bean);
 						request.setAttribute("message", "Prodotto"+bean.getNome_oggetto()+" aggiunto al carrello");
-					}
-					
+					}	
 				} else if(action.equals("clearCart")) {
 						cart.deleteItems();
 						request.setAttribute("message", "Carrello ripulito");
@@ -71,7 +64,7 @@ public class ShopServlet extends HttpServlet {
 				} else if(action.equals("insert")) {
 					String name = request.getParameter("nome_oggetto");
 					float price = Float.parseFloat(request.getParameter("prezzo"));
-					int quantity = Integer.parseInt(request.getParameter("quantity"));
+					int quantity = Integer.parseInt(request.getParameter("quant"));
 					
 					ShopBean bean = new ShopBean();
 					bean.setNome_oggetto(name);
@@ -91,9 +84,9 @@ public class ShopServlet extends HttpServlet {
 					}
 				} else if(action.equals("update")) {
 					String id = request.getParameter("id");
-					String name = request.getParameter("name");
-					int price = Integer.parseInt(request.getParameter("price"));
-					int quantity = Integer.parseInt(request.getParameter("quantity"));
+					String name = request.getParameter("nome_oggetto");
+					int price = Integer.parseInt(request.getParameter("prezzo"));
+					int quantity = Integer.parseInt(request.getParameter("quant"));
 					
 					ShopBean bean= new ShopBean();
 					bean.setId(Integer.parseInt(id));
@@ -111,7 +104,7 @@ public class ShopServlet extends HttpServlet {
 		request.setAttribute("error", e.getMessage());
 	}
 	
-	request.setAttribute("cart", cart);
+		request.setAttribute("cart", cart);
 	
 	
 	try {
