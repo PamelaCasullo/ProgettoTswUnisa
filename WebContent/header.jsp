@@ -29,15 +29,45 @@
 
 <!--  SIDEBAR -->
 <nav id=nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="Homepage.jsp">
+
+<%if(request.getSession().getAttribute("nome_utente")!=null && request.getSession().getAttribute("nome_utente").equals("admin")) { %>
+
+  <a class="navbar-brand" href="index_administrator.jsp">
   <img id=logo alt="logo_azienda" src="./images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
   
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="index_administrator.jsp">PANNELLO DI CONTROLLO <span class="sr-only">(current)</span></a>
+      </li>
+ 
+      <li class="nav-item">
+        <a class="nav-link" href="#">Gestione Articoli</a>
+      </li>
+      <li>
+      <a class="nav-link" href="../admPage/gestioneShop.jsp">Gestione Shop</a>
+      </li>
+      <li>
+      <a class="nav-link" href="#">Gestione Utenti</a>
+      </li>
+   
+    </ul>
+      
+   <%} else { %>
+ 	<a class="navbar-brand" href="Homepage.jsp">
+  <img id=logo alt="logo_azienda" src="./images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
+  
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="Homepage.jsp">Home <span class="sr-only">(current)</span></a>
@@ -51,8 +81,8 @@
       <li>
       <a class="nav-link" href="shop.jsp">Shop</a>
       </li>
-   
     </ul>
+     <% } %>
  <%if(request.getSession().getAttribute("nome_utente")==null){ %> 
     <form class="form-inline my-2 my-lg-0">
     
@@ -65,6 +95,9 @@
    <button class="btn btn-dark"> <a class="nav-link" href="login.jsp">Login</a> </button>
     </ul>
     </form>
+    </div>
+    </div>
+    </nav>
     <% } else { %>
     <nav id=nav class="navbar navbar-expand-lg navbar-dark">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -77,16 +110,13 @@
       </div>
 	</nav>
  <% } %>
- 	
-  </div>	
-   	<% if(request.getSession().equals("shop.jsp")) { %>
-   	<div class= carrello>
+   
+ <!--    	<div class= carrello>
    		<a href="carrello.jsp"><span class="glyphicon glyphicon-shopping-cart"></span></a>
    	
-   	</div>
-   	<%} %>
-   	</nav>
-<div class="background_effect"></div>
+   	</div> 
+  -->
+
 		<footer>
 		<span>APOSTOLICO PAOLO, 
 		CASULLO PAMELA, 
