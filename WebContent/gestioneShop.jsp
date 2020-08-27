@@ -5,45 +5,77 @@
 <%
 	Collection<?> products = (Collection<?>)request.getAttribute("products");
 
+	if(products==null){
+	response.sendRedirect(response.encodeRedirectURL("./Shop"));
+	return;
+	}
+	
+
 	String error =(String)request.getAttribute("error");
 
-	if(products==null&&error==null){
-		response.sendRedirect(response.encodeRedirectURL("./Shop"));
-		return;
-	}
-	Cart<ShopBean> cart = (Cart<ShopBean>)request.getAttribute("cart");
-	
- 	if(cart == null) {
- 		response.sendRedirect(response.encodeRedirectURL("./Shop"));
- 		return;
- 	}	
- 	
  	ShopBean product = (ShopBean) request.getAttribute("product");
 	
 %>
+
     
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 <title>Gestione Shop</title>
+
 </head>
 <body>
-<%@ include file="../header.jsp" %>
+
+<%@ include file="header.jsp" %>
+
 
 <!--  GESTIONE CARRELLO:insert -->
 
-		<% if(product!=null && !product.isEmpty()) {  %>
-	
-		<h2>Details</h2>
-		<table>
+<div class="Shop_container" align="center">
+<table style="color:white">
+	<tr>
+		<th>ID</th>
+		<th>NOME</th>
+		<th>PREZZO</th>
+	</tr>
+	<%
+		if(products!=null && products.size()>0){
+			
+			Iterator <?> it = products.iterator();
+			while(it.hasNext()){
+				ShopBean bean =(ShopBean)it.next();
+		%>
 			<tr>
-				<th>Id</th>
-				<th>Nome oggetto</th>
-				<th>Prezzo</th>
-				<th>Quantità</th>
+				<td><%=bean.getId() %> </td>
+				<td><%=bean.getNome_oggetto() %> </td>				
+				<td><%=bean.getPrezzo() %></td>
+				<td>
+				<a href="<%=response.encodeURL("Shop?action=addCart&id="+bean.getId())%>">Aggiungi al carrello</a>
+				</td>
 			</tr>
-			<tr>
+		
+		<% }
+			
+		} else {
+		%>
+		<tr>
+			<td colspan=4>Nessun prodotto disponibile</td>
+		</tr>
+		<%} %>
+	</table>
+</div>
+
+	
+	<% if(product!=null && !product.isEmpty()) {  %>
+		<h2>Dettagli</h2>
+		<table>
+		<tr>
+			<th>Id</th>
+			<th>Nome</th>
+			<th>Prezzo</th>
+			<th>Quantità</th>
+		</tr>
+		<tr>
 				<td><%=product.getId()%></td>
 				<td><%=product.getNome_oggetto()%></td>
 				<td><%=product.getPrezzo()%></td>
@@ -51,7 +83,7 @@
 			</tr>
 		</table>
 		
-		<form action="<%=response.encodeURL("ProductControl") %>" method=POST>
+		<form action="<%=response.encodeURL("Shop") %>" method=POST>
 		<fieldset>
 		<legend><b> Update </b></legend>
 		<input type=hidden name=action value=update>
@@ -71,22 +103,21 @@
 		</fieldset>
 	</form>
 
-	<%  } %>
+	
 
 	<%
 	String message = (String)request.getAttribute("message");
 	if(message!=null && !message.equals("")){ %>
 	<p style = "color: green;"><%=message %></p>
 	
-	<%
-	}
-	if(error != null && !error.equals("")) {
-%>
+	<% } if(error != null && !error.equals("")) { %>
+
 	<p style="color: red;">Error: <%= error%></p>
 <%
 	}
 %>	
-	<form action="<%=response.encodeURL("ProductControl") %>" method=POST>
+<%  } %>
+	<form action="<%=response.encodeURL("Shop") %>" method=POST>
 		<fieldset>
 		<legend><b> Insert </b></legend>
 		<input type=hidden name=action value=insert>
@@ -105,8 +136,6 @@
 		<input type=reset value=Reset>
 		</fieldset>
 	</form>
-	
-	
 
 
 

@@ -5,18 +5,11 @@
 <%
 	Collection<?> products = (Collection<?>)request.getAttribute("products");
 
-	String error =(String)request.getAttribute("error");
 
-	if(products==null&&error==null){
+	if(products==null){
 		response.sendRedirect(response.encodeRedirectURL("./Shop"));
 		return;
 	}
-	Cart<ShopBean> cart = (Cart<ShopBean>)request.getAttribute("cart");
-	
- 	if(cart == null) {
- 		response.sendRedirect(response.encodeRedirectURL("./Shop"));
- 		return;
- 	}	
  	
  	ShopBean product = (ShopBean) request.getAttribute("product");
 	
@@ -70,7 +63,7 @@
 				<td><%=bean.getNome_oggetto() %> </td>				
 				<td><%=bean.getPrezzo() %></td>
 				<td>
-				<a href="<%=response.encodeURL("ShopServlet?action=addCart&id="+bean.getId())%>">Add to cart</a>
+				<a href="<%=response.encodeURL("Shop?action=addCart&id="+bean.getId())%>">Aggiungi al carrello</a>
 				</td>
 			</tr>
 		

@@ -49,7 +49,7 @@
         <a class="nav-link" href="#">Gestione Articoli</a>
       </li>
       <li>
-      <a class="nav-link" href="../admPage/gestioneShop.jsp">Gestione Shop</a>
+      <a class="nav-link" href="gestioneShop.jsp">Gestione Shop</a>
       </li>
       <li>
       <a class="nav-link" href="#">Gestione Utenti</a>
@@ -97,7 +97,7 @@
     </form>
     </div>
     </div>
-    </nav>
+
     <% } else { %>
     <nav id=nav class="navbar navbar-expand-lg navbar-dark">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -108,9 +108,10 @@
 	</li> 
     </ul>
       </div>
-	</nav>
+
  <% } %>
-   
+</nav>
+</nav>   
  <!--    	<div class= carrello>
    		<a href="carrello.jsp"><span class="glyphicon glyphicon-shopping-cart"></span></a>
    	
