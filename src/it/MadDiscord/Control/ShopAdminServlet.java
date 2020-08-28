@@ -13,22 +13,21 @@ import it.MadDiscord.Model.Cart;
 import it.MadDiscord.Model.ShopBean;
 import it.MadDiscord.Model.ShopModelDM;
 
-
-
-@WebServlet("/Shop")
-public class ShopServlet extends HttpServlet {
+@WebServlet("/ShopAdmin")
+public class ShopAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	
 	static ShopModelDM model = new ShopModelDM();
-
-    public ShopServlet() {
+	
+	
+    public ShopAdminServlet() {
         super();
 
     }
 
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		@SuppressWarnings("unchecked")
 		Cart<ShopBean> cart = (Cart<ShopBean>) request.getSession().getAttribute("carrello");
 		
@@ -42,25 +41,41 @@ public class ShopServlet extends HttpServlet {
 		
 		try {
 		if(action!=null) {
-			if(action.equals("addCart")) {
-					String id=request.getParameter("id");
-					ShopBean bean = model.doRetrieveBy(id);
-					if(bean!=null && !bean.isEmpty()) {
-						cart.addItem(bean);
-						request.setAttribute("message", "Prodotto"+bean.getNome_oggetto()+" aggiunto al carrello");
-					}	
-				} else if(action.equals("clearCart")) {
-						cart.deleteItems();
-						request.setAttribute("message", "Carrello ripulito");
-						
-				} else if(action.equals("deleteCart")) {
-					String id=request.getParameter("id");
+			if(action.equals("insert")) {
+					String name = request.getParameter("nome_oggetto");
+					float price = Float.parseFloat(request.getParameter("prezzo"));
+					int quantity = Integer.parseInt(request.getParameter("quant"));
+					
+					ShopBean bean = new ShopBean();
+					bean.setNome_oggetto(name);
+					bean.setPrezzo(price);
+					bean.setQuant(quantity);
+					
+					model.doSave(bean);
+					request.setAttribute("message", "Prodotto"+bean.getNome_oggetto()+"salvato");
+				}
+				else if(action.equals("delete")) {
+					String id = request.getParameter("id");
 					ShopBean bean = model.doRetrieveBy(id);
 					
 					if(bean!=null && !bean.isEmpty()) {
-						cart.deleteItem(bean);
-						request.setAttribute("message", "Oggetto "+ bean.getNome_oggetto()+" rimosso dal carrello");
+						model.doDelete(bean);	
+						request.setAttribute("message", "Prodotto "+bean.getNome_oggetto()+" rimosso con successo");
 					}
+				} else if(action.equals("update")) {
+					String id = request.getParameter("id");
+					String name = request.getParameter("nome_oggetto");
+					int price = Integer.parseInt(request.getParameter("prezzo"));
+					int quantity = Integer.parseInt(request.getParameter("quant"));
+					
+					ShopBean bean= new ShopBean();
+					bean.setId(Integer.parseInt(id));
+					bean.setNome_oggetto(name);
+					bean.setPrezzo(price);
+					bean.setQuant(quantity);
+					
+					model.doUpdate(bean);	
+					request.setAttribute("message", "Prodotto "+bean.getNome_oggetto()+" aggiornato");
 				}
 		}
 		
@@ -82,7 +97,7 @@ public class ShopServlet extends HttpServlet {
 	}
 	
 	
-	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/shop.jsp");
+	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/gestioneShop.jsp");
 	dispatcher.forward(request, response);
 	
 }

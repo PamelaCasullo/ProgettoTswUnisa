@@ -49,14 +49,15 @@ public class LoginServlet extends HttpServlet {
 			    
 			    
 			    if(logBean.getNome_utente().contentEquals(control)) {
-			    	request.getSession().setAttribute("nome_utente", nome_utente);
+			    	
 			    	response.sendRedirect("index_administrator.jsp");
 			    
 			    } else {
-			    	request.getSession().setAttribute("nome_utente", nome_utente);
+		
 			    	response.sendRedirect("index_user.jsp");
 			    }
-			} else {
+				
+				} else {
 				String message = "Hai sbagliato qualcosa, riprova!";
 				request.setAttribute("message", message);
 				

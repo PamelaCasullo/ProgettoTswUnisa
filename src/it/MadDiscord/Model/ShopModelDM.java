@@ -157,7 +157,7 @@ public class ShopModelDM implements ShopModel<ShopBean> {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String deleteSQL= "DELETE FROM product WHERE id=?";
+		String deleteSQL= "DELETE FROM ShopTable WHERE id=?";
 		try {
 			connection = DBConnectionPool.getConnection();
 			preparedStatement = connection.prepareStatement(deleteSQL);

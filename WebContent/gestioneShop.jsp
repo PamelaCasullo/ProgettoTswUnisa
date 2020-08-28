@@ -1,4 +1,4 @@
-<%@page import="java.util.Collection, it.MadDiscord.Model.Cart, it.MadDiscord.Model.ShopBean, java.util.*"%>
+<%@page import="java.util.Collection, it.MadDiscord.Model.ShopBean, java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -6,7 +6,7 @@
 	Collection<?> products = (Collection<?>)request.getAttribute("products");
 
 	if(products==null){
-	response.sendRedirect(response.encodeRedirectURL("./Shop"));
+	response.sendRedirect(response.encodeRedirectURL("./ShopAdmin"));
 	return;
 	}
 	
@@ -50,7 +50,7 @@
 				<td><%=bean.getNome_oggetto() %> </td>				
 				<td><%=bean.getPrezzo() %></td>
 				<td>
-				<a href="<%=response.encodeURL("Shop?action=addCart&id="+bean.getId())%>">Aggiungi al carrello</a>
+				<a href="<%=response.encodeURL("ShopAdmin?action=delete&id="+bean.getId())%>">CANCELLA</a>
 				</td>
 			</tr>
 		
@@ -65,25 +65,9 @@
 	</table>
 </div>
 
-	
 	<% if(product!=null && !product.isEmpty()) {  %>
-		<h2>Dettagli</h2>
-		<table>
-		<tr>
-			<th>Id</th>
-			<th>Nome</th>
-			<th>Prezzo</th>
-			<th>Quantità</th>
-		</tr>
-		<tr>
-				<td><%=product.getId()%></td>
-				<td><%=product.getNome_oggetto()%></td>
-				<td><%=product.getPrezzo()%></td>
-				<td><%=product.getQuant()%></td>
-			</tr>
-		</table>
 		
-		<form action="<%=response.encodeURL("Shop") %>" method=POST>
+		<form action="<%=response.encodeURL("ShopAdmin") %>" method=POST>
 		<fieldset>
 		<legend><b> Update </b></legend>
 		<input type=hidden name=action value=update>
@@ -93,7 +77,7 @@
 		<input name=name type=text maxlength=20  placeholder="enter name" required value="<%=product.getNome_oggetto()%>"> <br>
 		
 		<label for=price>Prezzo:</label>
-		<input name=price type=number min=0 required><%=product.getPrezzo() %><br>
+		<input name=price type="number" step="any" min=0 required><%=product.getPrezzo() %><br>
 			
 		<label for=quantity>Quantità:</label>
 		<input name=quantity type=number min=1 required><%=product.getQuant() %><br>
@@ -103,21 +87,11 @@
 		</fieldset>
 	</form>
 
-	
-
 	<%
-	String message = (String)request.getAttribute("message");
-	if(message!=null && !message.equals("")){ %>
-	<p style = "color: green;"><%=message %></p>
-	
-	<% } if(error != null && !error.equals("")) { %>
+	} 
+%>
 
-	<p style="color: red;">Error: <%= error%></p>
-<%
-	}
-%>	
-<%  } %>
-	<form action="<%=response.encodeURL("Shop") %>" method=POST>
+	<form action="<%=response.encodeURL("ShopAdmin") %>" method=POST>
 		<fieldset>
 		<legend><b> Insert </b></legend>
 		<input type=hidden name=action value=insert>
