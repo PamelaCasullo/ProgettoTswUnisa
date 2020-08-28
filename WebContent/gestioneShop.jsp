@@ -5,13 +5,16 @@
 <%
 	Collection<?> products = (Collection<?>)request.getAttribute("products");
 
-	if(products==null){
+
+	String error =(String)request.getAttribute("error");
+
+	if(products==null&& error == null){
 	response.sendRedirect(response.encodeRedirectURL("./ShopAdmin"));
 	return;
 	}
 	
 
-	String error =(String)request.getAttribute("error");
+	
 
  	ShopBean product = (ShopBean) request.getAttribute("product");
 	
@@ -32,6 +35,7 @@
 <!--  GESTIONE CARRELLO:insert -->
 
 <div class="Shop_container" align="center">
+
 <table style="color:white">
 	<tr>
 		<th>ID</th>
@@ -50,7 +54,8 @@
 				<td><%=bean.getNome_oggetto() %> </td>				
 				<td><%=bean.getPrezzo() %></td>
 				<td>
-				<a href="<%=response.encodeURL("ShopAdmin?action=delete&id="+bean.getId())%>">CANCELLA</a>
+				<a href="<%=response.encodeURL("ShopAdmin?action=delete&id="+bean.getId())%>">Rimuovi dal database</a>
+				<a href="<%=response.encodeURL("ShopAdmin?action=details&id="+bean.getId())%>">dettagli</a>
 				</td>
 			</tr>
 		
@@ -59,13 +64,30 @@
 		} else {
 		%>
 		<tr>
-			<td colspan=4>Nessun prodotto disponibile</td>
+			<td colspan=4>Database vuoto</td>
 		</tr>
 		<%} %>
 	</table>
-</div>
+
 
 	<% if(product!=null && !product.isEmpty()) {  %>
+	
+		<h2>Details</h2>
+		<table>
+			<tr>
+				<th>Code</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Quantity</th>
+			</tr>
+			<tr>
+				<td><%=product.getId()%></td>
+				<td><%=product.getNome_oggetto()%></td>
+				<td><%=product.getPrezzo()%></td>
+				<td><%=product.getQuant()%></td>
+			</tr>
+		</table>
 		
 		<form action="<%=response.encodeURL("ShopAdmin") %>" method=POST>
 		<fieldset>
@@ -112,6 +134,6 @@
 	</form>
 
 
-
+</div>
 </body>
 </html>

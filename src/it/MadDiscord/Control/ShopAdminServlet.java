@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import it.MadDiscord.Model.Cart;
 import it.MadDiscord.Model.ShopBean;
 import it.MadDiscord.Model.ShopModelDM;
 
@@ -28,19 +27,18 @@ public class ShopAdminServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		@SuppressWarnings("unchecked")
-		Cart<ShopBean> cart = (Cart<ShopBean>) request.getSession().getAttribute("carrello");
 		
-		if(cart==null) {
-			cart = new Cart<ShopBean>();
-			request.getSession().setAttribute("carrello", cart);
-		}
 		String sort = request.getParameter("sort");
 		
 		String action = request.getParameter("action");
 		
 		try {
 		if(action!=null) {
+			if(action.equals("details")) {
+				String id = request.getParameter("id");
+				request.removeAttribute("product");
+				request.setAttribute("product", model.doRetrieveBy(id));
+			}
 			if(action.equals("insert")) {
 					String name = request.getParameter("nome_oggetto");
 					float price = Float.parseFloat(request.getParameter("prezzo"));
@@ -83,8 +81,6 @@ public class ShopAdminServlet extends HttpServlet {
 		System.out.println("Error: "+e.getMessage());
 		request.setAttribute("error", e.getMessage());
 	}
-	
-		request.setAttribute("cart", cart);
 	
 	
 	try {
