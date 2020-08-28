@@ -4,10 +4,11 @@
  
 <%
 
-	Cart<ShopBean> cart = (Cart<ShopBean>)request.getAttribute("cart");
+	Cart<ShopBean> cart = (Cart<ShopBean>)session.getAttribute("cart");
 	
  	if(cart == null) {
- 		response.sendRedirect(response.encodeRedirectURL("./Shop")); //QUI
+ 		System.out.println("ciao");
+ 		response.sendRedirect(response.encodeRedirectURL("./CartServlet")); //QUI
  		return;
  	}	
  	
@@ -19,7 +20,7 @@
 <html>
 <head>
 
-<title>carrello</title>
+<title>Carrello</title>
 </head>
 <body>
 <%@ include file="header.jsp" %>
@@ -29,7 +30,7 @@
 	
 	if(prodCart.size()>0){
 	%>
-	<a href="<%=response.encodeURL("Shop?action=clearCart")%>">Clear</a>
+	<a href="<%=response.encodeURL("CartServlet?action=clearCart")%>">Clear</a>
 	<a href="">Buy</a>
 	<%} %>
 	<table>
@@ -43,7 +44,7 @@
 		%>
 		<tr>
 		<td><%=prod.getNome_oggetto() %></td>
-		<td><a href="<%=response.encodeURL("Shop?action=deleteCart&id="+prod.getId())%>"> Delete from cart </a></td>
+		<td><a href="<%=response.encodeURL("CartServlet?action=deleteCart&id="+prod.getId())%>"> Delete from cart </a></td>
 		</tr>
 		
 		<%}

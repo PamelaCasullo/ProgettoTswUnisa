@@ -31,39 +31,48 @@ public class CartServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		@SuppressWarnings("unchecked")
-		Cart<ShopBean> cart = (Cart<ShopBean>) request.getSession().getAttribute("carrello");
+		Cart<ShopBean> cart = (Cart<ShopBean>) request.getSession().getAttribute("cart");
 		
 		if(cart==null) {
 			cart = new Cart<ShopBean>();
-			request.getSession().setAttribute("carrello", cart);
+			request.getSession().setAttribute("cart", cart);
 		}
 		
 		String action = request.getParameter("action");
-		
-		try {
 			if(action!=null) {
-				if(action.equals("clearCart")) {
-					cart.deleteItems();
-					request.setAttribute("message", "Carrello ripulito");
-					
-				}
-				else if(action.equals("deleteCart")) {
-					String id=request.getParameter("id");
-					ShopBean bean = model.doRetrieveBy(id);
-					
-					if(bean!=null && !bean.isEmpty()) {
-						cart.deleteItem(bean);
-						request.setAttribute("message", "Oggetto "+ bean.getNome_oggetto()+" rimosso dal carrello");
-					}
-				}
+			switch (action) {
+		
+			case "clearCart": {
+				cart.deleteItems();
+				request.setAttribute("message", "Carrello ripulito");
 			}
-		} catch (SQLException | NumberFormatException e) {
-			System.out.println("Error: "+e.getMessage());
-			request.setAttribute("error", e.getMessage());
-		}
+			
+			case "deleteCart": {
+					String id=request.getParameter("id");
+					ShopBean bean;
+					try {
+						bean = model.doRetrieveBy(id);
+						if(bean!=null && !bean.isEmpty()) {
+							cart.deleteItem(bean);
+							request.setAttribute("message", "Oggetto "+ bean.getNome_oggetto()+" rimosso dal carrello");
+						}
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					
+				}
+			
+			
+			default:
+				throw new IllegalArgumentException("Unexpected value: " + action);
+			}
+			}
+		
+		response.sendRedirect(request.getContextPath()+"/carrello.jsp");
 	}
-	
-	response.sendRedirect("carrello.jsp");
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
