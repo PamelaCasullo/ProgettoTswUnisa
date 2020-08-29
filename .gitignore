@@ -7,5 +7,3 @@ build/classes/it/MadDiscord/Model/UtenteBean.class
 build/classes/it/MadDiscord/Database/ShopDAO.class
 build/classes/it/MadDiscord/Model/ShopBean.class
 /bin/
-src/it/MadDiscord/Control/CartServlet.java
-src/it/MadDiscord/Control/CartServlet.java
