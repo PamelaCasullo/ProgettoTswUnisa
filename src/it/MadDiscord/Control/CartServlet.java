@@ -68,11 +68,22 @@ public class CartServlet extends HttpServlet {
 			default:
 				throw new IllegalArgumentException("Unexpected value: " + action);
 			}
+<<<<<<< Updated upstream
 			}
 		
 		response.sendRedirect(request.getContextPath()+"/carrello.jsp");
 	}
 
+=======
+		} catch (SQLException | NumberFormatException e) {
+			System.out.println("Error: "+e.getMessage());
+			request.setAttribute("error", e.getMessage());
+		}
+		
+		
+	}
+	
+>>>>>>> Stashed changes
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
