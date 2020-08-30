@@ -40,7 +40,12 @@
 
 	<!-- SHOP   -->
     <header>
-        <h1 class="shop_header">SHOP UFFICIALE DEI MAD DISCORD</h1>  
+        <h1 class="shop_header">SHOP UFFICIALE DEI MAD DISCORD</h1> 
+         <!--    	<div class= carrello>
+   		<a href="carrello.jsp"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+   	
+   	</div> 
+  --> 
         <a href="carrello.jsp">CARRELLO</a>
     </header>
 

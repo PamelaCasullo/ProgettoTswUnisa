@@ -53,6 +53,7 @@
 				<td><%=bean.getId() %> </td>
 				<td><%=bean.getNome_oggetto() %> </td>				
 				<td><%=bean.getPrezzo() %></td>
+				<td><%=bean.getQuant() %></td>
 				<td>
 				<a href="<%=response.encodeURL("ShopAdmin?action=delete&id="+bean.getId())%>">Rimuovi dal database</a>
 				<a href="<%=response.encodeURL("ShopAdmin?action=details&id="+bean.getId())%>">dettagli</a>
@@ -75,11 +76,10 @@
 		<h2>Details</h2>
 		<table>
 			<tr>
-				<th>Code</th>
-				<th>Name</th>
-				<th>Description</th>
-				<th>Price</th>
-				<th>Quantity</th>
+				<th>ID</th>
+				<th>Nome</th>
+				<th>Prezzo</th>
+				<th>Quantità</th>
 			</tr>
 			<tr>
 				<td><%=product.getId()%></td>
@@ -118,14 +118,14 @@
 		<legend><b> Insert </b></legend>
 		<input type=hidden name=action value=insert>
 		
-		<label for=nome_oggetto> Name:</label>
+		<label for=nome_oggetto> Nome:</label>
 		<input name=nome_oggetto type=text maxlength=20  placeholder="enter name" required> <br>
 		
-		<label for=prezzo>Price:</label>
+		<label for=prezzo>Prezzo:</label>
 		<input name=prezzo type=number min=0 value=0 required><br>
 		
 			
-		<label for=quant>Quantity:</label>
+		<label for=quant>Quantità:</label>
 		<input name=quant type=number min=1 value=1 required><br>
 		
 		<input type=submit value=Insert> 

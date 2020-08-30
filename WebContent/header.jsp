@@ -46,13 +46,13 @@
       </li>
  
       <li class="nav-item">
-        <a class="nav-link" href="#">Gestione Articoli</a>
+        <a class="nav-link" href="gestioneArticoli.jsp">Gestione Articoli</a>
       </li>
       <li>
       <a class="nav-link" href="gestioneShop.jsp">Gestione Shop</a>
       </li>
       <li>
-      <a class="nav-link" href="#">Gestione Utenti</a>
+      <a class="nav-link" href="gestioneUtenti.jsp">Gestione Utenti</a>
       </li>
    
     </ul>
@@ -71,9 +71,6 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="Homepage.jsp">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Teams</a>
       </li>
       <li>
       <a class="nav-link" href="about.jsp">About</a>
@@ -112,11 +109,7 @@
  <% } %>
 </nav>
 </nav>   
- <!--    	<div class= carrello>
-   		<a href="carrello.jsp"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-   	
-   	</div> 
-  -->
+
 
 		<footer>
 		<span>APOSTOLICO PAOLO, 
