@@ -10,6 +10,7 @@ public class ArticleBean {
 		public ArticleBean() {
 			
 		}
+		
 		public ArticleBean(String titolo, String immagine, String cont ) {
 			this.cont = cont;
 			this.immagine = immagine;
