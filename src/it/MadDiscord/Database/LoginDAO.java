@@ -17,9 +17,8 @@ public class LoginDAO {
 		try (Connection conn = DBConnectionPool.getConnection(); )
 		{		
 			//eseguiamo la query
-			PreparedStatement prepStat = conn.prepareStatement("Select nome_utente, password_utente from UserTable where nome_utente =? and password_utente=?");
-			prepStat.setString(1, utenteBean.getNome_utente());
-			prepStat.setString(2, utenteBean.getPassword_utente());
+			PreparedStatement prepStat = conn.prepareStatement("Select email, password_utente from UserTable where email =? ");
+			prepStat.setString(1, utenteBean.getEmail());
 			
 			System.out.println(prepStat);
 			
@@ -28,8 +27,7 @@ public class LoginDAO {
 			
 			if(rs.next()) {
 				logBean = new UtenteBean();
-				logBean.setNome_utente(rs.getString("nome_utente"));
-				logBean.setPassword_utente(rs.getString("password_utente"));
+				logBean.setEmail(rs.getString("email"));
 			}
 			conn.close();
 		} catch (SQLException e) {

@@ -20,20 +20,23 @@ public int registerUser(UtenteBean sigBean) throws ClassNotFoundException{
 		try(Connection conn = DBConnectionPool.getConnection(); )
 		{		
 			//eseguiamo la query
-			PreparedStatement prepStat = conn.prepareStatement("INSERT into UserTable values (? ,?, 0)");
-			
+			PreparedStatement prepStat = conn.prepareStatement("INSERT into UserTable values (? ,?, ?)");
+
+
 			prepStat.setString(1, sigBean.getNome_utente());
-			prepStat.setString(2, sigBean.getPassword_utente());
+			prepStat.setString(2, sigBean.getEmail());
+			prepStat.setString(3, sigBean.getPassword_utente());
 			
 			System.out.println(prepStat);
 			
 			result=prepStat.executeUpdate();
+			conn.commit();
 			
 		} catch (SQLException e) {
 
 			printSQLException(e);
 		}
-		
+		System.out.println("result set "+result );
 		return result;
 		
 	}
@@ -47,10 +50,9 @@ public int deleteUser(UtenteBean utenteBean) throws ClassNotFoundException{
 	try(Connection conn = DBConnectionPool.getConnection(); )
 	{
 		//eseguiamo la query
-		PreparedStatement prepStat = conn.prepareStatement("delete from UserTable where nome_utente=?");
+		PreparedStatement prepStat = conn.prepareStatement("delete from UserTable where email?");
 		
-		prepStat.setString(1, utenteBean.getNome_utente());
-		prepStat.setString(2, utenteBean.getPassword_utente());
+		prepStat.setString(1, utenteBean.getEmail());
 		
 		System.out.println(prepStat);
 		
@@ -73,9 +75,10 @@ public int updateUser(UtenteBean utenteBean) throws ClassNotFoundException{
 	try(Connection conn = DBConnectionPool.getConnection(); )
 	{
 		//eseguo query
-		PreparedStatement prepStat = conn.prepareStatement("update UserTable set password_utente=?, where id=?");
+		PreparedStatement prepStat = conn.prepareStatement("update UserTable set password_utente=?, where email=?");
 		
-		prepStat.setString(1, utenteBean.getNome_utente());
+		prepStat.setString(1, utenteBean.getEmail());
+
 		prepStat.setString(2, utenteBean.getPassword_utente());
 		
 		System.out.println(prepStat);
@@ -105,9 +108,11 @@ public List<UtenteBean> allUser() {
 		
 		while (rs.next()) {
 			String nome_utente = rs.getString("nome_utente");
+			String email = rs.getString("email");
 			String password_utente = rs.getString("password_utente");
 			
 			UtenteBean uBean = new UtenteBean();
+			uBean.setNome_utente(email);
 			uBean.setNome_utente(nome_utente);
 			uBean.setPassword_utente(password_utente);
 			all.add(uBean);
@@ -132,17 +137,17 @@ public UtenteBean getUtente(String nome_utente) {
 	try (Connection conn = DBConnectionPool.getConnection(); )
 	{
 		//query
-		PreparedStatement prepStat = conn.prepareStatement("select from UserTable where nome_utente=?");
+		PreparedStatement prepStat = conn.prepareStatement("select from UserTable where email=?");
 		
 		prepStat.setString(1, nome_utente);
 		ResultSet rs = prepStat.executeQuery();
 		
 		while (rs.next()) {
-			String password_utente = rs.getString("password_utente");
+			String email = rs.getString("email");
 			
 			uBean = new UtenteBean();
 			
-			uBean.setPassword_utente(password_utente);
+			uBean.setPassword_utente(email);
 		}
 		
 		rs.close();

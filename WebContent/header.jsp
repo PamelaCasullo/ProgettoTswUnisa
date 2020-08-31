@@ -30,7 +30,7 @@
 <!--  SIDEBAR -->
 <nav id=nav class="navbar navbar-expand-lg navbar-dark">
 
-<%if(request.getSession().getAttribute("nome_utente")!=null && request.getSession().getAttribute("nome_utente").equals("admin")) { %>
+<%if(request.getSession().getAttribute("email")!=null && request.getSession().getAttribute("email").equals("admin@admin.com")) { %>
 
   <a class="navbar-brand" href="index_administrator.jsp">
   <img id=logo alt="logo_azienda" src="./images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
@@ -80,7 +80,7 @@
       </li>
     </ul>
      <% } %>
- <%if(request.getSession().getAttribute("nome_utente")==null){ %> 
+ <%if(request.getSession().getAttribute("email")==null){ %> 
     <form class="form-inline my-2 my-lg-0">
     
     <ul class="navbar-nav mr-auto">
@@ -100,7 +100,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
 	 <li class="nav-item">
-		<p style="color:orange;">Benvenuto, <%=request.getSession().getAttribute("nome_utente") %>
+		<p style="color:orange;">Benvenuto, <%=request.getSession().getAttribute("email") %>
 		<a href="<%=request.getContextPath()%>/Logout">Logout</a>
 	</li> 
     </ul>
