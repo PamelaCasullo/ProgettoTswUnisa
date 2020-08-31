@@ -26,6 +26,9 @@ public class ArticleBean {
 		public String getTitolo() {
 			return titolo;
 		}
+		public boolean isEmpty() {
+			return id_articolo ==-1;
+		}
 		public void setTitolo(String titolo) {
 			this.titolo = titolo;
 		}

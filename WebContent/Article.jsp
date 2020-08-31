@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title><<%=  %></title>
+<title>ARTICOLO</title>
 </head>
 <body>
 <form action="<%=response.encodeURL("Article?action=show")%>" enctype="multipart/form-data">
