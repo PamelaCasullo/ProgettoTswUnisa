@@ -1,0 +1,19 @@
+
+
+table, th, td {
+	text-align: center;
+	border: 1px solid black;
+	border-collapse: collapse; 
+}
+
+th, td {
+	padding: 5px;
+}
+
+/* fieldset { */
+/* 	color: white; */
+/* } */
+
+div {
+	color: white;
+}

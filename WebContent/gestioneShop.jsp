@@ -24,9 +24,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.6, shrink-to-fit=no">
+	
+	<meta name="description" content="layout template responsive">
+	<meta name="author" content="Paolo Apostolico, Pamela Casullo, Giulio Triggiani">
+	 
+	
+	
+	<link rel=stylesheet href="css/default.css">
+	<link rel="stylesheet" href="css/gestioneShop.css">
+
 <title>Gestione Shop</title>
 
 </head>
+
 <body>
 
 <%@ include file="header.jsp" %>
