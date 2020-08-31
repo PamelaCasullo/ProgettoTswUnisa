@@ -80,6 +80,8 @@ public class ArticleServlet extends HttpServlet {
 				response.sendRedirect("gestioneArticoli.jsp");
 		}
 		}
+		case "show":
+			
 			}
 		}
 	}
