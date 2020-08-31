@@ -31,24 +31,25 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String nome_utente = request.getParameter("nome_utente");
+		String email = request.getParameter("email");
 		String password_utente = request.getParameter("password_utente");
 		
 		UtenteBean logBean = new UtenteBean();
-		logBean.setNome_utente(nome_utente);
+		logBean.setEmail(email);
 		logBean.setPassword_utente(password_utente);
 		
 		try {
 			
 			if(loginDat.validate(logBean) != null) {
+				System.out.println("validate funzia");
 				HttpSession session= request.getSession();
-			    session.setAttribute("nome_utente", nome_utente);
+			    session.setAttribute("email", email);
 			    
 			    
-			    String control = "admin";
+			    String control = "admin@admin.com";
 			    
 			    
-			    if(logBean.getNome_utente().contentEquals(control)) {
+			    if(logBean.getEmail().contentEquals(control)) {
 			    	
 			    	response.sendRedirect("index_administrator.jsp");
 			    
@@ -59,6 +60,7 @@ public class LoginServlet extends HttpServlet {
 				
 				} else {
 				String message = "Hai sbagliato qualcosa, riprova!";
+				System.out.println(request.getParameter("email") + " "+ logBean.getEmail());
 				request.setAttribute("message", message);
 				
 				response.sendRedirect("login.jsp");

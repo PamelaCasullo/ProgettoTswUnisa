@@ -51,16 +51,25 @@ public class SigninServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String email = request.getParameter("email");
 		String nome_utente = request.getParameter("nome_utente");
 		String password_utente = request.getParameter("password_utente");
 		
 		
 		UtenteBean sigBean = new UtenteBean();
+		sigBean.setEmail(email);
 		sigBean.setNome_utente(nome_utente);
 		sigBean.setPassword_utente(password_utente);
 		
 		try {
-			sigDat.registerUser(sigBean);
+			if(sigDat.registerUser(sigBean)!=0) {
+				System.out.println("account creato con successo!");
+			}
+			else {
+				System.out.println("account esistente");
+				RequestDispatcher disp = request.getRequestDispatcher("Homepage.jsp");
+				disp.forward(request, response);
+			}
 		} catch (ClassNotFoundException e) {
 			
 			e.printStackTrace();
