@@ -11,7 +11,8 @@ public class ArticleBean {
 			
 		}
 		
-		public ArticleBean(String titolo, String immagine, String cont ) {
+		public ArticleBean(int id_articolo, String titolo, String immagine, String cont ) {
+			this.id_articolo = id_articolo;
 			this.cont = cont;
 			this.immagine = immagine;
 			this.titolo = titolo;

@@ -133,25 +133,6 @@
 	
 	<%} %>
 	
-	<form action="<%=response.encodeURL("Article?action=insert")%>" enctype="multipart/form-data" method=post>
-		<fieldset>
-		<legend><b> Insert </b></legend>
-		<input type=hidden name=action value=insert>
-		
-		<label for=nome_oggetto> Nome:</label>
-		<input name=nome_oggetto type=text maxlength=20  placeholder="enter name" required> <br>
-		
-		<label for=prezzo>Prezzo:</label>
-		<input name=prezzo type=number min=0 value=0 required><br>
-		
-			
-		<label for=quant>Quantità:</label>
-		<input name=quant type=number min=1 value=1 required><br>
-		
-		<input type=submit value=Insert> 
-		<input type=reset value=Reset>
-		</fieldset>
-	</form>
 	
 </div>	
 </body>

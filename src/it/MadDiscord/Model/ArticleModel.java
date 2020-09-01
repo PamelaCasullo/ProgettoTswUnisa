@@ -5,9 +5,9 @@ import java.util.Collection;
 
 public interface ArticleModel <T>{
 
-	public T doRetrieveBy(String id) throws SQLException;
+	public T doRetrieveBy(String id_articolo) throws SQLException;
 	
-	public Collection<T> doRetrieveAll(String order) throws SQLException;
+	public Collection<T> doRetrieveAll(String all) throws SQLException;
 	
 	public void doSave(T product)  throws SQLException;
 	
