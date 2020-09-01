@@ -33,7 +33,7 @@
 	</video>
 	<p> Su tanta richiesta da voi fan e gamers è stata inaugurata l'apertura della nuova gaming lobby proprio al centro di Salerno raggiungibile anche tramite navetta dalla stazione.
 		Con uno spazio di oltre 100 m² essa potrà ospitare oltre 20 postazioni pc dotati di componenti di ultima generazione che permetteranno performance eccezionali per qualunque tipo di gioco, una couch zone per riposarsi dopo lunghe sessione di gaming, una zona bar che aprirà durante la serata e un'ulteriore zona gaming con diverse console tra quali: playstation IV, Xbox, e altro...
-		Siamo ansiosi di annunciarvi che a breve sarà anche aperta una zona dedicata alla realtà virtuale con stanza dedicata e diversi visori in modo da poter giocare in cooperativa in fantastiche avventure in mondi virtuali.
+		Siamo ansiosi di annunciarvi che a breve sarà anche aperta una zona dedicata alla realtà virtuale con stanza dedicata e diversi visori in modo da poter giocare in cooperativa in fantastiche avventure in mondi virtuali.<br>
 		Inoltre vi è un piano superiore con diversi uffici nei quali è possibile fare abbonamenti ed iscriversi al club in modo da poter usufruire di diversi sconti e non perdersi i diversi eventi di gaming organizzati dagli amministratori della lobby.
 		Su che aspetti? Vieni tu stesso a testare il brivido del gaming a "Lobby a salerno" e avrai in omaggio § <br><br><br><br><br>
 		
