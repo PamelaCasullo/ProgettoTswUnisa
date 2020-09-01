@@ -95,7 +95,7 @@ public class UtenteServlet extends HttpServlet {
 						try {
 							request.setAttribute("user", model.doRetrieveBy(nome_utente));
 						} catch (SQLException e) {
-							e.printStackTrace();
+							System.out.println(e);
 						}
 					}
 					
