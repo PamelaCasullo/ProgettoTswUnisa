@@ -5,6 +5,7 @@ import java.io.InputStream;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
@@ -17,6 +18,10 @@ import it.MadDiscord.Model.ArticleModelDM;
 
 
 @WebServlet("/Article")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB after which the file will be
+// temporarily stored on disk
+maxFileSize = 1024 * 1024 * 10, // 10MB maximum size allowed for uploaded files
+maxRequestSize = 1024 * 1024 * 50) // 50MB overall size of all uploaded files
 
 public class ArticleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -40,14 +45,18 @@ public class ArticleServlet extends HttpServlet {
 			
 		try (ByteArrayOutputStream bos = new ByteArrayOutputStream()){
 			
-			 
-				
+
 				String ti = request.getParameter("titolo");
 				String cont = request.getParameter("cont");
 				
 				Part part = request.getPart("immagine");
 				InputStream fis = null;
+				for(Part p : request.getParts()) {
+					System.out.println(p.getName());
+				}
+								
 				fis = part.getInputStream();
+
 				System.out.println("immagine presa");
 				byte[] buf = new byte[4096];
 				
@@ -81,10 +90,10 @@ public class ArticleServlet extends HttpServlet {
 		}
 		case "details": {
 			
-					String id = request.getParameter("id_articolo");
+					String id_articolo = request.getParameter("id_articolo");
+					
 					request.removeAttribute("article");
-
-					request.setAttribute("article", aModel.doRetrieveBy(id));
+					request.setAttribute("article", aModel.doRetrieveBy(id_articolo));
 				
 		}
 		case "delete":	{
