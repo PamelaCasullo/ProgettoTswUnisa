@@ -15,15 +15,15 @@ import it.MadDiscord.Model.UtenteBean;
 public class UtenteDAO {
 
 	/*ADMIN*/
-		public int insertUser(UtenteBean ubean) {
+		public int insertUser(UtenteBean uBean) {
 			int r = 0;
 			
 			try (Connection con = DBConnectionPool.getConnection();)
 			{
 				PreparedStatement ps = con.prepareStatement("Insert into UserTable value(?,?,?)");
-				ps.setString(1, ubean.getNome_utente());
-				ps.setString(1, ubean.getEmail());
-				ps.setString(1, ubean.getPassword_utente());
+				ps.setString(1, uBean.getNome_utente());
+				ps.setString(1, uBean.getEmail());
+				ps.setString(1, uBean.getPassword_utente());
 				
 				System.out.println(ps);
 				r = ps.executeUpdate();
@@ -93,19 +93,19 @@ public class UtenteDAO {
 			
 			try (Connection conn = DBConnectionPool.getConnection(); ) 
 			{
-				PreparedStatement prepStat = conn.prepareStatement("select * from ShopTable");
+				PreparedStatement prepStat = conn.prepareStatement("select * from UserTable");
 				
 				ResultSet rs = prepStat.executeQuery();
 				
 				while (rs.next()) {
 					String nome_utente=rs.getString("nome_utente");
 					String email=rs.getString("email");
-					String password=rs.getString("password"); 
+					String password_utente=rs.getString("password_utente"); 
 					
 					UtenteBean uBean = new UtenteBean();
 					uBean.setNome_utente(nome_utente);
 					uBean.setEmail(email);
-					uBean.setPassword_utente(password);
+					uBean.setPassword_utente(password_utente);
 					all.add(uBean);
 				}
 				
@@ -131,7 +131,7 @@ public class UtenteDAO {
 				
 				while (rs.next()) {
 					
-					String email=rs.getString("nome_utente");
+					String email=rs.getString("email");
 					String password_utente=rs.getString("password_utente"); 
 					
 					uBean = new UtenteBean();

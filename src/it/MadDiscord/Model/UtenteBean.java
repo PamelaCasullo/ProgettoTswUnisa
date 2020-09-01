@@ -33,4 +33,17 @@ public class UtenteBean implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	@Override
+	public String toString() {
+		return nome_utente+","+password_utente+","+email;
+	}
+	
+	@Override
+	public boolean equals(Object other) {
+		return(this.getNome_utente()==((UtenteBean)other).getNome_utente());
+	}
+
+	
+	
 }

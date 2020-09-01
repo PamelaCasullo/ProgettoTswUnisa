@@ -22,17 +22,16 @@ public class UtenteModelDM {
 		try {
 			connection = DBConnectionPool.getConnection(); 
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, getString(nome_utente));
+			preparedStatement.setString(1, bean.getNome_utente()); //QUESTA RIGA VA BENE
 			
 			System.out.println("doRetriveBy:"+preparedStatement.toString());
 			ResultSet rs= preparedStatement.executeQuery();
 			
             while(rs.next()) {
 
-                bean.setId(rs.getInt("id"));
-                bean.setNome_oggetto(rs.getString("nome_oggetto"));
-                bean.setPrezzo(rs.getInt("prezzo"));
-                bean.setQuant(rs.getInt("quant"));
+                bean.setNome_utente(rs.getString("nome_utente"));
+                bean.setPassword_utente(rs.getString("passwordutente"));
+                bean.setEmail(rs.getString("email"));
             }
            System.out.println(bean);
 		} finally {
@@ -52,9 +51,9 @@ public class UtenteModelDM {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		Collection<UtenteBean> products = new LinkedList<UtenteBean>();
+		Collection<UtenteBean> users = new LinkedList<UtenteBean>();
 		
-		String selectSQL = "SELECT * FROM ShopTable";
+		String selectSQL = "SELECT * FROM UserTable";
 		
 		if(order != null && !order.equals("")) {
 			selectSQL += " ORDER BY " + order;
@@ -70,12 +69,11 @@ public class UtenteModelDM {
 			while(rs.next()) {
 				UtenteBean bean = new UtenteBean();
 				
-				bean.setId(rs.getInt("id"));
-				bean.setNome_oggetto(rs.getString("nome_oggetto"));
-				bean.setPrezzo(rs.getInt("prezzo"));
-				bean.setQuant(rs.getInt("quant"));
-				
-				products.add(bean);
+				bean.setNome_utente(rs.getString("nome_utente"));
+                bean.setPassword_utente(rs.getString("passwordutente"));
+                bean.setEmail(rs.getString("email"));
+                
+				users.add(bean);
 			}
 		} finally {
 			try {
@@ -86,23 +84,23 @@ public class UtenteModelDM {
 			}
 		}
 		
-		return products;
+		return users;
 	}
 
-	public void doSave(UtenteBean product) throws SQLException {
+	public void doSave(UtenteBean user) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String insertSQL = "INSERT INTO ShopTable" +
-		"(nome_oggetto, prezzo, quant)"+"VALUES( ?, ?, ?)";
+		String insertSQL = "INSERT INTO UserTable" +
+		"(nome_utente, password_utente, email)"+"VALUES( ?, ?, ?)";
 		
 		try {
 			connection = DBConnectionPool.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
 		
-			preparedStatement.setString(1, product.getNome_oggetto());
-			preparedStatement.setString(2, product.getPrezzo());
-			preparedStatement.setString(3, product.getQuant());
+			preparedStatement.setString(1, user.getNome_utente());
+			preparedStatement.setString(2, user.getPassword_utente());
+			preparedStatement.setString(3, user.getEmail());
 			
 			System.out.println("doSave "+preparedStatement.toString());
 			
@@ -120,21 +118,19 @@ public class UtenteModelDM {
 		}
 
 
-	public void doUpdate(UtenteBean product) throws SQLException {
+	public void doUpdate(UtenteBean user) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String updateSQL= "UPDATE ShopTable SET nome_oggetto=?, prezzo=?, quant=? WHERE id=?";
+		String updateSQL= "UPDATE UserTable SET password_utente=?, email=? WHERE nome_utente=?";
 
 		try {
 			connection = DBConnectionPool.getConnection();
 			preparedStatement = connection.prepareStatement(updateSQL);
 			
-			preparedStatement.setString(1, product.getNome_oggetto());
-			preparedStatement.setString(2, product.getPrezzo());
-			preparedStatement.setString(3, product.getQuant());
-			
-			preparedStatement.setString(4, product.getNome_utente());
+			preparedStatement.setString(1, user.getNome_utente());
+			preparedStatement.setString(2, user.getPassword_utente());
+			preparedStatement.setString(3, user.getEmail());
 			
 			System.out.println("doUpdate: "+preparedStatement.toString());
 		
@@ -153,15 +149,15 @@ public class UtenteModelDM {
 		
 		
 
-	public void doDelete(UtenteBean product) throws SQLException {
+	public void doDelete(UtenteBean user) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String deleteSQL= "DELETE FROM ShopTable WHERE id=?";
+		String deleteSQL= "DELETE FROM UserTable WHERE nome_utente=?";
 		try {
 			connection = DBConnectionPool.getConnection();
 			preparedStatement = connection.prepareStatement(deleteSQL);
-			preparedStatement.setString(1, product.getNome_utente());
+			preparedStatement.setString(1, user.getNome_utente());
 			System.out.println("DoDelete "+preparedStatement.toString());
 		
 			preparedStatement.executeUpdate();
