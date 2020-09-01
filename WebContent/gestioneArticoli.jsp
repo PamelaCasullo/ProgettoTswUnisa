@@ -24,6 +24,8 @@
 <html>
 <head>
 <title>GESTIONE ARTICOLI</title>
+<script src="node.js"></script>
+
 </head>
 <body>
 <%@include file="header.jsp"%>
@@ -36,21 +38,21 @@
 		<table border="">
 		<tr>
 		<td> Titolo	</td>
-		<td><input type="text" class=selettore placeholder="Inserisci un titolo" name="titolo" size=50></td>
+		<td><input type="text" class=selettore placeholder="Inserisci un titolo" name="titolo" id=titolo size=50></td>
 		</tr>
 		<tr><td> Contenuto</td>
 		<td>
-	<input type="text" class=selettore placeholder="Inserisci il contenuto" name="cont" size=50></td>
+	<input type="text" class=selettore placeholder="Inserisci il contenuto" name="cont" id=cont size=50></td>
 		</tr>
 		<tr><th> Immagine</th>
 		<th>
 			<div class=immagine>
-			<input type="file" class=selettore placeholder="Inserisci un'immagine" name="immagine" size=50>	
+			<input type="file" class=selettore placeholder="Inserisci un'immagine" name="immagine" id=immagine size=50>	
 			</div></th>
 		</tr>
 		<tr>
 		<td colspan=2>	
-		<input type="submit" value="inserisci">
+		<input type="submit" value="inserisci" id=entry>
 	
 		</td>
 		</tr>
@@ -60,38 +62,14 @@
 	<h2>Elenco articoli. Selezionarne uno per visionarlo/modificarlo.</h2>
 	</form>
 	
-<table style="color:white" border="">
-	<tr>
-		<th>Titolo</th>
-		<th>Contenuto</th>
-		<th>Immagine</th>
-	</tr>
-	<%
-		if(articles!=null && articles.size()>0){
+<table style="color:white" border="" id="show">
 
-			Iterator <?> it = articles.iterator();
-			while(it.hasNext()){
-				ShopBean bean =(ShopBean)it.next();
-		%>
-			<tr>
-				<td><%=aBean.getId_articolo() %> </td>
-				<td><%=aBean.getTitolo() %> </td>				
-				<td><%=aBean.getCont() %></td>
-				<td><%=aBean.getImmagine() %></td>
-				<td>
-				<a href="<%=response.encodeURL("Article?action=delete&id="+aBean.getId_articolo())%>">Rimuovi dal database</a>
-				<a href="<%=response.encodeURL("Article?action=details&id="+aBean.getId_articolo())%>">dettagli</a>
-				</td>
-			</tr>
-		
-		<% }
-			
-		} else {
-		%>
 		<tr>
-			<td colspan=4>Database vuoto</td>
+			<th>Titolo</th>
+			<th>Contenuto</th>
+			<th>Immagine</th>
 		</tr>
-		<%} %>
+
 	</table>
 	<% if(articles!=null &&!articles.isEmpty()) { %>
 	
