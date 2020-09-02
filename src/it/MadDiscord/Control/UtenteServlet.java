@@ -44,6 +44,7 @@ public class UtenteServlet extends HttpServlet {
 							
 							uBean.setNome_utente(nome_utente);
 							uBean.setPassword_utente(password_utente);
+							uBean.setEmail(email);
 							
 							model.doSave(uBean);
 							request.setAttribute("message", "Utente"+uBean.getNome_utente()+"salvato");

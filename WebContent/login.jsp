@@ -37,7 +37,7 @@
             <h1>LOGIN</h1>
             
             <div class="illustration"><i class="icon ion-ios-game-controller-b-outline"> </i></div>
-            <div class="form-group"><input class="form-control" type="text" name="nome_utente" placeholder="nome utente"required></div>
+            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="mario_rossi@dominio.it"required></div>
             <div class="form-group"><input class="form-control" type="password" name="password_utente" placeholder="password" required></div>
             <div class="form-group">
             <button class="btn btn-primary btn-block" type="submit" onclick="validate()">Log In</button></div><a href="password.html" class="forgot">Password dimenticata?</a>
