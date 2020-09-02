@@ -12,16 +12,20 @@ import javax.servlet.http.HttpSession;
 
 import it.MadDiscord.Database.CartDAO;
 import it.MadDiscord.Model.Cart;
-import it.MadDiscord.Model.CartBean;
 import it.MadDiscord.Model.ShopBean;
 import it.MadDiscord.Model.ShopModelDM;
 import it.MadDiscord.Model.UtenteBean;
 
 @WebServlet("/CartServletErk")
 public class CartServletErk extends HttpServlet { 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	static ShopModelDM model = new ShopModelDM();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		@SuppressWarnings("unchecked")
 		Cart<ShopBean> cart = (Cart<ShopBean>) request.getSession().getAttribute("cart");
 
 		HttpSession session = request.getSession(true);

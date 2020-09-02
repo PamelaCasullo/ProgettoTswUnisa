@@ -2,7 +2,6 @@ package it.MadDiscord.Control;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.MadDiscord.Model.UtenteBean;
-import it.MadDiscord.Model.UtenteModelDM;
 
 
 @WebServlet("/UtenteServlet")

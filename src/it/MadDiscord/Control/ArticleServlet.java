@@ -157,6 +157,11 @@ public class ArticleServlet extends HttpServlet {
 				} 
 			
 		}
+		case "show" :{
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/ArticleServlet");
+			rd.forward(request, response);
+		}
+			
 			
 	}}
 		} catch (SQLException |NumberFormatException e) {

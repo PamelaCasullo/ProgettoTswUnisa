@@ -24,7 +24,7 @@
 <html>
 <head>
 <title>GESTIONE ARTICOLI</title>
-<script src="node.js"></script>
+<script src="article.js"></script>
 
 </head>
 <body>
@@ -59,9 +59,9 @@
 		</table>
 	
 	
-	<h2>Elenco articoli. Selezionarne uno per visionarlo/modificarlo.</h2>
 	</form>
-	
+		<h2>Elenco articoli. Selezionarne uno per visionarlo/modificarlo.</h2>
+		<div class="mostraArticoli"></div>
 <table style="color:white" border="" id="show">
 
 		<tr>
@@ -71,7 +71,9 @@
 		</tr>
 
 	</table>
+	
 	<% if(articles!=null &&!articles.isEmpty()) { %>
+	
 	
 	<h2>DETTAGLI</h2>
 	<table>
@@ -108,8 +110,8 @@
 		<input type=reset value=Reset>
 		</fieldset>
 	</form>	
-	
 	<%} %>
+
 	
 	
 </div>	
