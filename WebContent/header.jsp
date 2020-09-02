@@ -30,7 +30,8 @@
 <!--  SIDEBAR -->
 <nav id=nav class="navbar navbar-expand-lg navbar-dark">
 
-<%if(request.getSession().getAttribute("email")!=null && request.getSession().getAttribute("email").equals("admin@admin.com")) { %>
+<%System.out.println(request.getSession().getAttribute("email"));
+if(request.getSession().getAttribute("email")!=null && request.getSession().getAttribute("email").equals("admin@admin.com")) { %>
 
   <a class="navbar-brand" href="index_administrator.jsp">
   <img id=logo alt="logo_azienda" src="./images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
@@ -57,7 +58,7 @@
    
     </ul>
       
-   <%} else { %>
+   <%} else { System.out.println("nonfunziono"); %>
  	<a class="navbar-brand" href="Homepage.jsp">
   <img id=logo alt="logo_azienda" src="./images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
   

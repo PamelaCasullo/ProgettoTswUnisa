@@ -26,8 +26,11 @@ public class LoginDAO {
 			
 			
 			if(rs.next()) {
+				System.out.println("rs.next funziona in validate");
 				logBean = new UtenteBean();
 				logBean.setEmail(rs.getString("email"));
+				
+				
 			}
 			conn.close();
 		} catch (SQLException e) {

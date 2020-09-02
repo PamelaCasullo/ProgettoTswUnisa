@@ -51,18 +51,21 @@ public class LoginServlet extends HttpServlet {
 			    
 			    if(logBean.getEmail().contentEquals(control)) {
 			    	
+			    	System.out.println("funziono admin");
 			    	response.sendRedirect("index_administrator.jsp");
+
 			    
 			    } else {
-		
+			    	System.out.println("funziono user");
 			    	response.sendRedirect("index_user.jsp");
+
 			    }
 				
 				} else {
 				String message = "Hai sbagliato qualcosa, riprova!";
 				System.out.println(request.getParameter("email") + " "+ logBean.getEmail());
 				request.setAttribute("message", message);
-				
+				System.out.println("ciao");
 				response.sendRedirect("login.jsp");
 			}
 			
