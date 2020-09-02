@@ -2,8 +2,6 @@ package it.MadDiscord.Control;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -112,7 +110,7 @@ public class UtenteServlet extends HttpServlet {
 	//				}
 					}
 				}
-			} catch (SQLException | NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				System.out.println("Error: "+e.getMessage());
 				request.setAttribute("error", e.getMessage());
 			}

@@ -73,6 +73,9 @@
         <a class="nav-link" href="Homepage.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
       <li>
+      <a class="nav-link" href="Article.jsp">Articoli</a>
+      </li>
+      <li>
       <a class="nav-link" href="about.jsp">About</a>
       </li>
       <li>

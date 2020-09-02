@@ -1,13 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>ARTICOLO</title>
 </head>
 <body>
-<form action="<%=response.encodeURL("Article?action=show")%>" enctype="multipart/form-data">
+<%@include file='header.jsp'%>
+<form action="<%=response.encodeURL("ArticleServlet")%>" enctype="multipart/form-data">
+ <input type="submit" value="Mostra Articoli">
+	
 </form>
 </body>
 </html>
