@@ -1,4 +1,4 @@
-package it.MadDiscord.Control;
+package it.MadDiscord.Model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,6 @@ import java.util.Collection;
 import java.util.LinkedList;
 
 import it.MadDiscord.DBConnectionPool;
-import it.MadDiscord.Model.UtenteBean;
 
 public class UtenteModelDM {
 	public UtenteBean doRetrieveBy(String nome_utente) throws SQLException {
