@@ -22,8 +22,8 @@ public class UtenteDAO {
 			{
 				PreparedStatement ps = con.prepareStatement("Insert into UserTable value(?,?,?)");
 				ps.setString(1, uBean.getNome_utente());
-				ps.setString(1, uBean.getEmail());
-				ps.setString(1, uBean.getPassword_utente());
+				ps.setString(2, uBean.getEmail());
+				ps.setString(3, uBean.getPassword_utente());
 				
 				System.out.println(ps);
 				r = ps.executeUpdate();

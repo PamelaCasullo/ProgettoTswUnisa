@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSession;
 
 import it.MadDiscord.Database.LoginDAO;
@@ -34,28 +33,26 @@ public class LoginServlet extends HttpServlet {
 		
 		String email = request.getParameter("email");
 		String password_utente = request.getParameter("password_utente");
+		HttpSession session= request.getSession(false);
 		
 		UtenteBean logBean = new UtenteBean();
 		logBean.setEmail(email);
 		logBean.setPassword_utente(password_utente);
 		
+		
 		try {
 			
 			if(loginDat.validate(logBean) != null) {
 				System.out.println("validate funzia");
-				HttpSession session= request.getSession();
-			    session.setAttribute("email", email);
-			    
-			    
+				 
 			    String control = "admin@admin.com";
 			    
 			    
-<<<<<<< HEAD
-			    if(logBean.getNome_utente().equals(control)) {
-=======
-			    if(logBean.getEmail().contentEquals(control)) {
->>>>>>> parent of 3252c48... nonfunziona
+
+			    if(logBean.getEmail().equals(control)) {
 			    	
+				    session.setAttribute("email", email);
+				    session.setAttribute("mimmo", "mimmuccio");
 			    	System.out.println("funziono admin");
 			    	response.sendRedirect("index_administrator.jsp");
 

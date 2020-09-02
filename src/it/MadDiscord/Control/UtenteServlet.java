@@ -38,6 +38,7 @@ public class UtenteServlet extends HttpServlet {
 					case "insertUser": {
 						try {
 							String nome_utente = request.getParameter("nome_utente");
+							String email = request.getParameter("email");
 							String password_utente = request.getParameter("password_utente");
 							
 							UtenteBean uBean = new UtenteBean();

@@ -15,8 +15,6 @@
 </head>
 <body>
 <%@include file="header.jsp"%>
-<!--  COMING SOON -->
-
 <div>
 <h3 style="color:white">BENTORNATO. COSA VUOI FARE OGGI?</h3>
 </div>

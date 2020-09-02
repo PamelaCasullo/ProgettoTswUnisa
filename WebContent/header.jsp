@@ -30,16 +30,11 @@
 <!--  SIDEBAR -->
 <nav id=nav class="navbar navbar-expand-lg navbar-dark">
 
-<<<<<<< HEAD
 
-<%
 
-if(request.getSession().getAttribute("nome_utente")!=null && request.getSession().getAttribute("nome_utente").equals("admin")) { System.out.println("sono loggato come:"+request.getSession().getAttribute("nome_utente"));%>
-
-=======
 <%System.out.println(request.getSession().getAttribute("email"));
+System.out.println("header:"+request.getSession().getAttribute("mimmo"));
 if(request.getSession().getAttribute("email")!=null && request.getSession().getAttribute("email").equals("admin@admin.com")) { %>
->>>>>>> parent of 3252c48... nonfunziona
 
   <a class="navbar-brand" href="index_administrator.jsp">
   <img id=logo alt="logo_azienda" src="./images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
