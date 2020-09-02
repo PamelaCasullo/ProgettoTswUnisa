@@ -10,7 +10,7 @@ public class UtenteBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String nome_utente;
 	private String password_utente;
-	private String email;
+	private int admUser;
 	
 	public String getNome_utente() {
 		return nome_utente;
@@ -26,17 +26,17 @@ public class UtenteBean implements Serializable {
 		this.password_utente=password_utente;
 	}
 
-	public String getEmail() {
-		return email;
+	public int getAdmUser() {
+		return admUser;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setAdmUser(int admUser) {
+		this.admUser = admUser;
 	}
 
 	@Override
 	public String toString() {
-		return nome_utente+","+password_utente+","+email;
+		return nome_utente+","+password_utente;
 	}
 	
 	@Override

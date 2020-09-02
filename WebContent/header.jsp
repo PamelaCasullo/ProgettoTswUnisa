@@ -30,8 +30,12 @@
 <!--  SIDEBAR -->
 <nav id=nav class="navbar navbar-expand-lg navbar-dark">
 
+<<<<<<< HEAD
 <%System.out.println(request.getSession().getAttribute("email"));
 if(request.getSession().getAttribute("email")!=null && request.getSession().getAttribute("email").equals("admin@admin.com")) { %>
+=======
+<%if(request.getSession().getAttribute("nome_utente")!=null && request.getSession().getAttribute("nome_utente").equals("admin")) { %>
+>>>>>>> parent of 57b6d8f... login con email
 
   <a class="navbar-brand" href="index_administrator.jsp">
   <img id=logo alt="logo_azienda" src="./images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
@@ -84,7 +88,7 @@ if(request.getSession().getAttribute("email")!=null && request.getSession().getA
       </li>
     </ul>
      <% } %>
- <%if(request.getSession().getAttribute("email")==null){ %> 
+ <%if(request.getSession().getAttribute("nome_utente")==null){ %> 
     <form class="form-inline my-2 my-lg-0">
     
     <ul class="navbar-nav mr-auto">
@@ -104,7 +108,7 @@ if(request.getSession().getAttribute("email")!=null && request.getSession().getA
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
 	 <li class="nav-item">
-		<p style="color:orange;">Benvenuto, <%=request.getSession().getAttribute("email") %>
+		<p style="color:orange;">Benvenuto, <%=request.getSession().getAttribute("nome_utente") %>
 		<a href="<%=request.getContextPath()%>/Logout">Logout</a>
 	</li> 
     </ul>

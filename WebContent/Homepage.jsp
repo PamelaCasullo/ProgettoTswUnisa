@@ -31,8 +31,8 @@
     <div id=login>
     <form action ="<%=request.getContextPath()%>/Login" method="post">
   <div class="form-group">
-    <label >Email</label>
-    <input type="text" class="form-control" name="email" placeholder="email" >
+    <label >Username</label>
+    <input type="text" class="form-control" name="nome_utente" placeholder="nome utente" >
     <small id="emailHelp" class="form-text text-muted">Non condividere la password con nessuno</small>
   </div>
   <div class="form-group">

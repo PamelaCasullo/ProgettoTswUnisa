@@ -20,10 +20,9 @@ public class UtenteDAO {
 			
 			try (Connection con = DBConnectionPool.getConnection();)
 			{
-				PreparedStatement ps = con.prepareStatement("Insert into UserTable value(?,?,?)");
+				PreparedStatement ps = con.prepareStatement("Insert into UserTable value(?,?)");
 				ps.setString(1, uBean.getNome_utente());
-				ps.setString(1, uBean.getEmail());
-				ps.setString(1, uBean.getPassword_utente());
+				ps.setString(2, uBean.getPassword_utente());
 				
 				System.out.println(ps);
 				r = ps.executeUpdate();
@@ -43,10 +42,9 @@ public class UtenteDAO {
 			try (Connection conn = DBConnectionPool.getConnection(); )
 			{
 				//eseguiamo la query
-				PreparedStatement prepStat = conn.prepareStatement("Update UserTable set email=?, password=? where nome_utente=?");
+				PreparedStatement prepStat = conn.prepareStatement("Update UserTable set password=? where nome_utente=?");
 				prepStat.setString(1, uBean.getNome_utente());
-				prepStat.setString(2, uBean.getEmail());
-				prepStat.setString(3, uBean.getPassword_utente());
+				prepStat.setString(2, uBean.getPassword_utente());
 				
 				System.out.println(prepStat);
 				result=prepStat.executeUpdate();
@@ -99,12 +97,10 @@ public class UtenteDAO {
 				
 				while (rs.next()) {
 					String nome_utente=rs.getString("nome_utente");
-					String email=rs.getString("email");
 					String password_utente=rs.getString("password_utente"); 
 					
 					UtenteBean uBean = new UtenteBean();
 					uBean.setNome_utente(nome_utente);
-					uBean.setEmail(email);
 					uBean.setPassword_utente(password_utente);
 					all.add(uBean);
 				}
@@ -131,12 +127,10 @@ public class UtenteDAO {
 				
 				while (rs.next()) {
 					
-					String email=rs.getString("email");
 					String password_utente=rs.getString("password_utente"); 
 					
 					uBean = new UtenteBean();
-					
-					uBean.setEmail(email);
+
 					uBean.setPassword_utente(password_utente);
 				}
 			rs.close();

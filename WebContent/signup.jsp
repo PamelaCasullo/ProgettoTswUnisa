@@ -37,9 +37,6 @@
             <div class="form-icon">
                 <span class="iconify icon:ion-person-add-outline icon-inline:false"></span>
             </div>
-              <div class="form-group">
-                <input type="email" class="form-control item" name="email" placeholder="E-mail*" required>
-            </div>
             <div class="form-group">
                 <input type="text" class="form-control item" name="nome_utente" placeholder="Nome Utente*" required>
             </div>
