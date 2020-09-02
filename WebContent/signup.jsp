@@ -33,7 +33,7 @@
 <%@include file="header.jsp"%>
 <!--  registration form -->
     <div class="registration-form">
-        <form action="<%=request.getContextPath()%>/Signin" method="post">
+        <form action="<%=request.getContextPath()+"/Signin"%>" method="post">
             <div class="form-icon">
                 <span class="iconify icon:ion-person-add-outline icon-inline:false"></span>
             </div>

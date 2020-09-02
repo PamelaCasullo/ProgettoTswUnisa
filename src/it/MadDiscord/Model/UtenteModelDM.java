@@ -30,8 +30,7 @@ public class UtenteModelDM {
             while(rs.next()) {
 
                 bean.setNome_utente(rs.getString("nome_utente"));
-                bean.setPassword_utente(rs.getString("passwordutente"));
-                bean.setEmail(rs.getString("email"));
+                bean.setPassword_utente(rs.getString("password_utente"));
             }
            System.out.println(bean);
 		} finally {
@@ -70,8 +69,8 @@ public class UtenteModelDM {
 				UtenteBean bean = new UtenteBean();
 				
 				bean.setNome_utente(rs.getString("nome_utente"));
-                bean.setPassword_utente(rs.getString("passwordutente"));
-                bean.setEmail(rs.getString("email"));
+                bean.setPassword_utente(rs.getString("password_utente"));
+ 
                 
 				users.add(bean);
 			}
@@ -92,7 +91,7 @@ public class UtenteModelDM {
 		PreparedStatement preparedStatement = null;
 		
 		String insertSQL = "INSERT INTO UserTable" +
-		"(nome_utente, password_utente, email)"+"VALUES( ?, ?, ?)";
+		"(nome_utente, password_utente)"+"VALUES( ?, ?)";
 		
 		try {
 			connection = DBConnectionPool.getConnection();
@@ -100,7 +99,6 @@ public class UtenteModelDM {
 		
 			preparedStatement.setString(1, user.getNome_utente());
 			preparedStatement.setString(2, user.getPassword_utente());
-			preparedStatement.setString(3, user.getEmail());
 			
 			System.out.println("doSave "+preparedStatement.toString());
 			
@@ -122,7 +120,7 @@ public class UtenteModelDM {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String updateSQL= "UPDATE UserTable SET password_utente=?, email=? WHERE nome_utente=?";
+		String updateSQL= "UPDATE UserTable SET password_utente=? WHERE nome_utente=?";
 
 		try {
 			connection = DBConnectionPool.getConnection();
@@ -130,7 +128,6 @@ public class UtenteModelDM {
 			
 			preparedStatement.setString(1, user.getNome_utente());
 			preparedStatement.setString(2, user.getPassword_utente());
-			preparedStatement.setString(3, user.getEmail());
 			
 			System.out.println("doUpdate: "+preparedStatement.toString());
 		

@@ -18,6 +18,7 @@ import it.MadDiscord.Model.UtenteBean;
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	private LoginDAO loginDat;
        
     /**
@@ -48,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 			    String control = "admin";
 			    
 			    
-			    if(logBean.getNome_utente().contentEquals(control)) {
+			    if(logBean.getNome_utente().equals(control)) {
 			    	
 			    	System.out.println("funziono admin");
 			    	response.sendRedirect("index_administrator.jsp");

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.MadDiscord.Model.UtenteBean;
+import it.MadDiscord.Model.UtenteModelDM;
 
 
 @WebServlet("/UtenteServlet")
@@ -38,7 +39,6 @@ public class UtenteServlet extends HttpServlet {
 						try {
 							String nome_utente = request.getParameter("nome_utente");
 							String password_utente = request.getParameter("password_utente");
-							String email = request.getParameter("email");
 							
 							UtenteBean uBean = new UtenteBean();
 							
@@ -57,13 +57,11 @@ public class UtenteServlet extends HttpServlet {
 						try {
 							String nome_utente = request.getParameter("nome_utente");
 							String password_utente = request.getParameter("password_utente");
-							String email = request.getParameter("email");
 							
 							UtenteBean uBean = new UtenteBean();
 							
 							uBean.setNome_utente(nome_utente);
 							uBean.setPassword_utente(password_utente);
-							uBean.setEmail(email);
 							
 							model.doUpdate(uBean);
 							request.setAttribute("message", "Utente"+uBean.getNome_utente()+"aggiornato");
