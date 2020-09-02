@@ -9,6 +9,7 @@ import java.util.LinkedList;
 
 import it.MadDiscord.DBConnectionPool;
 
+
 public class UtenteModelDM {
 	public UtenteBean doRetrieveBy(String nome_utente) throws SQLException {
 		Connection connection = null;
