@@ -13,7 +13,7 @@ import it.MadDiscord.Model.UtenteBean;
 import it.MadDiscord.Model.UtenteModelDM;
 
 
-@WebServlet("/UtenteServlet")
+@WebServlet("/Utente")
 public class UtenteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
