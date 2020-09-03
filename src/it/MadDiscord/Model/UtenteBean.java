@@ -3,7 +3,6 @@ package it.MadDiscord.Model;
 import java.io.Serializable;
 import java.security.MessageDigest;
 
-import com.google.gson.Gson;
 
 public class UtenteBean implements Serializable {
 
@@ -50,8 +49,7 @@ public UtenteBean() {
 	}
 	
 	public String getTipo() {
-		Gson g = new Gson();
-		//turn g.toJson(this);
+		
 		return tipo.name();
 	}
 	

@@ -39,10 +39,18 @@
 			<th>Email</th>
 			<th>Password</th>
 		</tr>
-
+<% if(users!=null && users.size()>0) { 
+	
+		Iterator <?> it = users.iterator();
+		while(it.hasNext()){
+			UtenteBean bean =(UtenteBean)it.next();
+	
+	%>
+	
+	
 	</table>
 	
-	<% if(users!=null && !users.isEmpty()) { %>
+	
 	
 	<h2>DETTAGLI</h2>
 	<table>
@@ -62,23 +70,23 @@
 		<fieldset>
 		<legend><b> Update </b></legend>
 		<input type=hidden name=action value=update>
-		<input type=hidden name=id_articolo value="<%=uBean.getNome_utente()%>">
+		<input type=hidden name=nome_utente value="<%=uBean.getNome_utente()%>">
 		
 		<label for=name> Nome Utente:</label>
-		<input name=nome type=text maxlength=20  placeholder="enter name" required value="<%=uBean.getNome_utente()%>"> <br>
+		<input name=nome_utente type=text maxlength=20  placeholder="enter name" required value="<%=uBean.getNome_utente()%>"> <br>
 		
 		<label for=price>Email:</label>
 		<input name=email type="email" maxlength="20" placeholder="enter email" required><%=uBean.getEmail()%><br>
 			
 		<label for=quantity>Password</label>
-		<input name=password type="password" placeholder="enter password" required><%=uBean.getPassword_utente()%><br>
+		<input name=password_utente type="text" placeholder="enter password" required><%=uBean.getPassword_utente()%><br>
 		
 		<input type=submit value=Update> 
 		<input type=reset value=Reset>
 		</fieldset>
 	</form>	
 	
-	<%} %>
+	<%} }%>
 	
 	<form action="<%=response.encodeURL("Utente") %>" method=POST>
 		<fieldset>

@@ -102,7 +102,7 @@ public class SigninServlet extends HttpServlet {
 					sigBean.setEmail(email);
 					sigBean.setNome_utente(nome_utente);
 					sigBean.setPassword_utente(password_utente);
-					sigBean.setTipo(Tipo.admin);
+					sigBean.setTipo(Tipo.utente);
 					userModel.doSave(sigBean);
 					
 					if(uDAO.insertUser(sigBean)!=0) {

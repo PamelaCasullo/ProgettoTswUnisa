@@ -78,22 +78,22 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/admin/index_administrator.jsp">PANNELLO DI CONTROLLO <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="index_administrator.jsp">PANNELLO DI CONTROLLO <span class="sr-only">(current)</span></a>
       </li>
  
       <li class="nav-item">
-        <a class="nav-link" href="/admin/gestioneArticoli.jsp">Gestione Articoli</a>
+        <a class="nav-link" href="gestioneArticoli.jsp">Gestione Articoli</a>
       </li>
       <li>
-      <a class="nav-link" href="/admin/gestioneShop.jsp">Gestione Shop</a>
+      <a class="nav-link" href="gestioneShop.jsp">Gestione Shop</a>
       </li>
       <li>
-      <a class="nav-link" href="/admin/gestioneUtenti.jsp">Gestione Utenti</a>
+      <a class="nav-link" href="gestioneUtenti.jsp">Gestione Utenti</a>
       </li>
    
     </ul>
       
-   <%} else { System.out.println("Non sono loggato come admin"); %>
+   <%} else if(utente.getTipo().equals("utente")) { %>
  	<a class="navbar-brand" href="Homepage.jsp">
   <img id=logo alt="logo_azienda" src="./images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
   
