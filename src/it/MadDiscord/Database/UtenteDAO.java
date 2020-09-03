@@ -2,11 +2,14 @@ package it.MadDiscord.Database;
 
 
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import it.MadDiscord.DBConnectionPool;
@@ -14,26 +17,28 @@ import it.MadDiscord.Model.UtenteBean;
 
 public class UtenteDAO {
 
-	/*ADMIN*/
 		public int insertUser(UtenteBean uBean) {
-			int r = 0;
 			
+			int r = 0;
+			System.out.println("Prima della connessione" + uBean.getNome_utente());
 			try (Connection con = DBConnectionPool.getConnection();)
 			{
-				PreparedStatement ps = con.prepareStatement("Insert into UserTable value(?,?,?)");
+				PreparedStatement ps = con.prepareStatement("Insert into UserTable(nome_utente,email,password_utente) values(?,?,?)");
 				ps.setString(1, uBean.getNome_utente());
 				ps.setString(2, uBean.getEmail());
-				ps.setString(3, uBean.getPassword_utente());
+				ps.setBytes(3, uBean.getPassword_utente());
+
+				ps.executeUpdate();
+				con.commit();
+				System.out.println("Nome utente" + uBean.getNome_utente());
 				
-				System.out.println(ps);
-				r = ps.executeUpdate();
 				ps.close();
 				
+				
 			} catch (SQLException e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
-			
-			
+			r=1;
 			return r;
 		}
 		
@@ -43,10 +48,10 @@ public class UtenteDAO {
 			try (Connection conn = DBConnectionPool.getConnection(); )
 			{
 				//eseguiamo la query
-				PreparedStatement prepStat = conn.prepareStatement("Update UserTable set email=?, password=? where nome_utente=?");
+				PreparedStatement prepStat = conn.prepareStatement("Update UserTable set email=?, password_utente=? where nome_utente=?");
 				prepStat.setString(1, uBean.getNome_utente());
 				prepStat.setString(2, uBean.getEmail());
-				prepStat.setString(3, uBean.getPassword_utente());
+				prepStat.setBytes(3, uBean.getPassword_utente());
 				
 				System.out.println(prepStat);
 				result=prepStat.executeUpdate();
@@ -70,7 +75,7 @@ public class UtenteDAO {
 				//eseguiamo la query
 				PreparedStatement prepStat = conn.prepareStatement("delete from UserTable where nome_utente=?");
 				
-				prepStat.setString(1, uBean.getPassword_utente());
+				prepStat.setString(1, uBean.getNome_utente());
 				
 				System.out.println(prepStat);
 				result = prepStat.executeUpdate();
@@ -93,19 +98,17 @@ public class UtenteDAO {
 			
 			try (Connection conn = DBConnectionPool.getConnection(); ) 
 			{
-				PreparedStatement prepStat = conn.prepareStatement("select * from UserTable");
+				PreparedStatement prepStat = conn.prepareStatement("select nome_utente, email from UserTable");
 				
 				ResultSet rs = prepStat.executeQuery();
 				
 				while (rs.next()) {
 					String nome_utente=rs.getString("nome_utente");
 					String email=rs.getString("email");
-					String password_utente=rs.getString("password_utente"); 
 					
 					UtenteBean uBean = new UtenteBean();
 					uBean.setNome_utente(nome_utente);
 					uBean.setEmail(email);
-					uBean.setPassword_utente(password_utente);
 					all.add(uBean);
 				}
 				
@@ -118,37 +121,61 @@ public class UtenteDAO {
 			}
 			return all;
 		}
-
-		public UtenteBean getUtente(String nome_utente) {
-			UtenteBean uBean = null;
-			
-			try (Connection conn = DBConnectionPool.getConnection(); ) 
-			{
-				PreparedStatement prepStat = conn.prepareStatement("select * from UserTable where nome_utente=?");
-				
-				prepStat.setString(1, nome_utente);
-				ResultSet rs = prepStat.executeQuery();
-				
-				while (rs.next()) {
-					
-					String email=rs.getString("email");
-					String password_utente=rs.getString("password_utente"); 
-					
-					uBean = new UtenteBean();
-					
-					uBean.setEmail(email);
-					uBean.setPassword_utente(password_utente);
-				}
-			rs.close();
-			prepStat.close();
-			
-			} catch (SQLException e) {
-				
-				System.out.println(e);
-			}
-			return uBean;
-		}
-	}
+	
 		
+public boolean cambiaPassword(String email,String nuovaPassword,String vecchiaPassword) throws SQLException {
+	
+	
+	if(email!=null && nuovaPassword!=null) { 
+			try {
+				MessageDigest md;
+				md = MessageDigest.getInstance("SHA-256");
+				byte nuova[]=md.digest(nuovaPassword.getBytes());
+				byte vecchia[]=md.digest(vecchiaPassword.getBytes());
 
-
+				if(Arrays.compare(vecchia, this.getUserPassword("email"))==0) {
+					
+					String sql="UPDATE UserTable SET password_utente=? WHERE email=?";
+					try (Connection con = DBConnectionPool.getConnection(); PreparedStatement stat=con.prepareStatement(sql)){
+						stat.setBytes(1, nuova);
+						stat.setString(2, email);
+						stat.executeUpdate();
+						con.commit(); 
+						return true;
+					}
+				}
+				else
+					return false;
+			}
+				 catch (NoSuchAlgorithmException e) {
+					 e.printStackTrace();
+					 return false;
+			}
+		
+	}
+	
+	else 
+		return false; 
+	
+}
+public byte[] getUserPassword(String email) throws SQLException {
+	PreparedStatement stat= null;
+	String sql="SELECT * FROM UserTable WHERE email= ? ";
+	
+	try (Connection con = DBConnectionPool.getConnection()) {
+		stat = con.prepareStatement(sql);
+		stat.setString(1,email);
+		
+		System.out.println("getUserPassword=" + stat.toString());
+		ResultSet rs = stat.executeQuery();
+		
+		while(rs.next()) {
+			return rs.getBytes("password_utente");
+		}
+		
+		return null;
+		
+	
+}
+}
+}
