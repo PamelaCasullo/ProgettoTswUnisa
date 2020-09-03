@@ -9,7 +9,7 @@ import java.util.LinkedList;
 
 import it.MadDiscord.DBConnectionPool;
 
-public class ShopModelDM implements ShopModel<ShopBean> {
+public class ShopModelDM implements IntModel<ShopBean,String> {
 	
 	public ShopBean doRetrieveBy(String id) throws SQLException {
 		Connection connection = null;
@@ -174,5 +174,11 @@ public class ShopModelDM implements ShopModel<ShopBean> {
 				DBConnectionPool.releaseConnection(connection);
 			}
 		}
+	}
+
+	@Override
+	public void doDelete(String product) throws SQLException {
+		// TODO Auto-generated method stub
+		
 	}
 }

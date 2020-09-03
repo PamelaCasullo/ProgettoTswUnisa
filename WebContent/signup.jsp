@@ -30,7 +30,7 @@
     
 </head>
 <body>
-<%@include file="header.jsp"%>
+
 <!--  registration form -->
     <div class="registration-form">
         <form action="<%=request.getContextPath()+"/Signin"%>" method="post">

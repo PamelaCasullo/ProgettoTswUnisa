@@ -8,21 +8,22 @@ import java.util.Collection;
 import java.util.LinkedList;
 
 import it.MadDiscord.DBConnectionPool;
+import it.MadDiscord.Model.UtenteBean.Tipo;
 
 
-public class UtenteModelDM {
+public class UtenteModelDM implements IntModel<UtenteBean,String> {
 	public UtenteBean doRetrieveBy(String nome_utente) throws SQLException {
-		Connection connection = null;
+		
 		PreparedStatement preparedStatement = null;
 		
 		UtenteBean bean = new UtenteBean();
 		
-		String selectSQL ="SELECT * FROM UserTable WHERE nome_utente=?";
+		String selectSQL ="SELECT * FROM UserTable WHERE email=?";
 		
-		try {
-			connection = DBConnectionPool.getConnection(); 
-			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, bean.getNome_utente()); //QUESTA RIGA VA BENE
+		try (Connection con = DBConnectionPool.getConnection()) {
+			
+			preparedStatement = con.prepareStatement(selectSQL);
+			preparedStatement.setString(1, nome_utente);
 			
 			System.out.println("doRetriveBy:"+preparedStatement.toString());
 			ResultSet rs= preparedStatement.executeQuery();
@@ -30,20 +31,29 @@ public class UtenteModelDM {
             while(rs.next()) {
 
                 bean.setNome_utente(rs.getString("nome_utente"));
+                bean.setEmail(rs.getString("email"));
                 bean.setPassword_utente(rs.getString("password_utente"));
-            }
-           System.out.println(bean);
-		} finally {
-				try {
-					if(preparedStatement != null) 
-						preparedStatement.close();
-				} finally {
-					DBConnectionPool.releaseConnection(connection);
+                System.out.println("-"+rs.getString("idAdmin")+"-");
+                switch (rs.getString("idAdmin")) {
+                
+				case "utente": {
+					System.out.println("sono un utente");
+					bean.setTipo(Tipo.utente);
 				}
-			}
-			
-		return bean;
+				case "admin": {
+					System.out.println("sono un admin");
+					bean.setTipo(Tipo.admin);
+				}
+				}
+                
+                
+            }
+		} 
 		
+		if(bean.isEmpty())
+			return null;
+		else
+			return bean;	
 	}
 
 	public Collection<UtenteBean> doRetrieveAll(String order) throws SQLException {
@@ -70,8 +80,7 @@ public class UtenteModelDM {
 				
 				bean.setNome_utente(rs.getString("nome_utente"));
                 bean.setPassword_utente(rs.getString("password_utente"));
- 
-                
+
 				users.add(bean);
 			}
 		} finally {
@@ -87,32 +96,25 @@ public class UtenteModelDM {
 	}
 
 	public void doSave(UtenteBean user) throws SQLException {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
+
 		
-		String insertSQL = "INSERT INTO UserTable" +
-		"(nome_utente, password_utente)"+"VALUES( ?, ?)";
+		String insertSQL = "INSERT INTO UserTable VALUES(?,?,?,?)";
 		
-		try {
-			connection = DBConnectionPool.getConnection();
-			preparedStatement = connection.prepareStatement(insertSQL);
+		try (Connection connection = DBConnectionPool.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(insertSQL);){
+			
+		
 		
 			preparedStatement.setString(1, user.getNome_utente());
-			preparedStatement.setString(2, user.getPassword_utente());
+			preparedStatement.setString(2, user.getEmail());
+			preparedStatement.setString(3, user.getTipo());
+			preparedStatement.setBytes(4, user.getPassword_utente());
 			
 			System.out.println("doSave "+preparedStatement.toString());
 			
 			preparedStatement.executeUpdate();
 			connection.commit();
 			
-			} finally {
-					try {
-						if(preparedStatement != null) 
-							preparedStatement.close();
-					} finally {
-						DBConnectionPool.releaseConnection(connection);
-					}
-				}
+			}
 		}
 
 
@@ -127,7 +129,7 @@ public class UtenteModelDM {
 			preparedStatement = connection.prepareStatement(updateSQL);
 			
 			preparedStatement.setString(1, user.getNome_utente());
-			preparedStatement.setString(2, user.getPassword_utente());
+			preparedStatement.setBytes(2, user.getPassword_utente());
 			
 			System.out.println("doUpdate: "+preparedStatement.toString());
 		
@@ -144,29 +146,20 @@ public class UtenteModelDM {
 		}
 	}
 		
-		
 
-	public void doDelete(UtenteBean user) throws SQLException {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
+
+	public void doDelete(String email) throws SQLException {
+			String sql="DELETE FROM UserTable WHERE email = ?";
 		
-		String deleteSQL= "DELETE FROM UserTable WHERE nome_utente=?";
-		try {
-			connection = DBConnectionPool.getConnection();
-			preparedStatement = connection.prepareStatement(deleteSQL);
-			preparedStatement.setString(1, user.getNome_utente());
-			System.out.println("DoDelete "+preparedStatement.toString());
+		try (Connection con = DBConnectionPool.getConnection();PreparedStatement statement=con.prepareStatement(sql);) {
+			
+			statement.setString(1,email);
+			System.out.println("DoDelete=" + statement.toString());
+			statement.executeUpdate();
+			con.commit();
 		
-			preparedStatement.executeUpdate();
-			connection.commit();
-		} finally {
-			try {
-				if(preparedStatement != null) 
-					preparedStatement.close();
-			} finally {
-				DBConnectionPool.releaseConnection(connection);
-			}
-		}
+	}
+		
 	}
 }
 
