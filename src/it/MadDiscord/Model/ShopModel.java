@@ -3,7 +3,7 @@ package it.MadDiscord.Model;
 import java.sql.SQLException;
 import java.util.Collection;
 
-public interface IntModel <T,U> {
+public interface ShopModel <T> {
 	
 	public T doRetrieveBy(String id) throws SQLException;
 	
@@ -13,6 +13,6 @@ public interface IntModel <T,U> {
 	
 	public void doUpdate(T product)  throws SQLException;
 	
-	public void doDelete(U product)  throws SQLException;
+	public void doDelete(T product)  throws SQLException;
 	
 }

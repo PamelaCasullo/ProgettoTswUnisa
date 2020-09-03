@@ -26,7 +26,28 @@
 </head>
 <body> 
 <%@include file="header.jsp"%>
-   
+    <!-- LOGIN -->
+
+    <div id=login>
+    <form action ="<%=request.getContextPath()%>/Login" method="post">
+  <div class="form-group">
+    <label >Email</label>
+    <input type="text" class="form-control" name="email" placeholder="email" >
+    <small id="emailHelp" class="form-text text-muted">Non condividere la password con nessuno</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" name="password_utente">
+  </div>
+  <div class="form-group"><label><a href="password.html">Password dimenticata?</a></label> </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" >
+    <label class="form-check-label" >Mantienimi registrato</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Accedi</button>
+</form>
+</div>
+
 <%@include file="homeInclusive.jsp" %>
 
 </body>

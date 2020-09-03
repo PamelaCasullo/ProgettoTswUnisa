@@ -16,6 +16,6 @@
 		
 
 	}
-	xhr.open('GET', '../Article?action=show', true);		
+	xhr.open('GET', '../TournamentControl?action=getTornei', true);		
 	xhr.send();
 		})

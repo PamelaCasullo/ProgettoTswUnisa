@@ -1,11 +1,6 @@
 package it.MadDiscord.Control;
 
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.sql.SQLException;
-import java.util.Arrays;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,9 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import it.MadDiscord.Database.UtenteDAO;
+import it.MadDiscord.Database.LoginDAO;
 import it.MadDiscord.Model.UtenteBean;
-import it.MadDiscord.Model.UtenteModelDM;
 
 /**
  * Servlet implementation class LoginServlet
@@ -24,46 +18,64 @@ import it.MadDiscord.Model.UtenteModelDM;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private UtenteModelDM userModel = new UtenteModelDM(); 
-	private UtenteDAO uDAO = new UtenteDAO();
+	private LoginDAO loginDat;
        
-
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+	public void init() {
+		loginDat = new LoginDAO();
+	}
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		String email = request.getParameter("email");
+		String password_utente = request.getParameter("password_utente");
 		HttpSession session= request.getSession(false);
+		
+		UtenteBean logBean = new UtenteBean();
+		logBean.setEmail(email);
+		logBean.setPassword_utente(password_utente);
+		
+		
 		try {
 			
-		MessageDigest md = MessageDigest.getInstance("SHA-256");
-		
-		String str = request.getParameter("password_utente");
-		System.out.println(str);
-		byte curr[] = md.digest(str.getBytes());
-		byte user[] = uDAO.getUserPassword(request.getParameter("email"));
-		
-		if (Arrays.compare(curr, user) == 0) {
-			UtenteBean uBean = userModel.doRetrieveBy(request.getParameter("email"));
-			session.setAttribute("nome_utente", uBean);
-			
-			session.setAttribute("error-type", null); 
-			session.setAttribute("error", null);
-			session.setAttribute("error-location", null);
-			response.sendRedirect("Homepage.jsp");
-		} else {
-			session.setAttribute("error-type", "wrongCred");
-			session.setAttribute("error", "Password o email errate");
-			session.setAttribute("error-location", "login");
-			response.sendRedirect("login.jsp");
-		}	    
-		
-		}
-		catch (SQLException|NoSuchAlgorithmException e) {
-			e.printStackTrace();
-		}
+			if(loginDat.validate(logBean) != null) {
+				System.out.println("validate funzia");
+				 
+			    String control = "admin@admin.com";
 			    
+			    
+
+			    if(logBean.getEmail().equals(control)) {
+			    	
+				    session.setAttribute("email", email);
+				    session.setAttribute("mimmo", "mimmuccio");
+			    	System.out.println("funziono admin");
+			    	response.sendRedirect("index_administrator.jsp");
+
+			    
+			    } else {
+			    	System.out.println("funziono user");
+			    	response.sendRedirect("index_user.jsp");
+
+			    }
+				
+				} else {
+				String message = "Hai sbagliato qualcosa, riprova!";
+				System.out.println(request.getParameter("email") + " "+ logBean.getEmail());
+				request.setAttribute("message", message);
+				System.out.println("ciao");
+				response.sendRedirect("login.jsp");
+			}
+			
+
+		} catch (ClassNotFoundException e) {
+			throw new ServletException(e);
+		}
+		
 	}
 
 	/**

@@ -72,13 +72,13 @@ public class UtenteServlet extends HttpServlet {
 						}
 					}
 					
-					case "deleteUser": {
+					case "delteUser": {
 						try {
 							String nome_utente = request.getParameter("nome_utente");
 							
 							UtenteBean uBean = model.doRetrieveBy(nome_utente);
 							
-							model.doDelete(uBean.getEmail());
+							model.doDelete(uBean);
 							request.setAttribute("message", "Utente"+uBean.getNome_utente()+"rimosso");
 						} catch (SQLException e) {
 							System.out.println(e);
@@ -96,6 +96,17 @@ public class UtenteServlet extends HttpServlet {
 						}
 					}
 					
+					//   	COME SI FA ??????????
+	//				case "allUtente": {
+	//					ArrayList<UtenteBean> users = request.getParameterNames("nome_utente");
+	//					
+	//					request.removeAttribute("user");
+	//					try {
+	//						request.setAttribute("user", model.doRetrieveAll(sort));
+	//					} catch (SQLException e) {
+	//						System.out.println(e);
+	//					}
+	//				}
 					}
 				}
 			} catch (NumberFormatException e) {

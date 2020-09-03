@@ -1,13 +1,5 @@
-<%@page import="it.MadDiscord.Model.UtenteBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	UtenteBean utente=(UtenteBean)session.getAttribute("nome_utente");
-	if(utente!=null) {
-		System.out.println("utente diverso da null"+ utente.getTipo());
-	}
-
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,49 +18,25 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.6, shrink-to-fit=no">
 	
-	<meta name="description">
+	<meta name="description" content="layout template responsive">
 	<meta name="author" content="Paolo Apostolico, Pamela Casullo, Giulio Triggiani">
 	 
 	 <link rel="stylesheet" href="css/default.css">
  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <title>MAD DISCORD</title>
 </head>
 <body>
 
 <!--  SIDEBAR -->
 <nav id=nav class="navbar navbar-expand-lg navbar-dark">
 
- <%if(utente==null) { %> 
-    <form class="form-inline my-2 my-lg-0" style="float: left">
-    
-    <ul class="navbar-nav mr-auto">
-    <li> 
-    <span><a class="nav-link" href="signup.jsp"><u> Sign-up</u></a></span>
-    
-    <li>
-    
-   <button class="btn btn-dark"> <a class="nav-link" href="login.jsp">Login</a> </button>
-    </ul>
-    </form>
-  
-
-   <% } else { %>
-   <nav id=nav class="navbar navbar-expand-lg navbar-dark">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-	 <li class="nav-item">
-		<p style="color:orange;">Benvenuto, <%=utente.getNome_utente() %>
-		<a href="<%=request.getContextPath()%>/Logout">Logout</a>
-	</li> 
-    </ul>
-      </div>
 
 
+<%System.out.println(request.getSession().getAttribute("email"));
+System.out.println("header:"+request.getSession().getAttribute("mimmo"));
+if(request.getSession().getAttribute("email")!=null && request.getSession().getAttribute("email").equals("admin@admin.com")) { %>
 
-<%if(utente.getTipo().equals("admin")) { %>
-
-  <a class="navbar-brand" href="/admin/index_administrator.jsp">
+  <a class="navbar-brand" href="index_administrator.jsp">
   <img id=logo alt="logo_azienda" src="./images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
   
   </a>
@@ -78,22 +46,22 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/admin/index_administrator.jsp">PANNELLO DI CONTROLLO <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="index_administrator.jsp">PANNELLO DI CONTROLLO <span class="sr-only">(current)</span></a>
       </li>
  
       <li class="nav-item">
-        <a class="nav-link" href="/admin/gestioneArticoli.jsp">Gestione Articoli</a>
+        <a class="nav-link" href="gestioneArticoli.jsp">Gestione Articoli</a>
       </li>
       <li>
-      <a class="nav-link" href="/admin/gestioneShop.jsp">Gestione Shop</a>
+      <a class="nav-link" href="gestioneShop.jsp">Gestione Shop</a>
       </li>
       <li>
-      <a class="nav-link" href="/admin/gestioneUtenti.jsp">Gestione Utenti</a>
+      <a class="nav-link" href="gestioneUtenti.jsp">Gestione Utenti</a>
       </li>
    
     </ul>
       
-   <%} else { System.out.println("Non sono loggato come admin"); %>
+   <%} else { System.out.println("Non sono loggato"); %>
  	<a class="navbar-brand" href="Homepage.jsp">
   <img id=logo alt="logo_azienda" src="./images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
   
@@ -119,10 +87,33 @@
       </li>
     </ul>
      <% } %>
-     <% } %>
-
-   </div>
+ <%if(request.getSession().getAttribute("email")==null){ %> 
+    <form class="form-inline my-2 my-lg-0">
+    
+    <ul class="navbar-nav mr-auto">
+    <li> 
+    <span><a class="nav-link" href="signup.jsp"><u> Sign-up</u></a></span>
+    
+    <li>
+    
+   <button class="btn btn-dark"> <a class="nav-link" href="login.jsp">Login</a> </button>
+    </ul>
+    </form>
     </div>
+    </div>
+
+    <% } else { %>
+    <nav id=nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+	 <li class="nav-item">
+		<p style="color:orange;">Benvenuto, <%=request.getSession().getAttribute("email") %>
+		<a href="<%=request.getContextPath()%>/Logout">Logout</a>
+	</li> 
+    </ul>
+      </div>
+
+ <% } %>
 </nav>
 </nav>   
 
