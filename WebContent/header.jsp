@@ -66,7 +66,7 @@
 <%if(utente.getTipo().equals("admin")) { %>
 
   <a class="navbar-brand" href="../Homepage.jsp">
-  <img id=logo alt="logo_azienda" src="../images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
+  <img id=logo alt="logo_azienda" src="<%=request.getContextPath()+"/images/LogoGif.gif"%>" width="60" style="	border-radius: 70%;border-width: none;">
   
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,9 +90,9 @@
    
     </ul>
       
-   <%} else  { %>
- 	<a class="navbar-brand" href="../Homepage.jsp">
-  <img id=logo alt="logo_azienda" src="../images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
+   <% } else  { %>
+ 	<a class="navbar-brand" href="<%=request.getContextPath()+"/Homepage.jsp"%>">
+  <img id=logo alt="logo_azienda" src="<%=request.getContextPath()+"/images/LogoGif.gif"%>" width="60" style="	border-radius: 70%;border-width: none;">
   
   </a>
 

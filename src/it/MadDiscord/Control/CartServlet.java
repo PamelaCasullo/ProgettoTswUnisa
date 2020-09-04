@@ -14,10 +14,7 @@ import it.MadDiscord.Model.ShopBean;
 import it.MadDiscord.Model.ShopModelDM;
 
 
-
-
-
-@WebServlet("/CartServlet")
+@WebServlet(urlPatterns = {"/CartServlet","/utente/CartServlet"})
 public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

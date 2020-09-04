@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,9 +14,12 @@ import it.MadDiscord.Model.Cart;
 import it.MadDiscord.Model.ShopBean;
 import it.MadDiscord.Model.ShopModelDM;
 
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB after which the file will be
+//temporarily stored on disk
+maxFileSize = 1024 * 1024 * 10, // 10MB maximum size allowed for uploaded files
+maxRequestSize = 1024 * 1024 * 50) // 50MB overall size of all uploaded files
 
-
-@WebServlet("/Shop")
+@WebServlet(urlPatterns = {"/Shop","/utente/Shop"})
 public class ShopServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -72,7 +76,7 @@ public class ShopServlet extends HttpServlet {
 	}
 	
 	
-	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/shop.jsp");
+	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/utente/shop.jsp");
 	dispatcher.forward(request, response);
 	
 }

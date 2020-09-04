@@ -36,14 +36,15 @@ public class UtenteModelDM implements IntModel<UtenteBean,String> {
                 System.out.println("-"+rs.getString("idAdmin")+"-");
                 switch (rs.getString("idAdmin")) {
                 
-				case "utente": {
+				case "utente": 
 					System.out.println("sono un utente");
 					bean.setTipo(Tipo.utente);
-				}
-				case "admin": {
+					break;
+				case "admin": 
 					System.out.println("sono un admin");
 					bean.setTipo(Tipo.admin);
-				}
+					break;
+
 				}
                 
                 

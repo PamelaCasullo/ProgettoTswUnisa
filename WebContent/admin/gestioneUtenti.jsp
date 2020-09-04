@@ -15,7 +15,7 @@
 	}
 
 
-	UtenteBean uBean = (UtenteBean) request.getAttribute("user");
+	UtenteBean user = (UtenteBean) request.getAttribute("user");
 
 
 %>    
@@ -37,7 +37,6 @@
 		<tr>
 			<th>Nome Utente</th>
 			<th>Email</th>
-			<th>Password</th>
 		</tr>
 	<% if(users!=null && users.size()>0) { 
 	
@@ -46,67 +45,74 @@
 			UtenteBean bean =(UtenteBean)it.next();
 	
 	%>
-
 			<tr>
-				<td><%=uBean.getNome_utente() %></td>
-				<td><%=uBean.getEmail()%></td>
-				<td><%=uBean.getPassword_utente()%></td>
+				<td><%=bean.getNome_utente() %></td>
+				<td><%=bean.getEmail()%></td>
+				<td>
+				<a href="<%=response.encodeURL("Utente?action=deleteUser&nome_utente="+bean.getNome_utente()) %>">Rimuovi dal database</a>
+				<a href="<%=response.encodeURL("Utente?action=detailsUser&nome_utente="+bean.getNome_utente()) %>">dettagli</a>
+				</td>
 			</tr>
 	
-	</table>
-	
-	
-	
+
+	<% } } else { %>	
+	<tr>
+			<td colspan=4>Database vuoto</td>
+		</tr>
+		<%} %>
+			</table>
+			
+<%if(user!=null &&!user.isEmpty()) { %>			
 	<h2>DETTAGLI</h2>
 	<table>
 			<tr>
 				<th>Nome Utente</th>
 				<th>Email</th>
-				<th>Password</th>
 			</tr>
 			<tr>
-				<td><%=uBean.getNome_utente() %></td>
-				<td><%=uBean.getEmail()%></td>
-				<td><%=uBean.getPassword_utente()%></td>
+				<td><%=user.getNome_utente() %></td>
+				<td><%=user.getEmail()%></td>
 			</tr>
 		</table>
 			
-		<form action="<%=response.encodeURL("Utente") %>" method=POST>
+		<form action="<%=response.encodeURL("Utente")%>" method=POST>
 		<fieldset>
 		<legend><b> Update </b></legend>
 		<input type=hidden name=action value=update>
-		<input type=hidden name=nome_utente value="<%=uBean.getNome_utente()%>">
+		<input type=hidden name=nome_utente value="<%=user.getNome_utente()%>">
 		
 		<label for=name> Nome Utente:</label>
-		<input name=nome_utente type=text maxlength=20  placeholder="enter name" required value="<%=uBean.getNome_utente()%>"> <br>
+		<input name=nome_utente type=text maxlength=20  placeholder="enter name" required value="<%=user.getNome_utente()%>"> <br>
 		
 		<label for=price>Email:</label>
-		<input name=email type="email" maxlength="20" placeholder="enter email" required><%=uBean.getEmail()%><br>
+		<input name=email type="email" maxlength="20" placeholder="enter email" required><%=user.getEmail()%><br>
 			
 		<label for=quantity>Password</label>
-		<input name=password_utente type="text" placeholder="enter password" required><%=uBean.getPassword_utente()%><br>
+		<input name=password_utente type="text" placeholder="enter password" required><%=user.getPassword_utente()%><br>
 		
 		<input type=submit value=Update> 
 		<input type=reset value=Reset>
 		</fieldset>
 	</form>	
 	
-	<%} }%>
+	<%}%>
 	
-	<form action="<%=response.encodeURL("Utente") %>" method=POST>
+	<form action="<%=response.encodeURL("Utente")%>" method=POST>
 		<fieldset>
 		<legend><b> Insert </b></legend>
 		<input type=hidden name=action value=insertUser>
 		
-		<label for=nome> Nome utente:</label>
-		<input name=nome type=text maxlength=20  placeholder="enter name" required> <br>
+		<label for=nome_utente> Nome utente:</label>
+		<input name=nome_utente type=text maxlength=20  placeholder="enter name" required> <br>
 		
 		<label for=email>Email:</label>
 		<input name=email type="email" required placeholder="enter email"><br>
 		
-			
+		<label for=type>Tipo:</label>
+		<input name=idAdmin type=text required placeholder="admin o utente"><br>	
+		
 		<label for=password>Password:</label>
-		<input name=password type="password" required placeholder="enter password"><br>
+		<input name=password_utente type="text" required placeholder="enter password"><br>
 		
 		<input type=submit value=Insert> 
 		<input type=reset value=Reset>
