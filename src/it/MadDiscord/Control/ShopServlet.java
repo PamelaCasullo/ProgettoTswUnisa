@@ -44,25 +44,33 @@ public class ShopServlet extends HttpServlet {
 		
 		String action = request.getParameter("action");
 		
-	
+		try {
 		if(action!=null) {
 			if(action.equals("addCart")) {
 					String id=request.getParameter("id");
-					ShopBean bean;
-					try {
-						bean = model.doRetrieveBy(id);
+					ShopBean bean = model.doRetrieveBy(id);
 						if(bean!=null && !bean.isEmpty()) {
 							cart.addItem(bean);
 							request.setAttribute("message", "Prodotto"+bean.getNome_oggetto()+" aggiunto al carrello");
-					}} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+							}
 					}
-					
-		
-				}
+				
+			else if(action.equals("clearCart")) {
+				cart.deleteItems();
+				request.setAttribute("message", "Cart cleaned");
+					} 
+			
+			}
 		
 		}
+
+		
+		catch(SQLException | NumberFormatException e) {
+			System.out.println("Error: "+ e.getMessage());
+			request.setAttribute("error", e.getMessage());			
+		}
+		
+		
 		request.setAttribute("cart", cart);
 	
 	

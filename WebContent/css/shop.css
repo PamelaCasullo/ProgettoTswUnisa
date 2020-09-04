@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+td,th {	
+	color:black;
+}
 
 table, th, td {
 	text-align: center;

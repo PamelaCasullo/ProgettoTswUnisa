@@ -5,9 +5,9 @@ import java.io.Serializable;
 public class CartBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private int id;
-	private int quant;
-	private float prezzo;
+	int id;
+	int quant;
+	float prezzo;
 	
 	public CartBean () {
 		

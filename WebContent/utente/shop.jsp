@@ -1,4 +1,4 @@
-<%@page import=" it.MadDiscord.Model.*,  java.util.*"%>
+<%@page import="java.util.*,it.MadDiscord.Model.ShopBean,it.MadDiscord.Model.Cart"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -10,6 +10,13 @@
 		response.sendRedirect(response.encodeRedirectURL("./Shop")); //QUI
 		return;
 	}
+	
+Cart<ShopBean> cart = (Cart<ShopBean>)request.getAttribute("cart");
+	
+ 	if(cart == null) {
+ 		response.sendRedirect(response.encodeRedirectURL("./Shop"));
+ 		return;
+ 	}	
  	
  	ShopBean product = (ShopBean) request.getAttribute("product");
 	
@@ -26,9 +33,9 @@
 	 
 	
 	
-	<link rel=stylesheet href="css/default.css">
+	<!--  <link rel=stylesheet href="css/default.css">-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigins=anomymous >
-	<link rel="stylesheet" href="css/shop.css">
+	 <link rel="stylesheet" href="css/shop.css">
 	
 	<title>Shop MadDiscord</title>
 	
@@ -36,7 +43,11 @@
 </head>
 
 <body>
+<<<<<<< Updated upstream:WebContent/utente/shop.jsp
 <%@include file="../header.jsp"%>
+=======
+<!-- <@ include file="header.jsp" %> -->
+>>>>>>> Stashed changes:WebContent/shop.jsp
 
 	<!-- SHOP   -->
     <header>
@@ -48,6 +59,15 @@
   --> 
         <a href="carrello.jsp">CARRELLO</a>
     </header>
+    
+    <%
+	List<ShopBean> prodcart = cart.getItems();
+
+	if(prodcart.size() > 0) {
+%>
+	<a href="<%=response.encodeURL("Shop?action=clearCart")%>">Clear</a>
+	<a href="">Buy</a>
+<%  } %>
 
 <div class="Shop_container" align="center">
 <table style="color:white">
