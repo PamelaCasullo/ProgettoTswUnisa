@@ -45,7 +45,7 @@ public class ShopServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		
 		try {
-		if(action!=null) {
+			if(action!=null) {
 			if(action.equals("addCart")) {
 					String id=request.getParameter("id");
 					ShopBean bean = model.doRetrieveBy(id);
