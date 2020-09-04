@@ -43,15 +43,19 @@
 <form class="form-inline my-2 my-lg-0" style="float: left">
 <a class="navbar-brand" href="<%=request.getContextPath()+"/Homepage.jsp"%>">
   <img id=logo alt="logo_azienda" src="<%=request.getContextPath()+"/images/LogoGif.gif"%>" width="60" style="	border-radius: 70%;border-width: none;">
-  
   </a>
-    
+    <ul class="navbar-nav mr-auto">
+      <li>
+      <a class="nav-link" href="<%=request.getContextPath()+"/utente/Article.jsp"%>">Articoli</a>
+      </li>
+      <li>
+      <a class="nav-link" href="<%=request.getContextPath()+"/utente/about.jsp"%>">About</a>
+      </li>
+    </ul>
     <ul class="navbar-nav mr-auto">
     <li> 
     <span><a class="nav-link" href="signup.jsp"><u> Sign-up</u></a></span>
-    
-    <li>
-    
+
    <button class="btn btn-dark"> <a class="nav-link" href="login.jsp">Login</a> </button>
     </ul>
     </form>
