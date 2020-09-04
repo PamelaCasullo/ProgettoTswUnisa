@@ -41,12 +41,12 @@ public class CartServlet extends HttpServlet {
 			if(action!=null) {
 			switch (action) {
 		
-			case "clearCart": {
+			case "clearCart":
 				cart.deleteItems();
 				request.setAttribute("message", "Carrello ripulito");
-			}
+			break;
 			
-			case "deleteCart": {
+			case "deleteCart":
 					String id=request.getParameter("id");
 					ShopBean bean;
 					try {
@@ -61,7 +61,7 @@ public class CartServlet extends HttpServlet {
 					}
 					
 					
-				}
+					break;
 			
 			
 			default:

@@ -38,7 +38,7 @@ public class CartServletErk extends HttpServlet {
 				response.setContentType("text/html");
 				response.setCharacterEncoding("UTF-8");
 				switch (action) {
-					case "delete": {
+					case "delete": 
 						String id=request.getParameter("id");
 						ShopBean bean;
 						try {
@@ -51,12 +51,12 @@ public class CartServletErk extends HttpServlet {
 								
 							System.out.println(e);
 						}
-					}
+						break;
 						
-					case "clear": {
+					case "clear": 
 						cart.deleteItems();
 						request.setAttribute("message", "Carrello ripulito");
-					}
+						break;
 							
 				}
 			}
