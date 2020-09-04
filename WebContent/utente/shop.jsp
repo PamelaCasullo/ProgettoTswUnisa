@@ -44,7 +44,11 @@ Cart<ShopBean> cart = (Cart<ShopBean>)request.getAttribute("cart");
 
 <body>
 <<<<<<< Updated upstream:WebContent/utente/shop.jsp
+<<<<<<< Updated upstream:WebContent/utente/shop.jsp
 <%@include file="../header.jsp"%>
+=======
+<!-- <@ include file="header.jsp" %> -->
+>>>>>>> Stashed changes:WebContent/shop.jsp
 =======
 <!-- <@ include file="header.jsp" %> -->
 >>>>>>> Stashed changes:WebContent/shop.jsp
