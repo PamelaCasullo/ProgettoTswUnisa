@@ -7,3 +7,4 @@ build/classes/it/MadDiscord/Model/UtenteBean.class
 build/classes/it/MadDiscord/Database/ShopDAO.class
 build/classes/it/MadDiscord/Model/ShopBean.class
 /bin/
+.settings/org.eclipse.jdt.core.prefs
