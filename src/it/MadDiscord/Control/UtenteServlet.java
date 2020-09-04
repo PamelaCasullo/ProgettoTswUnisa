@@ -13,7 +13,7 @@ import it.MadDiscord.Model.UtenteBean;
 import it.MadDiscord.Model.UtenteModelDM;
 
 
-@WebServlet("/Utente")
+@WebServlet(urlPatterns = {"/Utente","/admin/Utente"})
 public class UtenteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -111,7 +111,7 @@ public class UtenteServlet extends HttpServlet {
 				request.setAttribute("error", e.getMessage());
 			}
 		
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/gestioneUtenti.jsp");
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/admin/gestioneUtenti.jsp");
 			dispatcher.forward(request, response);
 		
 				

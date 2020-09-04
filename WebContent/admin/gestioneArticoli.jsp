@@ -28,7 +28,7 @@
 
 </head>
 <body>
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 <div class=Articoli style="color:white">
 <h1>Inserimento degli articoli al sito. Sono richiesti un titolo, un'immagine ed un contenuto(200 caratteri max)</h1>
 	

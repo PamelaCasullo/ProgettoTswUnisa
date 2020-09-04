@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import it.MadDiscord.Model.ShopBean;
 import it.MadDiscord.Model.ShopModelDM;
 
-@WebServlet("/ShopAdmin")
+@WebServlet(urlPatterns = {"/ShopAdmin","/admin/ShopAdmin"})
 public class ShopAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -93,7 +93,7 @@ public class ShopAdminServlet extends HttpServlet {
 	}
 	
 	
-	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/gestioneShop.jsp");
+	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/admin/gestioneShop.jsp");
 	dispatcher.forward(request, response);
 	
 }

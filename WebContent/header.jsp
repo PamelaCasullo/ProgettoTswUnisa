@@ -4,7 +4,7 @@
 <%
 	UtenteBean utente=(UtenteBean)session.getAttribute("nome_utente");
 	if(utente!=null) {
-		System.out.println("utente diverso da null"+ utente.getTipo());
+		System.out.println("utente diverso da null: "+ utente.getTipo());
 	}
 
 %>
@@ -29,7 +29,7 @@
 	<meta name="description">
 	<meta name="author" content="Paolo Apostolico, Pamela Casullo, Giulio Triggiani">
 	 
-	 <link rel="stylesheet" href="css/default.css">
+	 <link rel="stylesheet" href="../css/default.css">
  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <title>MAD DISCORD</title>
@@ -40,7 +40,7 @@
 <nav id=nav class="navbar navbar-expand-lg navbar-dark">
 
  <%if(utente==null) { %> 
-    <form class="form-inline my-2 my-lg-0" style="float: left">
+<form class="form-inline my-2 my-lg-0" style="float: left">
     
     <ul class="navbar-nav mr-auto">
     <li> 
@@ -51,7 +51,6 @@
    <button class="btn btn-dark"> <a class="nav-link" href="login.jsp">Login</a> </button>
     </ul>
     </form>
-  
 
    <% } else { %>
    <nav id=nav class="navbar navbar-expand-lg navbar-dark">
@@ -64,12 +63,10 @@
     </ul>
       </div>
 
-
-
 <%if(utente.getTipo().equals("admin")) { %>
 
-  <a class="navbar-brand" href="/admin/index_administrator.jsp">
-  <img id=logo alt="logo_azienda" src="./images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
+  <a class="navbar-brand" href="../Homepage.jsp">
+  <img id=logo alt="logo_azienda" src="../images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
   
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,24 +75,24 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="index_administrator.jsp">PANNELLO DI CONTROLLO <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<%=request.getContextPath()+"/Homepage.jsp"%>">PANNELLO DI CONTROLLO <span class="sr-only">(current)</span></a>
       </li>
  
       <li class="nav-item">
-        <a class="nav-link" href="gestioneArticoli.jsp">Gestione Articoli</a>
+        <a class="nav-link" href="<%=request.getContextPath()+"/admin/gestioneArticoli.jsp"%>">Gestione Articoli</a>
       </li>
       <li>
-      <a class="nav-link" href="gestioneShop.jsp">Gestione Shop</a>
+      <a class="nav-link" href="<%=request.getContextPath()+"/admin/gestioneShop.jsp"%>">Gestione Shop</a>
       </li>
       <li>
-      <a class="nav-link" href="gestioneUtenti.jsp">Gestione Utenti</a>
+      <a class="nav-link" href="<%=request.getContextPath()+"/admin/gestioneUtenti.jsp"%>">Gestione Utenti</a>
       </li>
    
     </ul>
       
-   <%} else if(utente.getTipo().equals("utente")) { %>
- 	<a class="navbar-brand" href="Homepage.jsp">
-  <img id=logo alt="logo_azienda" src="./images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
+   <%} else  { %>
+ 	<a class="navbar-brand" href="../Homepage.jsp">
+  <img id=logo alt="logo_azienda" src="../images/LogoGif.gif" width="60" style="	border-radius: 70%;border-width: none;">
   
   </a>
 
@@ -106,27 +103,26 @@
 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="Homepage.jsp">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../Homepage.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
       <li>
-      <a class="nav-link" href="Article.jsp">Articoli</a>
+      <a class="nav-link" href="<%=request.getContextPath()+"/utente/Article.jsp"%>">Articoli</a>
       </li>
       <li>
-      <a class="nav-link" href="about.jsp">About</a>
+      <a class="nav-link" href="<%=request.getContextPath()+"/utente/about.jsp"%>">About</a>
       </li>
       <li>
-      <a class="nav-link" href="shop.jsp">Shop</a>
+      <a class="nav-link" href="<%=request.getContextPath()+"/utente/shop.jsp"%>">Shop</a>
       </li>
     </ul>
      <% } %>
-     <% } %>
 
+   <% } %>
    </div>
     </div>
 </nav>
-</nav>   
 
-
+</nav> 
 		<footer>
 		<span>APOSTOLICO PAOLO, 
 		CASULLO PAMELA, 

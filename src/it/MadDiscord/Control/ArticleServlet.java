@@ -17,7 +17,7 @@ import it.MadDiscord.Model.ArticleBean;
 import it.MadDiscord.Model.ArticleModelDM;
 
 
-@WebServlet("/Article")
+@WebServlet(urlPatterns = {"/Article","/admin/Article"})
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB after which the file will be
 // temporarily stored on disk
 maxFileSize = 1024 * 1024 * 10, // 10MB maximum size allowed for uploaded files
@@ -178,7 +178,7 @@ public class ArticleServlet extends HttpServlet {
 			request.setAttribute("error", e.getMessage());
 		}
 		
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/gestioneArticoli.jsp");
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/admin/gestioneArticoli.jsp");
 		dispatcher.forward(request, response);
 	}
 	

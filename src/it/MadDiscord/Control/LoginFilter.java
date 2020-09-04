@@ -34,8 +34,8 @@ public class LoginFilter implements Filter{
 		System.out.println("Sto filtrando la richiesta");
 		String requestURI=hRequest.getRequestURI();
 		
-		if(requestURI.contains("/user/")) {
-			System.out.println("il path contiene *user*");
+		if(requestURI.contains("/utente/")) {
+			System.out.println("il path contiene *utente*");
 			checkAccess(session, request, response, chain, hResponse, hRequest, "utente");
 		}
 		else if(requestURI.contains("/admin/")) {

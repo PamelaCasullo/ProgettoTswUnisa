@@ -23,7 +23,7 @@
 <title>Carrello</title>
 </head>
 <body>
-<%@ include file="header.jsp" %>
+<%@include file="../header.jsp"%>
 
 	<%
 	List<ShopBean> prodCart = cart.getItems();

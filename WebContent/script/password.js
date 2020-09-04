@@ -5,7 +5,6 @@
 	  	} else {
 	  		x.attr("type", "password")
 	  	}
-	  	
 	}
 
 

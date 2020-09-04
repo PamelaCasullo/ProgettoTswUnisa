@@ -13,9 +13,6 @@
 	return;
 	}
 	
-
-	
-
  	ShopBean product = (ShopBean) request.getAttribute("product");
 	
 %>
@@ -42,7 +39,7 @@
 
 <body>
 
-<%@ include file="header.jsp" %>
+<%@include file="../header.jsp"%>
 
 
 <!--  GESTIONE CARRELLO:insert -->

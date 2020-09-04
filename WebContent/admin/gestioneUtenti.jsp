@@ -28,7 +28,7 @@
 </head>
 
 <body>
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 <div class=Utenti style="color:white">
 <h1>Elenco degli utenti. Seleziona uno per visualizzarlo/modificarlo/eliminarlo.</h1>
 <div class="mostraUtenti"></div>
@@ -39,14 +39,19 @@
 			<th>Email</th>
 			<th>Password</th>
 		</tr>
-<% if(users!=null && users.size()>0) { 
+	<% if(users!=null && users.size()>0) { 
 	
 		Iterator <?> it = users.iterator();
 		while(it.hasNext()){
 			UtenteBean bean =(UtenteBean)it.next();
 	
 	%>
-	
+
+			<tr>
+				<td><%=uBean.getNome_utente() %></td>
+				<td><%=uBean.getEmail()%></td>
+				<td><%=uBean.getPassword_utente()%></td>
+			</tr>
 	
 	</table>
 	

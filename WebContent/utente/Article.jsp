@@ -7,7 +7,7 @@
 <title>ARTICOLO</title>
 </head>
 <body>
-<%@include file='header.jsp'%>
+<%@include file="../header.jsp"%>
 <form action="<%=response.encodeURL("ArticleServlet")%>" enctype="multipart/form-data">
  <input type="submit" value="Mostra Articoli">
 	

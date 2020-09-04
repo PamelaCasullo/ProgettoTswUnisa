@@ -1,5 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+  <%
+String error=" ";
+String type=" ";
+String errorLocation=" ";
+if(session.getAttribute("error")!=null && session.getAttribute("error-type")!=null && session.getAttribute("error-location")!=null){
+	error = (String)session.getAttribute("error");
+	type= (String)session.getAttribute("error-type");	
+	errorLocation =(String)session.getAttribute("error-location");
+}
+    
+System.out.println("location "+errorLocation);
+System.out.println("error "+error);
+System.out.println("type "+type);
+%>   
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +46,7 @@
     
 </head>
 <body>
-
+<%@include file="header.jsp"%>
 <!--  registration form -->
     <div class="registration-form">
         <form action="<%=request.getContextPath()+"/Signin"%>" method="post">
@@ -39,6 +55,8 @@
             </div>
               <div class="form-group">
                 <input type="email" class="form-control item" name="email" placeholder="E-mail*" required>
+                <span class="error"><%if(type.equals("email")){ %><%=error%><%}%></span>
+                <span class="error"></span>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control item" name="nome_utente" placeholder="Nome Utente*" required>
@@ -51,9 +69,11 @@
             <div class="form-group">
                 <input type="password" class="form-control item myInput1" placeholder="Ripeti password*" required>
                 <input type="checkbox" onclick="visualPassword('myInput1')"><p>Mostra password</p>
+                <span class="error"><%if(type.equals("password")){ %><%=error%><%}%></span>
+                <span class="psw error"></span>
             </div>  
-  
-            <div> <p style="text-align:center">Creando un account accetterai la nostra <a href="#" id=privacy>politica sulla Privacy.</a>.</p></div>
+  			 
+           
             <div class="form-group">
                 <button type="submit" class="btn btn-block create-account " onClick="passwordCheck()">Crea un account</button>
             </div>
