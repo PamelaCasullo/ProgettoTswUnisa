@@ -41,7 +41,7 @@ public class ArticleServlet extends HttpServlet {
 		try {
 		if(action!=null) {
 			switch (action) {
-		case "insert": {
+		case "insert": 
 			
 		try (ByteArrayOutputStream bos = new ByteArrayOutputStream()){
 			
@@ -87,16 +87,16 @@ public class ArticleServlet extends HttpServlet {
 				request.setAttribute("message", "Articolo"+aBean.getTitolo()+"salvato");
 				
 		} 
-		}
-		case "details": {
+		break;
+		case "details": 
 			
 					String id_articolo = request.getParameter("id_articolo");
 					
 					request.removeAttribute("article");
 					request.setAttribute("article", aModel.doRetrieveBy(id_articolo));
 				
-		}
-		case "delete":	{
+		break;
+		case "delete":
 			
 			
 			try {
@@ -114,8 +114,8 @@ public class ArticleServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		}
-		case "update" : {
+		break;
+		case "update" : 
 				try (ByteArrayOutputStream bos = new ByteArrayOutputStream()){
 			
 			 
@@ -156,11 +156,11 @@ public class ArticleServlet extends HttpServlet {
 				request.setAttribute("message", "Articolo"+aBean.getTitolo()+"salvato");
 				} 
 			
-		}
-		case "show" :{
+		break;
+		case "show" :
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/ArticleServlet");
 			rd.forward(request, response);
-		}
+		break;
 			
 			
 	}}

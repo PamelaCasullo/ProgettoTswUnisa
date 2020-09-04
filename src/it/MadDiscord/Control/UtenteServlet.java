@@ -35,7 +35,7 @@ public class UtenteServlet extends HttpServlet {
 				if(action != null) {
 					switch (action) {
 					
-					case "insertUser": {
+					case "insertUser":
 						try {
 							String nome_utente = request.getParameter("nome_utente");
 							String email = request.getParameter("email");
@@ -53,9 +53,9 @@ public class UtenteServlet extends HttpServlet {
 						} catch (SQLException e) {
 							System.out.println(e);
 						}
-					}
+					break;
 					
-					case "updateUser": {
+					case "updateUser":
 						try {
 							String nome_utente = request.getParameter("nome_utente");
 							String password_utente = request.getParameter("password_utente");
@@ -70,9 +70,9 @@ public class UtenteServlet extends HttpServlet {
 						} catch (SQLException e) {
 							System.out.println(e);
 						}
-					}
+					break;
 					
-					case "deleteUser": {
+					case "deleteUser":
 						try {
 							String nome_utente = request.getParameter("nome_utente");
 							
@@ -83,9 +83,9 @@ public class UtenteServlet extends HttpServlet {
 						} catch (SQLException e) {
 							System.out.println(e);
 						}
-					}
+					break;
 					
-					case "getUtente": {
+					case "getUtente":
 						String nome_utente = request.getParameter("nome_utente");
 						
 						request.removeAttribute("user");
@@ -94,7 +94,7 @@ public class UtenteServlet extends HttpServlet {
 						} catch (SQLException e) {
 							System.out.println(e);
 						}
-					}
+					break;
 					
 					}
 				}
