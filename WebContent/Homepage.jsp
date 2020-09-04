@@ -29,8 +29,15 @@
 <%if(utente==null)  { %>
    <h4 style="color:white"> SE VUOI VISUALIZZARE TUTTI I CONTENUTI DEL NOSTRO SITO, SEI PREGATO DI EFFETTUARE L'ACCESSO ATTRAVERSO LA PAGINA DI LOGIN.<br>
    SE INVECE NON HAI ANCORA UN PROFILO, COSA STAI ASPETTANDO?! ENTRA A FARE PARTE DELLA FAMIGLIA "MAD DISCORD"!<br></h4>
-<% } %>
-<%@include file="homeInclusive.jsp" %>
+   <%@include file="homeInclusive.jsp" %>
+<% } else if(utente.getTipo().equals("admin")) { %>
 
+	<h1 style="color:white">Benvenuto, amministratore. Cosa vuoi fare oggi? Per effettuare modifiche, scegli tra le operazioni disponibili del pannello di controllo.</h1>
+	
+<% } else if(utente.getTipo().equals("utente")) { %>
+
+<h1 style="color:white">Benvenuto/Bentornato tra i MadDiscord!</h1>
+	<%@include file="homeInclusive.jsp" %>
+<% } %>
 </body>
 </html>
