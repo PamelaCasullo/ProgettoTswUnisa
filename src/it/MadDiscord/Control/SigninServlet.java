@@ -67,14 +67,13 @@ public class SigninServlet extends HttpServlet {
 				return;
 			}
 			
-			
 			else 
 				if (userModel.doRetrieveBy(request.getParameter("nome_utente")) != null) {
 					System.out.println("guarda che sto user è stato usato");
 					session.setAttribute("error-type", "nome_utente");
-					session.setAttribute("error", "Quest'username è stato utilizzato");
+					session.setAttribute("error", "Questo username è stato utilizzato");
 					session.setAttribute("error-location", "signup");
-					response.sendRedirect(request.getContextPath()+"/login.jsp");
+					response.sendRedirect(request.getContextPath()+"/signup.jsp");
 					return;
 				}
 				else if(!request.getParameter("email").matches(regMail)) {
@@ -82,14 +81,14 @@ public class SigninServlet extends HttpServlet {
 					session.setAttribute("error-type", "email");
 					session.setAttribute("error", "La mail non è scritta correttamente");
 					session.setAttribute("error-location", "signup");
-					response.sendRedirect(request.getContextPath()+"/login.jsp");
+					response.sendRedirect(request.getContextPath()+"/signup.jsp");
 				}
 				else if(!request.getParameter("password_utente").matches(regPsw)) {
 					System.out.println("mi fermo alla psw");
 					session.setAttribute("error-type", "password_utente");
 					session.setAttribute("error", "Deve essere almeno 8 caratteri con almeno:un carattere speciale,un lowercase,un UPPERCASE e un numero ");
 					session.setAttribute("error-location", "signup");
-					response.sendRedirect(request.getContextPath()+"/login.jsp");
+					response.sendRedirect(request.getContextPath()+"/signup.jsp");
 				}
 				else {
 					String email = request.getParameter("email");

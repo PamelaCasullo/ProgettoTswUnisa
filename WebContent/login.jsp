@@ -37,12 +37,13 @@ System.out.println("type "+type);
             
             <div class="illustration"><i class="icon ion-ios-game-controller-b-outline"> </i></div>
             <div class="form-group"><input class="form-control" type="email" name="email" class=email placeholder="mario_rossi@dominio.it"required></div>
-            <span class="error-mail"></span>
+            <span class="error-cred" style="color:yellow;"><%if(type.equals("wrongCred")){ %><%=error%><%}%></span>
             <div class="form-group"><input class="form-control item myInput" type="password" name="password_utente" placeholder="password" required></div>
             <input type="checkbox" onclick="visualPassword('myInput')"><p>Mostra password</p>
-            <span class="error-cred"><%if(type.equals("wrongCred")){ %><%=error%><%}%></span>
+          
             
             <div class="form-group">
+            <span class="error-cred" style="color:yellow;"><%if(type.equals("wrongCred")){ %><%=error%><%}%></span>
             <button class="btn btn-primary btn-block" type="submit">Log In</button></div>
    			<p style="text-align:center"> Se non avete ancora creato un profilo, siete pregati di farlo attraverso la pagina di <a href="signup.jsp">Registrazione</a></p>
 			

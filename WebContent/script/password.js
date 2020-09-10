@@ -18,8 +18,8 @@ function passwordCheck() {
 	  var y= $(".myInput1");
 
 		if(x.val()===y.val()) 
-			alert("Le due password coincidono");
+			console.text("Le due password coincidono");
 		  else 
-			  alert("Le password non coincidono");
+		  	error.text("Le due password non coincidono");
 	
   }
