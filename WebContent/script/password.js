@@ -1,23 +1,25 @@
-	function visualPassword(k){
-		 var x = $("."+k);
-		if(x.attr("type")==="password"){
-	  		x.attr("type","text");
-	  	} else {
-	  		x.attr("type", "password")
-	  	}
-	}
+/*Per login*/ 
+function visualPassword(k){
+	var x = $("."+k);
+   if(x.attr("type")==="password"){
+	console.log('Funziono');
+		 x.attr("type","text");
+	 } else {
+		 x.attr("type", "password")
+		 console.log('non Funziono');
+	 }
+}
 
 
 
+ 
+function passwordCheck() {
+	var x = $(".myInput");
+	  var y= $(".myInput1");
 
-
-	function passwordCheck() {
-		var x = $(".myInput");
-	  	var y= $(".myInput1");
+		if(x.val()===y.val()) 
+			alert("Le due password coincidono");
+		  else 
+			  alert("Le password non coincidono");
 	
-    		if(x.val()===y.val()) 
-    			alert("Le due password coincidono");
-  			else 
-  				alert("Le password non coincidono");
-    	
-  	}
+  }

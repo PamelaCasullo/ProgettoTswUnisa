@@ -13,8 +13,6 @@
 				}
 			
 			}
-		
-
 	}
 	xhr.open('GET', '../Article?action=show', true);		
 	xhr.send();
