@@ -21,7 +21,7 @@ System.out.println("type "+type);
 <head>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="script/signin.jsp"></script>
+	<script type="text/javascript" src="script/password.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
@@ -42,7 +42,7 @@ System.out.println("type "+type);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
    
     
-    <script type="text/javascript" src="script/password.js"></script>
+    <script type="text/javascript" src="script/login.js"></script>
     
 </head>
 <body>
@@ -55,11 +55,12 @@ System.out.println("type "+type);
             </div>
               <div class="form-group">
                 <input type="email" class="form-control item" name="email" placeholder="E-mail*" required>
-                <span class="error"><%if(type.equals("email")){ %><%=error%><%}%></span>
+                <span class="error" style="color:yellow;"><%if(type.equals("email")){ %><%=error%><%}%></span>
                 <span class="error"></span>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control item" name="nome_utente" placeholder="Nome Utente*" required>
+                <span class="error" style="color:yellow;"><%if(type.equals("nome_utente")){ %><%=error%><%}%></span>
             </div>
             <div class="form-group">
                 <input type="password" class="form-control item myInput"placeholder="Password*" name="password_utente" required>
@@ -69,7 +70,7 @@ System.out.println("type "+type);
             <div class="form-group">
                 <input type="password" class="form-control item myInput1" placeholder="Ripeti password*" required>
                 <input type="checkbox" onclick="visualPassword('myInput1')"><p>Mostra password</p>
-                <span class="error"><%if(type.equals("password")){ %><%=error%><%}%></span>
+                <span class="error" style="color:yellow;"><%if(type.equals("password_utente")){ %><%=error%><%}%></span>
                 <span class="psw error"></span>
             </div>  
   			 

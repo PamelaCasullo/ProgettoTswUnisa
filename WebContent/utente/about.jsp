@@ -19,10 +19,10 @@
 	<meta name="author" content="Paolo Apostolico, Pamela Casullo, Giulio Triggiani">
 	 <!--  LINK TAG -->
 	<title>HomePage</title>
-	<link rel="stylesheet" href="css/about.css">
-	<link rel="stylesheet" href="css/default.css">
+	<link rel="stylesheet" href="../css/about.css">
+	<link rel="stylesheet" href="../css/default.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigins=anomymous >
-	<link rel="stylesheet" href="css/layout.css">
+	<link rel="stylesheet" href="../css/layout.css">
 	
 </head>
 <body> 
@@ -31,7 +31,7 @@
 <div id=about>
 	
     <h1>About Us</h1>
-    <img style=float:left src="images/esultanza.gif" width=600>
+    <img style=float:left src="../images/esultanza.gif" width=600>
   	
   	<table id=tableclass>
   		<tr>
