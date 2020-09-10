@@ -106,13 +106,13 @@
 		<input type=hidden name=id value="<%=product.getId()%>">
 		
 		<label for=name> Nome Oggetto:</label>
-		<input name=name type=text maxlength=20  placeholder="enter name" required value="<%=product.getNome_oggetto()%>"> <br>
+		<input name=name type=text maxlength=20  placeholder="enter name" value="<%=product.getNome_oggetto()%>"> <br>
 		
 		<label for=price>Prezzo:</label>
-		<input name=price type="number" step="any" min=0 required><%=product.getPrezzo() %><br>
+		<input name=price type="number" step="any" min=0><%=product.getPrezzo() %><br>
 			
 		<label for=quantity>Quantità:</label>
-		<input name=quantity type=number min=1 required><%=product.getQuant() %><br>
+		<input name=quantity type=number min=1><%=product.getQuant() %><br>
 		
 		<input type=submit value=Update> 
 		<input type=reset value=Reset>
@@ -128,7 +128,7 @@
 		<legend><b> Insert </b></legend>
 		<input type=hidden name=action value=insert>
 		
-		<label for=nome_oggetto> Nome:</label>
+		<label for=nome_oggetto> Nome Oggetto:</label>
 		<input name=nome_oggetto type=text maxlength=20  placeholder="enter name" required> <br>
 		
 		<label for=prezzo>Prezzo:</label>

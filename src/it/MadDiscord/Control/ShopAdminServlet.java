@@ -71,7 +71,7 @@ public class ShopAdminServlet extends HttpServlet {
 					bean.setNome_oggetto(name);
 					bean.setPrezzo(price);
 					bean.setQuant(quantity);
-					
+					System.out.println("prima della doUpdate");
 					model.doUpdate(bean);	
 					request.setAttribute("message", "Prodotto "+bean.getNome_oggetto()+" aggiornato");
 				}
