@@ -62,7 +62,7 @@
 		<%} %>
 			</table>
 			
-<%if(user!=null &&!user.isEmpty()) { %>			
+<%if(user!=null && !user.isEmpty()) { %>			
 	<h2>DETTAGLI</h2>
 	<table>
 			<tr>
