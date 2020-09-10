@@ -35,7 +35,7 @@ Cart<ShopBean> cart = (Cart<ShopBean>)request.getAttribute("cart");
 	
 	<!--  <link rel=stylesheet href="css/default.css">-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigins=anomymous >
-	 <link rel="stylesheet" href="css/shop.css">
+	 <!-- <link rel="stylesheet" href="css/shop.css"> -->
 	
 	<title>Shop MadDiscord</title>
 	
@@ -44,16 +44,13 @@ Cart<ShopBean> cart = (Cart<ShopBean>)request.getAttribute("cart");
 
 <body>
 
-<%@include file="../header.jsp"%>
+ <!-- <%@include file="../header.jsp"%> -->
 	<!-- SHOP   -->
     <header>
         <h1 class="shop_header">SHOP UFFICIALE DEI MAD DISCORD</h1> 
-         <!--    	<div class= carrello>
-   		<a href="carrello.jsp"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-   	
-   	</div> 
-  --> 
-        <a href="carrello.jsp">CARRELLO</a>
+         
+  
+        CARRELLO
     </header>
     
     <%
@@ -64,6 +61,36 @@ Cart<ShopBean> cart = (Cart<ShopBean>)request.getAttribute("cart");
 	<a href="<%=response.encodeURL("Shop?action=clearCart")%>">Clear</a>
 	<a href="">Buy</a>
 <%  } %>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Prezzo</th>
+		<th>Action</th>
+	</tr>	
+	<%
+		if(prodcart.size() > 0) {
+			for(ShopBean prod: prodcart) {
+	%>
+			<tr>
+				<td><%= prod.getNome_oggetto() %> </td>
+				<td><%= prod.getPrezzo() %></td>
+				<td><a href="<%=response.encodeURL("Shop?action=deleteCart&id=" + prod.getId()) %>">Delete from cart</a>			
+			</tr> 
+	<% 		}
+		} else {
+	%>
+		<tr><td colspan="2">No product available in the cart</td></tr>
+	<%
+		}
+	%>
+</table>
+
+
+
+
+
+	
 
 <div class="Shop_container" align="center">
 <table style="color:white">

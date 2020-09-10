@@ -14,6 +14,7 @@ import it.MadDiscord.Model.Cart;
 import it.MadDiscord.Model.ShopBean;
 import it.MadDiscord.Model.ShopModelDM;
 
+
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB after which the file will be
 //temporarily stored on disk
 maxFileSize = 1024 * 1024 * 10, // 10MB maximum size allowed for uploaded files
@@ -59,6 +60,15 @@ public class ShopServlet extends HttpServlet {
 				cart.deleteItems();
 				request.setAttribute("message", "Cart cleaned");
 					} 
+			
+			else if(action.equals("deleteCart")) {
+				String id = request.getParameter("id");
+				ShopBean bean = model.doRetrieveBy(id);
+				if(bean != null && !bean.isEmpty()) {
+					cart.deleteItem(bean);
+					request.setAttribute("message", "Product "+ bean.getNome_oggetto()+" deleted from cart");
+				}
+			}
 			
 			}
 		
