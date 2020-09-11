@@ -11,45 +11,22 @@
 			
 			if (xhr.status == 200 && xhr.readyState == 4) {
 				let data = JSON.parse(xhr.responseText);
-				console.log(data);			
-				var div=$(".mostraArticoli");
-				for (var i = 0; i < data.length; i++) {
-					div.append('<p>Titolo= '+data[i].titolo+' <a href="../Article?action=delete&id='+data[i].id_articolo+'"><i class="fas fa-dumpster-fire"></i></a><br>');	
+				console.log(data);	
+
+				for (var i = 0; i < data['0'].length; i++) {
+					articolo.append('<div><p>Titolo= '+data['0'][i]+'</p><a onclick="mostraArticolo(\''+data['0'][i]+'\')"><img src='+data['1'][i]+'></img></div><br>');	
 		
 				}
 			
 			}
 	}
-	xhr.open('GET', '../Article?action=show', true);		
+	xhr.open('GET', '../Article?action=show&id='+$('.id_article').val(), true);		
 	xhr.send();
-		})
-
-
-		$(document).ready(function(){
-			var xhr = new XMLHttpRequest();
-		   //var datiP=$('.dati');
-		   //var pImage=$('.pImage');
-		   //var nomeS=$('.nomeS');
-			var giocatori=$('.giocatori');
-		   xhr.onreadystatechange = function() {
-			   if (xhr.status == 200 && xhr.readyState == 4) {
-				   var data = JSON.parse(xhr.responseText);
-				   console.log(data);			
-				   
-				   for (var i = 0; i < data['0'].length; i++) {
-					   //nomeS.append('<div class=nomeS>'+data[i].nome +' </div> ');	
-					   //pImage.append('<div class=pImage> <img src='+data[i].teamImage+'></img> </div> ');
-					   //datiP.append('<div class=datiP>'+data[i].nome +' </div>');
-					   giocatori.append('<div><h5>'+data['0'][i]+'</h5><div class="'+data['0'][i]+'"><a onclick="mostraGiocatore(\''+data['0'][i]+'\') "><img src='+data['1'][i]+'></img></div></div> ');
-				   }
-			   }
-		   }
-		   xhr.open('GET', 'UserControl?action=getGiocatoriFromSquadra&nomeSquadra='+$('.teamName').val(), true);	
-		   xhr.send();
 	})
+
+
 	
-	
-	function mostraGiocatore(i){
+	function mostraArticolo(i){
 		var div=$('.dati');
 		var xhr = new XMLHttpRequest();
 	   
@@ -57,13 +34,11 @@
 		   if (xhr.status == 200 && xhr.readyState == 4) {
 			   var data = JSON.parse(xhr.responseText);
 			   console.log(data);	
+
 			   div.empty();
-			   div.append('<h3>DATI DEL GIOCATORE: '+data[0].nickname+'</h3><br>');
-			   div.append('<span>NOME: <small>'+data[0].nome+'</small><br><br>'+
-							'NICKNAME: <small>'+data[0].nickname+'</small><br><br>'+
-							 'COGNOME: <small>'+data[0].cognome+'</small><br><br>'+
-					 'DATA DI NASCITA: <small>'+data[0].datanascita+'</small><br><br>'+
-							   'RUOLO: <small>'+data[0].ruolo+'</small><br><br>'+
+			   div.append('<h3>'+data[0].titolo+'</h3><br>');
+			   div.append('<span><small>'+data[0].immagine+'</small><br><br>'+
+							' <small>'+data[0].cont+'</small><br><br>'+
 						  '</span>');
 			   
 		   }
