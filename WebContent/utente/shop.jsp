@@ -33,9 +33,9 @@ Cart<ShopBean> cart = (Cart<ShopBean>)request.getAttribute("cart");
 	 
 	
 	
-	<!--  <link rel=stylesheet href="css/default.css">-->
+	<link rel=stylesheet href="css/default.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigins=anomymous >
-	 <!-- <link rel="stylesheet" href="css/shop.css"> -->
+	 <link rel="stylesheet" href="css/shop.css">
 	
 	<title>Shop MadDiscord</title>
 	
@@ -44,7 +44,7 @@ Cart<ShopBean> cart = (Cart<ShopBean>)request.getAttribute("cart");
 
 <body>
 
- <!-- <%@include file="../header.jsp"%> -->
+  <%@include file="../header.jsp"%>
 	<!-- SHOP   -->
     <header>
         <h1 class="shop_header">SHOP UFFICIALE DEI MAD DISCORD</h1> 
@@ -58,9 +58,11 @@ Cart<ShopBean> cart = (Cart<ShopBean>)request.getAttribute("cart");
 
 	if(prodcart.size() > 0) {
 %>
-	<a href="<%=response.encodeURL("Shop?action=clearCart")%>">Clear</a>
-	<a href="">Buy</a>
+	
+	<a href="<%=response.encodeURL("Shop?action=clearCart")%>" onclick="javascript:alert('cart clear');">Clear</a>
+	<a href="<%=response.encodeURL("Shop?action=clearCart")%>" onclick="javascript:alert('grazie per aver acquistato');">Buy</a>
 <%  } %>
+
 
 <table>
 	<tr>
@@ -85,6 +87,7 @@ Cart<ShopBean> cart = (Cart<ShopBean>)request.getAttribute("cart");
 		}
 	%>
 </table>
+
 
 
 

@@ -41,8 +41,7 @@ public class ShopServlet extends HttpServlet {
 			cart = new Cart<ShopBean>();
 			request.getSession().setAttribute("carrello", cart);
 		}
-		String sort = request.getParameter("sort");
-		
+	
 		String action = request.getParameter("action");
 		
 		try {
@@ -83,17 +82,7 @@ public class ShopServlet extends HttpServlet {
 		
 		request.setAttribute("cart", cart);
 	
-	
-	try {
-		request.removeAttribute("products");
-		request.setAttribute("products", model.doRetrieveAll(sort));
-		
-	} catch (SQLException e) {
-		System.out.println("Error: "+e.getMessage());
-		request.setAttribute("error", e.getMessage());
-	}
-	
-	
+
 	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/utente/shop.jsp");
 	dispatcher.forward(request, response);
 	
