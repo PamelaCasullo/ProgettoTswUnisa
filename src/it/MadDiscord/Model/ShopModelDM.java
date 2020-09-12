@@ -99,7 +99,7 @@ public class ShopModelDM implements IntModel<ShopBean,String> {
 	public void doUpdate(ShopBean product) throws SQLException {
 		PreparedStatement preparedStatement = null;
 		
-		String updateSQL= "UPDATE ShopTable(is,nome_oggetto, prezzo, quant) SET nome_oggetto=?, prezzo=?, quant=? WHERE id=?";
+		String updateSQL= "UPDATE ShopTable(id,nome_oggetto, prezzo, quant) SET nome_oggetto=?, prezzo=?, quant=? WHERE id=?";
 		try (Connection connection = DBConnectionPool.getConnection(); ){
 			
 			preparedStatement = connection.prepareStatement(updateSQL);
