@@ -46,9 +46,6 @@
   </a>
     <ul class="navbar-nav mr-auto">
       <li>
-      <a class="nav-link" href="<%=request.getContextPath()+"/utente/Article.jsp"%>">Articoli</a>
-      </li>
-      <li>
       <a class="nav-link" href="<%=request.getContextPath()+"/utente/about.jsp"%>">About</a>
       </li>
     </ul>
@@ -88,10 +85,7 @@
       </li>
  
       <li class="nav-item">
-        <a class="nav-link" href="<%=request.getContextPath()+"/admin/gestioneArticoli.jsp"%>">Gestione Articoli</a>
-      </li>
-      <li>
-      <a class="nav-link" href="<%=request.getContextPath()+"/admin/gestioneShop.jsp"%>">Gestione Shop</a>
+        <a class="nav-link" href="<%=request.getContextPath()+"/admin/gestioneShop.jsp"%>">Gestione Shop</a>
       </li>
       <li>
       <a class="nav-link" href="<%=request.getContextPath()+"/admin/gestioneUtenti.jsp"%>">Gestione Utenti</a>
@@ -110,9 +104,6 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="../Homepage.jsp">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li>
-      <a class="nav-link" href="<%=request.getContextPath()+"/utente/Article.jsp"%>">Articoli</a>
       </li>
       <li>
       <a class="nav-link" href="<%=request.getContextPath()+"/utente/about.jsp"%>">About</a>
