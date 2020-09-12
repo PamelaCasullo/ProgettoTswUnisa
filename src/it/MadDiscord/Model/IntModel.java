@@ -14,5 +14,7 @@ public interface IntModel <T,U> {
 	public void doUpdate(T product)  throws SQLException;
 	
 	public void doDelete(U product)  throws SQLException;
+
+	
 	
 }

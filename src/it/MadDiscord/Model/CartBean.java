@@ -1,41 +1,56 @@
 package it.MadDiscord.Model;
 
-import java.io.Serializable;
 
-public class CartBean implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	int id;
-	int quant;
-	float prezzo;
+
+
+public class CartBean  { 
+	
+	public CartBean (String id_cart, float totale) {
+		this.id_cart = id_cart;
+		this.totale = totale;
+	}
+		
+	
+
+	private float totale;
+	
+	private String id_cart;
+	
+	public float getTotale() {
+		return totale;
+	}
+
+	public void setTotale(float totale) {
+		this.totale = totale;
+	}
+
+	public String getId_cart() {
+		return id_cart;
+	}
+
+	public void setId_cart(String id_cart) {
+		this.id_cart = id_cart;
+	}
+	
+	@Override
+	public String toString() {
+		return "CartBean [totale=" + totale + ", id_cart=" + id_cart + ", getClass()=" + getClass() + "]";
+	}
+	
+	public boolean equals (Object o) {
+		if (o == null || getClass() != o.getClass()) return false;
+		CartBean that = (CartBean) o;
+		return id_cart.equals(that.id_cart);
+	}
+
+	
 	
 	public CartBean () {
 		
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public int getQuant() {
-		return quant;
-	}
-
-	public float getPrezzo() {
-		return prezzo;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setQuant(int quant) {
-		this.quant = quant;
-	}
-
-	public void setPrezzo(float prezzo) {
-		this.prezzo = prezzo;
-	}
+	
 	
 	
 	

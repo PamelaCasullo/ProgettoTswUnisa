@@ -1,4 +1,4 @@
-<%@page import="java.util.*,it.MadDiscord.Model.ShopBean,it.MadDiscord.Model.Cart"%>
+<%@page import="java.util.*,it.MadDiscord.Model.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 

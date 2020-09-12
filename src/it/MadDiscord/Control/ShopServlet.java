@@ -9,16 +9,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import it.MadDiscord.Model.Cart;
+import it.MadDiscord.Database.CartDAO;
+import it.MadDiscord.Database.ProdDAO;
+import it.MadDiscord.Model.CartBean;
+import it.MadDiscord.Model.ProdBean;
 import it.MadDiscord.Model.ShopBean;
 import it.MadDiscord.Model.ShopModelDM;
+import it.MadDiscord.Model.UtenteBean;
 
+import java.util.ArrayList;
+import java.util.UUID;
 
-@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB after which the file will be
-//temporarily stored on disk
-maxFileSize = 1024 * 1024 * 10, // 10MB maximum size allowed for uploaded files
-maxRequestSize = 1024 * 1024 * 50) // 50MB overall size of all uploaded files
 
 @WebServlet(urlPatterns = {"/Shop","/utente/Shop"})
 public class ShopServlet extends HttpServlet {
@@ -33,54 +36,51 @@ public class ShopServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		@SuppressWarnings("unchecked")
-		Cart<ShopBean> cart = (Cart<ShopBean>) request.getSession().getAttribute("carrello");
-		
-		if(cart==null) {
-			cart = new Cart<ShopBean>();
-			request.getSession().setAttribute("carrello", cart);
-		}
-	
-		String action = request.getParameter("action");
-		
-		try {
-			if(action!=null) {
-			if(action.equals("addCart")) {
-					String id=request.getParameter("id");
-					ShopBean bean = model.doRetrieveBy(id);
-						if(bean!=null && !bean.isEmpty()) {
-							cart.addItem(bean);
-							request.setAttribute("message", "Prodotto"+bean.getNome_oggetto()+" aggiunto al carrello");
-							}
-					}
-				
-			else if(action.equals("clearCart")) {
-				cart.deleteItems();
-				request.setAttribute("message", "Cart cleaned");
-					} 
-			
-			else if(action.equals("deleteCart")) {
-				String id = request.getParameter("id");
-				ShopBean bean = model.doRetrieveBy(id);
-				if(bean != null && !bean.isEmpty()) {
-					cart.deleteItem(bean);
-					request.setAttribute("message", "Product "+ bean.getNome_oggetto()+" deleted from cart");
-				}
+		  HttpSession session = request.getSession(true);
+		  String azione = request.getParameter("action");
+		  if(session.getAttribute("utente") != null && azione != null) {
+			  UtenteBean utente = (UtenteBean) session.getAttribute("utente");
+			  CartDAO carrelloDAO = new CartDAO();
+			  try {
+				  CartBean carrello = (CartBean) carrelloDAO.doRetrieveBy(utente.getEmail());
+				  ProdDAO prodottoDAO = new ProdDAO();
+				  if(carrello != null && (azione != null && !azione.equals(""))) {
+					  response.setContentType("application/json");
+	                  response.setCharacterEncoding("UTF-8"); 
+	                  switch (azione) {
+	                  		case "aggiungi":
+	                  			String idprodottoStr = request.getParameter("id_prodotto");
+	                  			 if(idprodottoStr != null) {
+	                                 UUID id_prodotto = UUID.fromString(idprodottoStr);
+	                                 ProdBean prodottoDaAggiungere = prodottoDAO.doRetrieveBy(id_prodotto);
+	                               carrelloDAO.addCarrello(carrello, prodottoDaAggiungere);
+                                   response.setStatus(200);
+	                  			} break;
+	                  			
+	                  		case "elimina":
+	                  			idprodottoStr = request.getParameter("IDPRODOTTO");
+	                  			if(idprodottoStr != null) {
+	                                UUID id_prodotto = UUID.fromString(idprodottoStr);
+	                                ProdBean prodottoDaRimuovere = prodottoDAO.doRetrieveBy(id_prodotto);
+	                                carrelloDAO.removeCarrello(carrello, prodottoDaRimuovere);
+	                                response.setStatus(200);
+	                            }
+	                            else response.setStatus(401);
+	                            break;    	                  			
+	                  
+	                  }
+	                  
+	                  
+	                  
+	                  
+				  }
+			  }catch (SQLException e) {
+				  request.setAttribute("error", e.toString());
+	                e.printStackTrace();
+	                response.setStatus(500);
 			}
-			
-			}
+		  }
 		
-		}
-
-		
-		catch(SQLException | NumberFormatException e) {
-			System.out.println("Error: "+ e.getMessage());
-			request.setAttribute("error", e.getMessage());			
-		}
-		
-		
-		request.setAttribute("cart", cart);
 	
 
 	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/utente/shop.jsp");
