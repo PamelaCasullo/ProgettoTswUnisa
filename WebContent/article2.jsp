@@ -32,9 +32,9 @@
 		Non rimane che dare in bocca al lupo ai nostri ragazzi e soprattutto al nostro allenatore con la speranza che riusciranno a portare a casa risultati sensazionali!
 		<br><br><br><br><br>
 		
-		<a href=article1.jsp><button type="button" class="btn btn-dark"> <-- Articolo Precedente</button></a>
+		<a href="jsessionid=<%=request.getSession().getId() %>article1.jsp"><button type="button" class="btn btn-dark"> <-- Articolo Precedente</button></a>
 
-		<a href=article3.jsp><button style="float:right;" type="button" class="btn btn-dark">Articolo Successivo --></button></a>
+		<a href="jsessionid=<%=request.getSession().getId() %>article3.jsp"><button style="float:right;" type="button" class="btn btn-dark">Articolo Successivo --></button></a>
 		</p>
 </div>
 
