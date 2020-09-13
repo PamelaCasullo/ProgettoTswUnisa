@@ -103,14 +103,13 @@
 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="../Homepage.jsp">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../Homepage.jsp;jsessionid="<%=request.getSession().getId()%>>Home <span class="sr-only">(current)</span></a>
       </li>
       <li>
-<<<<<<< HEAD
       <a class="nav-link" href="<%=request.getContextPath()+"/about.jsp;jsessionid="+request.getSession().getId()%>">About</a>
-=======
+
       <a class="nav-link" href="<%=request.getContextPath()+"/utente/about.jsp"%>">About</a>
->>>>>>> parent of cabcc9c... JSESSION
+
       </li>
       <li>
       <a class="nav-link" href="<%=request.getContextPath()+"/utente/shop.jsp"%>">Shop</a>

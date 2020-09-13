@@ -81,7 +81,7 @@
 	</table>
 
 
-	<% if(product!=null && !product.isEmpty()) {  %>
+	<% if(product!=null) {  %>
 	
 		<h2>Details</h2>
 		<table>

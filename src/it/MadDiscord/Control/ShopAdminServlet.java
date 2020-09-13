@@ -4,11 +4,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.UUID;
-<<<<<<< HEAD
-=======
 
-import javax.servlet.RequestDispatcher;
->>>>>>> parent of cabcc9c... JSESSION
+
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
