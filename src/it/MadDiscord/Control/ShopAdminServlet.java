@@ -58,7 +58,7 @@ public class ShopAdminServlet extends HttpServlet {
 					request.setAttribute("message", "Prodotto"+bean.getNome_oggetto()+"salvato");
 				}
 				else if(action.equals("delete")) {
-					String id = request.getParameter("id");
+					String id = request.getParameter("nome_utente");
 					ShopBean bean = model.doRetrieveBy(id);
 					
 					if(bean!=null && !((Collection<ShopBean>) bean).isEmpty()) {
