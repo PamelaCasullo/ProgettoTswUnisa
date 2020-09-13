@@ -47,10 +47,9 @@ System.out.println("type "+type);
 </head>
 <body>
 <%@include file="header.jsp"%>
-<input type="hidden" value="<%=request.getSession().getId()%>" id="session">
 <!--  registration form -->
     <div class="registration-form">
-        <form action="<%=request.getContextPath()%>;jsessionid=<%=request.getSession().getId() %>/Signin" method="post">
+        <form action="<%=request.getContextPath()+"/Signin"%>" method="post">
             <div class="form-icon">
                 <span class="iconify icon:ion-person-add-outline icon-inline:false"></span>
             </div>

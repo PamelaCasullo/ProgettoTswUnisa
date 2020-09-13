@@ -38,27 +38,27 @@
 
 <!--  SIDEBAR -->
 <nav id=nav class="navbar navbar-expand-lg navbar-dark">
-<input type="hidden" value="<%=request.getSession().getId()%>" id="session">
+
  <%if(utente==null) { %> 
 <form class="form-inline my-2 my-lg-0" style="float: left">
-<a class="navbar-brand" href="<%=request.getContextPath()%>;jsessionid=<%=request.getSession().getId() %>/Homepage.jsp">
+<a class="navbar-brand" href="<%=request.getContextPath()+"/Homepage.jsp"%>">
   <img id=logo alt="logo_azienda" src="<%=request.getContextPath()+"/images/LogoGif.gif"%>" width="60" style="	border-radius: 70%;border-width: none;">
   </a>
     <ul class="navbar-nav mr-auto">
       <li>
-      <a class="nav-link" href="<%=request.getContextPath()%>;jsessionid=<%=request.getSession().getId() %>/about.jsp">About</a>
+      <a class="nav-link" href="<%=request.getContextPath()+"/utente/about.jsp"%>">About</a>
       </li>
     </ul>
     <ul class="navbar-nav mr-auto">
     <li> 
-    <span><a class="nav-link" href="jsessionid=<%=request.getSession().getId() %>signup.jsp"><u> Sign-up</u></a></span>
+    <span><a class="nav-link" href="signup.jsp"><u> Sign-up</u></a></span>
 
-   <button class="btn btn-dark"> <a class="nav-link" href="jsessionid=<%=request.getSession().getId() %> login.jsp">Login</a> </button>
+   <button class="btn btn-dark"> <a class="nav-link" href="login.jsp">Login</a> </button>
     </ul>
     </form>
 
    <% } else { %>
-  <a class="navbar-brand" href="<%=request.getContextPath()%>;jsessionid=<%=request.getSession().getId() %>/Homepage.jsp">
+  <a class="navbar-brand" href="<%=request.getContextPath()+"/Homepage.jsp"%>">
   <img id=logo alt="logo_azienda" src="<%=request.getContextPath()+"/images/LogoGif.gif"%>" width="60" style="	border-radius: 70%;border-width: none;">
   
   </a>
@@ -67,7 +67,7 @@
     <ul class="navbar-nav mr-auto">
 	 <li class="nav-item">
 		<p style="color:orange;">Benvenuto, <%=utente.getNome_utente() %>
-		<a href="<%=request.getContextPath()%>;jsessionid=<%=request.getSession().getId() %>/Logout">Logout</a>
+		<a href="<%=request.getContextPath()%>/Logout">Logout</a>
 	</li> 
     </ul>
       </div>
@@ -81,14 +81,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="<%=request.getContextPath()%>;jsessionid=<%=request.getSession().getId() %>/Homepage.jsp">">PANNELLO DI CONTROLLO <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<%=request.getContextPath()+"/Homepage.jsp"%>">PANNELLO DI CONTROLLO <span class="sr-only">(current)</span></a>
       </li>
  
       <li class="nav-item">
-        <a class="nav-link" href="<%=request.getContextPath()%>;jsessionid=<%=request.getSession().getId() %>/admin/gestioneShop.jsp">">Gestione Shop</a>
+        <a class="nav-link" href="<%=request.getContextPath()+"/admin/gestioneShop.jsp"%>">Gestione Shop</a>
       </li>
       <li>
-      <a class="nav-link" href="<%=request.getContextPath()%>;jsessionid=<%=request.getSession().getId() %>admin/gestioneUtenti.jsp">Gestione Utenti</a>
+      <a class="nav-link" href="<%=request.getContextPath()+"/admin/gestioneUtenti.jsp"%>">Gestione Utenti</a>
       </li>
    
     </ul>
@@ -106,10 +106,10 @@
         <a class="nav-link" href="Homepage.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
       <li>
-      <a class="nav-link" href="<%=request.getContextPath()+"/about.jsp;jsessionid="+request.getSession().getId()%>">About</a>
+      <a class="nav-link" href="<%=request.getContextPath()+"/utente/about.jsp"%>">About</a>
       </li>
       <li>
-      <a class="nav-link" href="<%=request.getContextPath()%>;jsessionid=<%=request.getSession().getId()%>/utente/shop.jsp">Shop</a>
+      <a class="nav-link" href="<%=request.getContextPath()+"/utente/shop.jsp"%>">Shop</a>
       </li>
     </ul>
      <% } %>
