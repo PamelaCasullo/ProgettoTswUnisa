@@ -2,6 +2,7 @@ package it.MadDiscord.Control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -113,7 +114,8 @@ public class ShopServlet extends HttpServlet {
 				request.setAttribute("error", e.getMessage());
 			}
 
-			response.sendRedirect(response.encodeRedirectURL("/utente/Shop.jsp"));
+	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/utente/shop.jsp");
+	dispatcher.forward(request, response);
 	
 }
 	/**

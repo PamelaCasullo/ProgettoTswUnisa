@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.UUID;
+<<<<<<< HEAD
+=======
+
+import javax.servlet.RequestDispatcher;
+>>>>>>> parent of cabcc9c... JSESSION
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -93,10 +98,10 @@ public class ShopAdminServlet extends HttpServlet {
 		System.out.println("Error: "+e.getMessage());
 		request.setAttribute("error", e.getMessage());
 	}
-	
+
 	response.sendRedirect(response.encodeRedirectURL(request.getContextPath()+"/admin/gestioneShop.jsp"));
 
-	
+
 }
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

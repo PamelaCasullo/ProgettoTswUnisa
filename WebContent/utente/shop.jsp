@@ -42,7 +42,7 @@
 	<!-- SHOP   -->
     <header>
         <h1 class="shop_header">SHOP UFFICIALE DEI MAD DISCORD</h1> 
-         <input type="hidden" value="<%=request.getSession().getId()%>" id="session">
+         
   
     <a href="carrello.jsp" >CARRELLO</a>
     </header>
@@ -67,7 +67,7 @@
 				<td><%=bean.getNome_oggetto() %> </td>				
 				<td><%=bean.getPrezzo() %></td>
 				<td>
-				<a href="<%=response.encodeURL("Shop;jsessionid="+request.getSession().getId()+"?action=aggiungi&id_prodotto="+bean.getId()) %>">Aggiungi al carrello</a>
+				<a href="<%=response.encodeURL("Shop?action=aggiungi&id_prodotto="+bean.getId())%>">Aggiungi al carrello</a>
 				</td>
 			</tr>
 		

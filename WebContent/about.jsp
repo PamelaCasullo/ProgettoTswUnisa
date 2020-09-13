@@ -29,7 +29,7 @@
 <%@include file="../header.jsp"%>
 
 <div id=about>
-	<input type="hidden" value="<%=request.getSession().getId()%>" id="session">
+	
     <h1>About Us</h1>
     <img style=float:left src="../images/esultanza.gif" width=600>
   	
@@ -52,7 +52,7 @@
 		Il nostro scopo è cercare di portare ogni fanatico dei videogiochi in un ambiente competitivo e intrattenente fornendogli il massimo delle prestazioni e diverse possibilità di approccio in questo nuovo mondo.
 		Con la nuova apertura della nostra gaming lobby al centro di Salerno sarà tutto più realizzabile e siamo sicuri di poter fornire nuove esperienze avvincenti per tutti i nuovi utenti. Vi Aspettiamo!
 		<br><br>
-		Per maggiori info guardare il nuovo articolo: <a href="sessionid=<%=request.getSession().getId() %>article1.jsp">Nuova Gaming Lobby A Salerno</a>
+		Per maggiori info guardare il nuovo articolo: <a href=article1.jsp>Nuova Gaming Lobby A Salerno</a>
   </p>
   
 </div>
