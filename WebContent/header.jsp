@@ -46,7 +46,7 @@
   </a>
     <ul class="navbar-nav mr-auto">
       <li>
-      <a class="nav-link" href="<%=request.getContextPath()+"/utente/about.jsp"%>">About</a>
+      <a class="nav-link" href="<%=request.getContextPath()+"/about.jsp"%>">About</a>
       </li>
     </ul>
     <ul class="navbar-nav mr-auto">
