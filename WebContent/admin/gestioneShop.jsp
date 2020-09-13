@@ -41,7 +41,7 @@
 
 <%@include file="../header.jsp"%>
 
-
+<input type="hidden" value="<%=request.getSession().getId()%>" id="session">
 <!--  GESTIONE CARRELLO:insert -->
 
 <div class="Shop_container" align="center">

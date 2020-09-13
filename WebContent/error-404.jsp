@@ -8,7 +8,7 @@
 
 </head>
 <body>
-
+<input type="hidden" value="<%=request.getSession().getId()%>" id="session">
 <%@include file="header.jsp"%>
  <p align="center">
     <%

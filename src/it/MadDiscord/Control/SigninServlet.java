@@ -106,13 +106,11 @@ public class SigninServlet extends HttpServlet {
 					
 					if(uDAO.insertUser(sigBean)!=0) {
 						System.out.println("account creato con successo!");
-						RequestDispatcher disp = request.getRequestDispatcher("login.jsp");
-						disp.forward(request, response);
+						response.sendRedirect(response.encodeRedirectURL("login.jsp"));
 					}
 					else {
 						System.out.println("account esistente");
-						RequestDispatcher disp = request.getRequestDispatcher("Homepage.jsp");
-						disp.forward(request, response);
+						response.sendRedirect(response.encodeRedirectURL("Homepage.jsp"));
 					}
 					
 					

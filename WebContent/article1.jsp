@@ -24,7 +24,7 @@
 <body>
 <%@include file="header.jsp"%>
 
-	
+	<input type="hidden" value="<%=request.getSession().getId()%>" id="session">
 <div class=article>
     <h1><img id=logo src="https://c7.uihere.com/files/213/439/710/discord-computer-icons-social-media-online-chat-internet-bot-remix.jpg" width=100>Nuova Apertura lobby a Salerno per i "Mad Discord"</h1>
     <br>
@@ -37,9 +37,9 @@
 		Inoltre vi è un piano superiore con diversi uffici nei quali è possibile fare abbonamenti ed iscriversi al club in modo da poter usufruire di diversi sconti e non perdersi i diversi eventi di gaming organizzati dagli amministratori della lobby.
 		Su che aspetti? Vieni tu stesso a testare il brivido del gaming a "Lobby a salerno" e avrai in omaggio § <br><br><br><br><br>
 		
-		<a href=article3.jsp><button type="button" class="btn btn-dark"> <-- Articolo Precedente</button></a>
+		<a href="jsessionid=<%=request.getSession().getId() %>article3.jsp"><button type="button" class="btn btn-dark"> <-- Articolo Precedente</button></a>
 
-		<a href=article2.jsp><button style="float:right;" type="button" class="btn btn-dark">Articolo Successivo --></button></a>
+		<a href="jsessionid=<%=request.getSession().getId() %>article2.jsp"><button style="float:right;" type="button" class="btn btn-dark">Articolo Successivo --></button></a>
 		</p>
 </div>
 

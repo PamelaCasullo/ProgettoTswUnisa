@@ -24,16 +24,16 @@
 <body>
 <%@include file="header.jsp"%>
 
-	
+	<input type="hidden" value="<%=request.getSession().getId()%>" id="session">
 <div class=article>
     <h1><img id=logo src="https://c7.uihere.com/files/213/439/710/discord-computer-icons-social-media-online-chat-internet-bot-remix.jpg" width=100>ARTICOLO 3</h1>
     <br>
   
 	<p> Gesòò <br><br><br><br><br>
 		
-		<a href=article2.jsp><button type="button" class="btn btn-dark"> <-- Articolo Precedente</button></a>
+		<a href="jsessionid=<%=request.getSession().getId() %>article2.jsp"><button type="button" class="btn btn-dark"> <-- Articolo Precedente</button></a>
 
-		<a href=article1.jsp><button style="float:right;" type="button" class="btn btn-dark">Articolo Successivo --></button></a></p>
+		<a href="%>;jsessionid=<%=request.getSession().getId() %>article1.jsp"><button style="float:right;" type="button" class="btn btn-dark">Articolo Successivo --></button></a></p>
 </div>
 
 

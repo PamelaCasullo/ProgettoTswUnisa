@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.UUID;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -96,9 +94,8 @@ public class ShopAdminServlet extends HttpServlet {
 		request.setAttribute("error", e.getMessage());
 	}
 	
-	
-	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/admin/gestioneShop.jsp");
-	dispatcher.forward(request, response);
+	response.sendRedirect(response.encodeRedirectURL(request.getContextPath()+"/admin/gestioneShop.jsp"));
+
 	
 }
 	/**
