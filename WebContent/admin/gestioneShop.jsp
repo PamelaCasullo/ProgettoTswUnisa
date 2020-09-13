@@ -65,7 +65,7 @@
 				<td><%=bean.getPrezzo() %></td>
 				<td><%=bean.getQuant() %></td>
 				<td>
-				<a href="<%=response.encodeURL("ShopAdmin?action=delete&id="+bean.getId()) %>">Rimuovi dal database</a>
+				<a href="<%=response.encodeURL("ShopAdmin?action=delete&id="+bean.getId())%>">Rimuovi dal database</a>
 				<a href="<%=response.encodeURL("ShopAdmin?action=details&id="+bean.getId())%>">dettagli</a>
 				</td>
 			</tr>

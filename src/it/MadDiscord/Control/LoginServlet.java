@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("error-type", "wrongCred");
 			session.setAttribute("error", "Password o email errate");
 			session.setAttribute("error-location", "login");
-			response.sendRedirect(response.encodeRedirectURL("login.jsp"));
+			response.sendRedirect(response.encodeRedirectURL(request.getContextPath()+"login.jsp"));
 		}	    
 		
 		}

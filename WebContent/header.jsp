@@ -106,7 +106,7 @@
         <a class="nav-link" href="../Homepage.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
       <li>
-      <a class="nav-link" href="<%=request.getContextPath()%>;jsessionid=<%=request.getSession().getId() %>/utente/about.jsp">About</a>
+      <a class="nav-link" href="<%=request.getContextPath()+"/about.jsp;jsessionid="+request.getSession().getId()%>">About</a>
       </li>
       <li>
       <a class="nav-link" href="<%=request.getContextPath()%>;jsessionid=<%=request.getSession().getId()%>/utente/shop.jsp">Shop</a>
