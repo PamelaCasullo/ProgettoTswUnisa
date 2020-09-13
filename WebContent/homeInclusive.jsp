@@ -7,7 +7,7 @@
 <title>Homepage</title>
 </head>
 <body>
-
+<input type="hidden" value="<%=request.getSession().getId()%>" id="session">
 
 	<!-- CAROSELLO IMMAGINI -->        
         <div class="section" id="carousel">

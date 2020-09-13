@@ -25,6 +25,7 @@
 	<link rel="stylesheet" href="css/layout.css">
 </head>
 <body> 
+<input type="hidden" value="<%=request.getSession().getId()%>" id="session">
 <%@include file="header.jsp"%>
 <%if(utente==null)  { %>
    <h4 style="color:white"> SE VUOI VISUALIZZARE TUTTI I CONTENUTI DEL NOSTRO SITO, SEI PREGATO DI EFFETTUARE L'ACCESSO ATTRAVERSO LA PAGINA DI LOGIN.<br>

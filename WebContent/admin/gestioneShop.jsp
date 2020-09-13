@@ -41,7 +41,7 @@
 
 <%@include file="../header.jsp"%>
 
-
+<input type="hidden" value="<%=request.getSession().getId()%>" id="session">
 <!--  GESTIONE CARRELLO:insert -->
 
 <div class="Shop_container" align="center">
@@ -65,7 +65,7 @@
 				<td><%=bean.getPrezzo() %></td>
 				<td><%=bean.getQuant() %></td>
 				<td>
-				<a href="<%=response.encodeURL("ShopAdmin?action=delete&id="+bean.getId())%>">Rimuovi dal database</a>
+				<a href="<%=response.encodeURL("ShopAdmin?action=delete&id="+bean.getId()) %>">Rimuovi dal database</a>
 				<a href="<%=response.encodeURL("ShopAdmin?action=details&id="+bean.getId())%>">dettagli</a>
 				</td>
 			</tr>
@@ -81,7 +81,7 @@
 	</table>
 
 
-	<% if(product!=null && !product.isEmpty()) {  %>
+	<% if(product!=null) {  %>
 	
 		<h2>Details</h2>
 		<table>
