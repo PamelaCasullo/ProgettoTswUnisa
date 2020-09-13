@@ -36,7 +36,6 @@
 
 		<tr>
 			<th>Nome Utente</th>
-			<th>Email</th>
 		</tr>
 	<% if(users!=null && users.size()>0) { 
 	
@@ -47,10 +46,9 @@
 	%>
 			<tr>
 				<td><%=bean.getNome_utente() %></td>
-				<td><%=bean.getEmail()%></td>
 				<td>
 				<a href="<%=response.encodeURL("Utente?action=deleteUser&nome_utente="+bean.getNome_utente()) %>">Rimuovi dal database</a>
-				<a href="<%=response.encodeURL("Utente?action=detailsUser&nome_utente="+bean.getNome_utente()) %>">dettagli</a>
+
 				</td>
 			</tr>
 	
@@ -75,7 +73,7 @@
 		<input name=email type="email" required placeholder="enter email"><br>
 		
 		<label for=type>Tipo:</label>
-		<input name=idAdmin type=text placeholder="admin o utente"><br>	
+		<input name=idAdmin type=text placeholder="admin"><br>	
 		
 		<label for=password>Password:</label>
 		<input name=password_utente type="text" required placeholder="enter password"><br>

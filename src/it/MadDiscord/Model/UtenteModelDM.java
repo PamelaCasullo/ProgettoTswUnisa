@@ -150,12 +150,12 @@ public class UtenteModelDM implements IntModel<UtenteBean,String> {
 		
 
 
-	public void doDelete(String email) throws SQLException {
-			String sql="DELETE FROM UserTable WHERE email = ?";
+	public void doDelete(String utente) throws SQLException {
+			String sql="DELETE FROM UserTable WHERE nome_utente = ?";
 		
 		try (Connection con = DBConnectionPool.getConnection();PreparedStatement statement=con.prepareStatement(sql);) {
-			
-			statement.setString(1,email);
+			System.out.println("do delete idm = " + utente.toString());
+			statement.setString(1,utente);
 			System.out.println("DoDelete=" + statement.toString());
 			statement.executeUpdate();
 			con.commit();
@@ -163,5 +163,6 @@ public class UtenteModelDM implements IntModel<UtenteBean,String> {
 	}
 		
 	}
+
 }
 

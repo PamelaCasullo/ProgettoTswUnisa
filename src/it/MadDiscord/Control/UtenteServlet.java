@@ -31,6 +31,7 @@ public class UtenteServlet extends HttpServlet {
 		String sort = request.getParameter("sort");
 		
 		String action = request.getParameter("action");
+		System.out.println("action uServlet = "+action);
 
 			try {
 				if(action != null) {
@@ -77,12 +78,18 @@ public class UtenteServlet extends HttpServlet {
 					
 					case "deleteUser":
 						try {
+
 							String nome_utente = request.getParameter("nome_utente");
-							
+
+							if(model.doRetrieveBy(nome_utente)!=null)
+									model.doDelete(nome_utente);
+
+							/*
 							UtenteBean uBean = model.doRetrieveBy(nome_utente);
+							System.out.println("nome Utente=" + nome_utente);
 							
-							model.doDelete(uBean.getEmail());
-							request.setAttribute("message", "Utente"+uBean.getNome_utente()+"rimosso");
+							model.doDelete(uBean);*/
+
 						} catch (SQLException e) {
 							System.out.println(e);
 						}

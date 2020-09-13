@@ -35,7 +35,7 @@
     <title>MAD DISCORD</title>
 </head>
 <body>
-
+<input type="hidden" value="<%=request.getSession().getId()%>" id="session">
 <!--  SIDEBAR -->
 <nav id=nav class="navbar navbar-expand-lg navbar-dark">
 
@@ -103,16 +103,15 @@
 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="../Homepage.jsp;jsessionid="<%=request.getSession().getId()%>>Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<%=request.getContextPath()+"/Homepage.jsp;jsessionid="+request.getSession().getId()%>">Home <span class="sr-only">(current)</span></a>
+        
       </li>
       <li>
       <a class="nav-link" href="<%=request.getContextPath()+"/about.jsp;jsessionid="+request.getSession().getId()%>">About</a>
 
-      <a class="nav-link" href="<%=request.getContextPath()+"/utente/about.jsp"%>">About</a>
-
       </li>
       <li>
-      <a class="nav-link" href="<%=request.getContextPath()+"/utente/shop.jsp"%>">Shop</a>
+      <a class="nav-link" href="<%=request.getContextPath()+"/utente/shop.jsp;jsessionid="+request.getSession().getId()%>">Shop</a>
       </li>
     </ul>
      <% } %>
