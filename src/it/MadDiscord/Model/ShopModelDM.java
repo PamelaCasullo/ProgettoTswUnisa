@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.UUID;
 
 import it.MadDiscord.DBConnectionPool;
 
@@ -29,7 +30,7 @@ public class ShopModelDM implements IntModel<ShopBean,String> {
 			
             while(rs.next()) {
 
-                bean.setId(rs.getInt("id"));
+            	bean.setId(UUID.fromString(rs.getString("id")));
                 bean.setNome_oggetto(rs.getString("nome_oggetto"));
                 bean.setPrezzo(rs.getInt("prezzo"));
                 bean.setQuant(rs.getInt("quant"));
@@ -62,7 +63,7 @@ public class ShopModelDM implements IntModel<ShopBean,String> {
 			while(rs.next()) {
 				ShopBean bean = new ShopBean();
 				
-				bean.setId(rs.getInt("id"));
+				bean.setId(UUID.fromString(rs.getString("id")));
 				bean.setNome_oggetto(rs.getString("nome_oggetto"));
 				bean.setPrezzo(rs.getInt("prezzo"));
 				bean.setQuant(rs.getInt("quant"));
@@ -107,8 +108,7 @@ public class ShopModelDM implements IntModel<ShopBean,String> {
 			preparedStatement.setString(1, product.getNome_oggetto());
 			preparedStatement.setFloat(2, product.getPrezzo());
 			preparedStatement.setInt(3, product.getQuant());
-			preparedStatement.setInt(4, product.getId());
-			
+			preparedStatement.setString(4, product.getId().toString());
 			System.out.println("doUpdate: "+preparedStatement.toString());
 		
 			preparedStatement.executeUpdate();
@@ -125,7 +125,7 @@ public class ShopModelDM implements IntModel<ShopBean,String> {
 		String deleteSQL= "DELETE FROM ShopTable WHERE id=?";
 		try (Connection connection = DBConnectionPool.getConnection(); ){
 			preparedStatement = connection.prepareStatement(deleteSQL);
-			preparedStatement.setInt(1, product.getId());
+			preparedStatement.setString(1, product.getId().toString());
 			System.out.println("DoDelete "+preparedStatement.toString());
 		
 			preparedStatement.executeUpdate();

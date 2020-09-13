@@ -1,18 +1,28 @@
 package it.MadDiscord.Model;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 
 public class ShopBean implements Serializable {
 	
 	public ShopBean() {
-		id=-1;
+		id= UUID.randomUUID();
 		nome_oggetto = "";
 		prezzo = 0;
 		quant = 0;
 	}
+	public ShopBean(UUID id, String nome_oggetto, float prezzo, int quant ) {
+		
+		this.id = id;
+		this.nome_oggetto=nome_oggetto;
+		this.prezzo=prezzo;
+		this.quant=quant;
+		
+		
+	}
 
-	public int getId() {
+	public UUID getId() {
 		return id;
 	}
 
@@ -32,7 +42,7 @@ public class ShopBean implements Serializable {
 		this.prezzo = prezzo;
 	}
 
-	public void setId(int id) {
+	public void setId(UUID id) {
 		this.id = id;
 	}
 
@@ -43,9 +53,7 @@ public class ShopBean implements Serializable {
 	public void setQuant(int quant) {
 		this.quant = quant;
 	}
-	public boolean isEmpty() {
-		return id ==-1;
-	}
+
 	@Override
 	public boolean equals(Object other) {
 		return(this.getId()==((ShopBean)other).getId());
@@ -60,9 +68,10 @@ public class ShopBean implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected int id;
+	protected UUID id;
 	protected String nome_oggetto;
 	protected float prezzo;
 	protected int quant;
+
 	
 }

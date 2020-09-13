@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("error-type", "wrongCred");
 			session.setAttribute("error", "Password o email errate");
 			session.setAttribute("error-location", "login");
-			response.sendRedirect("login.jsp");
+			response.sendRedirect(response.encodeRedirectURL("login.jsp"));
 		}	    
 		
 		}
@@ -70,8 +70,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 }

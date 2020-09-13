@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.MadDiscord.Model.UtenteBean;
 import it.MadDiscord.Model.UtenteModelDM;
+import it.MadDiscord.Model.UtenteBean.Tipo;
 
 
 @WebServlet(urlPatterns = {"/Utente","/admin/Utente"})
@@ -40,14 +41,16 @@ public class UtenteServlet extends HttpServlet {
 							String nome_utente = request.getParameter("nome_utente");
 							String email = request.getParameter("email");
 							String password_utente = request.getParameter("password_utente");
-							
 							UtenteBean uBean = new UtenteBean();
+
+								uBean.setNome_utente(nome_utente);
+								uBean.setPassword_utente(password_utente);
+								uBean.setEmail(email);
+								
+								uBean.setTipo(Tipo.admin);
+								model.doSave(uBean);
 							
-							uBean.setNome_utente(nome_utente);
-							uBean.setPassword_utente(password_utente);
-							uBean.setEmail(email);
-							
-							model.doSave(uBean);
+
 							request.setAttribute("message", "Utente"+uBean.getNome_utente()+"salvato");
 							
 						} catch (SQLException e) {

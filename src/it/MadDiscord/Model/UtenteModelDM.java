@@ -107,6 +107,7 @@ public class UtenteModelDM implements IntModel<UtenteBean,String> {
 		
 			preparedStatement.setString(1, user.getNome_utente());
 			preparedStatement.setString(2, user.getEmail());
+			
 			preparedStatement.setString(3, user.getTipo());
 			preparedStatement.setBytes(4, user.getPassword_utente());
 			

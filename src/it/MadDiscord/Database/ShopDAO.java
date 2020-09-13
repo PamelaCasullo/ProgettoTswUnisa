@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.UUID;
 import it.MadDiscord.DBConnectionPool;
 import it.MadDiscord.Model.ShopBean;
 
@@ -50,8 +50,7 @@ public class ShopDAO {
 			PreparedStatement prepStat = conn.prepareStatement("Update ShopTable set nome_oggetto=?, prezzo=? where id=?");
 			prepStat.setString(1, sBean.getNome_oggetto());
 			prepStat.setFloat(2, sBean.getPrezzo());
-			prepStat.setInt(3, sBean.getId());
-			
+			prepStat.setString(3, sBean.getId().toString());
 			System.out.println(prepStat);
 			result=prepStat.executeUpdate();
 			
@@ -73,7 +72,7 @@ public class ShopDAO {
 			//eseguiamo la query
 			PreparedStatement prepStat = conn.prepareStatement("delete from ShopTable where id=?");
 			
-			prepStat.setInt(1, sBean.getId());
+			prepStat.setString(1, sBean.getId().toString());
 			
 			System.out.println(prepStat);
 			result = prepStat.executeUpdate();
@@ -101,7 +100,7 @@ public class ShopDAO {
 			ResultSet rs = prepStat.executeQuery();
 			
 			while (rs.next()) {
-				int id=rs.getInt("id");
+				UUID id = UUID.fromString(rs.getString("id"));
 				String nome_oggetto=rs.getString("nome_oggetto");
 				float prezzo=rs.getFloat("prezzo"); 
 				

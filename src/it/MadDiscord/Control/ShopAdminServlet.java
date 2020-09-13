@@ -2,6 +2,9 @@ package it.MadDiscord.Control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.UUID;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +29,7 @@ public class ShopAdminServlet extends HttpServlet {
     }
 
 	
+	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String sort = request.getParameter("sort");
@@ -56,18 +60,18 @@ public class ShopAdminServlet extends HttpServlet {
 					String id = request.getParameter("id");
 					ShopBean bean = model.doRetrieveBy(id);
 					
-					if(bean!=null && !bean.isEmpty()) {
+					if(bean!=null && !((Collection<ShopBean>) bean).isEmpty()) {
 						model.doDelete(bean);	
 						request.setAttribute("message", "Prodotto "+bean.getNome_oggetto()+" rimosso con successo");
 					}
 				} else if(action.equals("update")) {
-					String id = request.getParameter("id");
+					UUID id = UUID.fromString(request.getParameter("id"));
 					String name = request.getParameter("nome_oggetto");
 					int price = Integer.parseInt(request.getParameter("prezzo"));
 					int quantity = Integer.parseInt(request.getParameter("quant"));
 					
 					ShopBean bean= new ShopBean();
-					bean.setId(Integer.parseInt(id));
+					bean.setId(id);
 					bean.setNome_oggetto(name);
 					bean.setPrezzo(price);
 					bean.setQuant(quantity);

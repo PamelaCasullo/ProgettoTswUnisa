@@ -30,9 +30,11 @@ System.out.println("type "+type);
 </head>
 <body>
 <%@include file="header.jsp"%>
+
+<input type="hidden" value="<%=request.getSession().getId()%>" id="session">
 <!--  LOGIN -->
     <div class="login-dark">
-        <form action ="<%=request.getContextPath()%>/Login" method="post">
+        <form action ="<%=request.getContextPath()%>;jsessionid=<%=request.getSession().getId() %>/Login" method="post">
             <h1>LOGIN</h1>
             
             <div class="illustration"><i class="icon ion-ios-game-controller-b-outline"> </i></div>

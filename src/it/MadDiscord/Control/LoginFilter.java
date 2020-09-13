@@ -51,10 +51,11 @@ public class LoginFilter implements Filter{
 		if(session!=null) {
 			System.out.println("la sessione va bene");
 			UtenteBean user=(UtenteBean) session.getAttribute("nome_utente");
+			
 			if(user!=null && user.getTipo().equals(tipoUtente))
 				chain.doFilter(sRequest, sResponse);
 			else
-				hResponse.sendRedirect(hRequest.getContextPath()+"/login.jsp");
+				hResponse.sendRedirect(hResponse.encodeRedirectURL(hRequest.getContextPath()+"/login.jsp"));
 		}
 	
 		

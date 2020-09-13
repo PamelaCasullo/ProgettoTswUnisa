@@ -127,7 +127,7 @@ public class CartDAO implements IntModel<CartBean, String> {
 		 }
 	 }
 	 
-	 public ArrayList<UUID> vediCrrello (CartBean carrello) throws SQLException {
+	 public ArrayList<UUID> vediCarrello (CartBean carrello) throws SQLException {
 		 ArrayList<UUID> prodotti = new ArrayList<>();
 		 String sql = "SELECT id_prodotto FROM ProdCart where id_carrello = ?";
 		 PreparedStatement preparedStatement = null;
