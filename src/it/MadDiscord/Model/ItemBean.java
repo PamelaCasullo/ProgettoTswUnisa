@@ -1,5 +1,6 @@
 package it.MadDiscord.Model;
 
+
 public class ItemBean {
 
 	private ProdBean pBean;
