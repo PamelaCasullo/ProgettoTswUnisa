@@ -103,7 +103,7 @@
 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="Homepage.jsp">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../Homepage.jsp;jsessionid="<%=request.getSession().getId()%>>Home <span class="sr-only">(current)</span></a>
       </li>
       <li>
       <a class="nav-link" href="<%=request.getContextPath()+"/about.jsp"%>">About</a>
