@@ -46,7 +46,7 @@
   </a>
     <ul class="navbar-nav mr-auto">
       <li>
-      <a class="nav-link" href="<%=request.getContextPath()+"/utente/about.jsp"%>">About</a>
+      <a class="nav-link" href="<%=request.getContextPath()+"/about.jsp"%>">About</a>
       </li>
     </ul>
     <ul class="navbar-nav mr-auto">
@@ -103,10 +103,10 @@
 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="../Homepage.jsp">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="Homepage.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
       <li>
-      <a class="nav-link" href="<%=request.getContextPath()+"/utente/about.jsp"%>">About</a>
+      <a class="nav-link" href="<%=request.getContextPath()+"/about.jsp"%>">About</a>
       </li>
       <li>
       <a class="nav-link" href="<%=request.getContextPath()+"/utente/shop.jsp"%>">Shop</a>
