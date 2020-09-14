@@ -65,13 +65,7 @@
 				<td><%=bean.getPrezzo() %></td>
 				<td><%=bean.getId_prod()%></td>
 				<td>
-				<form action="<%=request.getContextPath()+"/ShopAdmin" %>" method=GET>
-					<input type="hidden" name=action value=delete>
-					<input type="hidden" name=id value=<%=bean.getNome_oggetto()%>>
-					<input type="submit" value=delete >
-					<!-- <input type="submit" value=details>  -->
-		
-				</form>
+
 				
 				</td>
 			</tr>
