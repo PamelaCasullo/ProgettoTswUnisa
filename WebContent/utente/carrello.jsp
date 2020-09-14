@@ -31,8 +31,9 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="pagamentoLabel">Procedi al pagamento</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <div class="col-12 text-left">
+                        <button type="button"  id="procedialpagamento" class=" d-none btn btn-success" data-toggle="modal" data-target="#pagamento">Procedi Al Pagamento</button>
+                    </div>
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>

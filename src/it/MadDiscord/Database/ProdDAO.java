@@ -27,6 +27,18 @@ public class ProdDAO implements IntModel<ProdBean, UUID>  {
 		}
 		return bean;
 	}
+	public ProdBean doRetrieveBy(int id_prodotto) throws SQLException {
+		String sql = "SELECT * FROM ProdCart WHERE id_carrello =?";
+		PreparedStatement preparedStatement = null;
+		ProdBean bean;
+		try (Connection connection = DBConnectionPool.getConnection();) {
+				preparedStatement = connection.prepareStatement(sql);
+	            preparedStatement.setInt(1, id_prodotto);
+	            ResultSet rs = preparedStatement.executeQuery();
+	            bean = mapFromResultSet(rs);
+		}
+		return bean;
+	}
 
 	@Override
 	public List<ProdBean> doRetrieveAll(String order) throws SQLException {

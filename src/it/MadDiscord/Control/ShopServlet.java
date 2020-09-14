@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 
 import it.MadDiscord.Database.CartDAO;
 import it.MadDiscord.Database.ProdDAO;
+import it.MadDiscord.Database.ShopDAO;
 import it.MadDiscord.Model.CartBean;
 import it.MadDiscord.Model.ItemBean;
 import it.MadDiscord.Model.ProdBean;
@@ -44,6 +45,8 @@ public class ShopServlet extends HttpServlet {
 		  if(session.getAttribute("utente") != null && azione != null) {
 			  UtenteBean utente = (UtenteBean) session.getAttribute("utente");
 			  CartDAO carrelloDAO = new CartDAO();
+			  ProdDAO prodDAO = new ProdDAO() ;
+			  ShopDAO shopDAO = new ShopDAO() ;
 			  try {
 				  CartBean carrello = (CartBean) carrelloDAO.doRetrieveBy(utente.getEmail());
 				  ProdDAO prodottoDAO = new ProdDAO();
@@ -53,10 +56,17 @@ public class ShopServlet extends HttpServlet {
 	                  switch (azione) {
 	                  		case "aggiungi":
 	                  			String idprodottoStr = request.getParameter("id_prodotto");
+	                  			
 	                  			 if(idprodottoStr != null) {
+	                  				 
 	                                 UUID id_prodotto = UUID.fromString(idprodottoStr);
 	                                 ProdBean prodottoDaAggiungere = prodottoDAO.doRetrieveBy(id_prodotto);
-	                               carrelloDAO.addCarrello(carrello, prodottoDaAggiungere);
+	                                 
+	                                
+		                               prodDAO.doSave(prodottoDaAggiungere);
+		                               carrelloDAO.addCarrello(carrello, prodottoDaAggiungere); 
+
+	                              
 	                               System.out.println("Prodotto Aggiunto correttamente al carrello");
                                    response.setStatus(200);
 	                  			} break;
@@ -76,7 +86,9 @@ public class ShopServlet extends HttpServlet {
 	                  			
 	                  			for(UUID id : carrelloDAO.vediCarrello(carrello)) {
 	                  				ItemBean item = new ItemBean();
+
 	                  				item.setpBean(prodottoDAO.doRetrieveBy(id));
+	                  				item.setsBean(shopDAO.getShop(item.getsBean().getPrezzo()));
 	                  				
 	                  				contenutoCarr.add(item);
 	                  			}

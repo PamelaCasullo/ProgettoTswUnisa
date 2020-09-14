@@ -7,7 +7,7 @@ import java.util.UUID;
 public class ShopBean implements Serializable {
 	
 	public ShopBean() {
-
+		this.id = UUID.randomUUID();
 	}
 	public ShopBean(UUID id, String nome_oggetto, float prezzo, int quant,  int id_prod ) {
 		
