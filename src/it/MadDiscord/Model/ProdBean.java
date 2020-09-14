@@ -36,5 +36,14 @@ public class ProdBean implements Bean, Serializable, Cloneable{
 	
 	}
 
+	 	public ProdBean clone() {
+			try {
+				ProdBean pBean = (ProdBean) super.clone();
+				return pBean;
+			} catch (CloneNotSupportedException e) {
+				 e.printStackTrace();
+		            return null;
+			}
+		}
 	
 }

@@ -123,25 +123,23 @@ public class ShopDAO {
 	}
 	
 /*Maibe for carrello*/
-	public ShopBean getShop(int id) {
+	public ShopBean getShop(float f) {
 		ShopBean sBean = null;
 		
 		try (Connection conn = DBConnectionPool.getConnection(); ) 
 		{
-			PreparedStatement prepStat = conn.prepareStatement("select * from ShopTable where id=?");
+			PreparedStatement prepStat = conn.prepareStatement("select nome_oggetto from ShopTable where prezzo=?");
 			
-			prepStat.setInt(1, id);
+			prepStat.setFloat(1, f);
 			ResultSet rs = prepStat.executeQuery();
 			
 			while (rs.next()) {
 				
 				String nome_oggetto=rs.getString("nome_oggetto");
-				float prezzo=rs.getFloat("prezzo"); 
 				
 				sBean = new ShopBean();
 				
 				sBean.setNome_oggetto(nome_oggetto);
-				sBean.setPrezzo(prezzo);
 			}
 		rs.close();
 		prepStat.close();
@@ -151,6 +149,11 @@ public class ShopDAO {
 			System.out.println(e);
 		}
 		return sBean;
+	}
+
+	public ShopBean doRetrieveBy(int id_prod) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 	

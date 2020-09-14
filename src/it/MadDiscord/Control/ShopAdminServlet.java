@@ -2,7 +2,6 @@ package it.MadDiscord.Control;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Collection;
 import java.util.UUID;
 
 import javax.servlet.RequestDispatcher;
