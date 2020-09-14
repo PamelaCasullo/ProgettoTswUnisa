@@ -21,12 +21,14 @@ public class ShopDAO {
 		try (Connection conn = DBConnectionPool.getConnection(); )
 		{
 			//eseguiamo la query
-			PreparedStatement prepStat = conn.prepareStatement("Insert into ShopTable(nome_oggetto,prezzo) values(?,?)");
-			prepStat.setString(1, sBean.getNome_oggetto());
-			prepStat.setFloat(2, sBean.getPrezzo());
+			PreparedStatement prepStat = conn.prepareStatement("Insert into ShopTable (id,nome_oggetto,prezzo)values(?,?,?)");
+			prepStat.setNString(1, sBean.getId().toString());
+			prepStat.setString(2, sBean.getNome_oggetto());
+			prepStat.setFloat(3, sBean.getPrezzo());
 			
 			System.out.println(prepStat);
 			result = prepStat.executeUpdate();
+			conn.commit();
 			
 			prepStat.close();
 			
@@ -47,7 +49,7 @@ public class ShopDAO {
 		try (Connection conn = DBConnectionPool.getConnection(); )
 		{
 			//eseguiamo la query
-			PreparedStatement prepStat = conn.prepareStatement("Update ShopTable set nome_oggetto=?, prezzo=? where id=?");
+			PreparedStatement prepStat = conn.prepareStatement("Update ShopTable (id,nome_oggetto,prezzo) set nome_oggetto=?, prezzo=? where id=?");
 			prepStat.setString(1, sBean.getNome_oggetto());
 			prepStat.setFloat(2, sBean.getPrezzo());
 			prepStat.setString(3, sBean.getId().toString());
@@ -70,9 +72,9 @@ public class ShopDAO {
 		try (Connection conn = DBConnectionPool.getConnection(); )
 		{
 			//eseguiamo la query
-			PreparedStatement prepStat = conn.prepareStatement("delete from ShopTable where id=?");
+			PreparedStatement prepStat = conn.prepareStatement("delete from ShopTable where nome_oggetto=?");
 			
-			prepStat.setString(1, sBean.getId().toString());
+			prepStat.setString(1, sBean.getNome_oggetto());
 			
 			System.out.println(prepStat);
 			result = prepStat.executeUpdate();

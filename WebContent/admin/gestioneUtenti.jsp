@@ -29,6 +29,8 @@
 
 <body>
 <%@include file="../header.jsp"%>
+<input type="hidden" value="<%=request.getSession().getId()%>" id="session">
+
 <div class=Utenti style="color:white">
 <h1>Elenco degli utenti. Seleziona uno per visualizzarlo/modificarlo/eliminarlo.</h1>
 <div class="mostraUtenti"></div>

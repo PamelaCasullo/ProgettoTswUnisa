@@ -7,17 +7,15 @@ import java.util.UUID;
 public class ShopBean implements Serializable {
 	
 	public ShopBean() {
-		id= UUID.randomUUID();
-		nome_oggetto = "";
-		prezzo = 0;
-		quant = 0;
+
 	}
-	public ShopBean(UUID id, String nome_oggetto, float prezzo, int quant ) {
+	public ShopBean(UUID id, String nome_oggetto, float prezzo, int quant,  int id_prod ) {
 		
 		this.id = id;
 		this.nome_oggetto=nome_oggetto;
 		this.prezzo=prezzo;
-		this.quant=quant;
+		this.id_prod = id_prod;
+
 		
 		
 	}
@@ -45,14 +43,18 @@ public class ShopBean implements Serializable {
 	public void setId(UUID id) {
 		this.id = id;
 	}
-
-	public int getQuant() {
-		return quant;
+	public void setId_prod(int id_prod) {
+		this. id_prod = id_prod;
+		
+	}
+	public int getId_prod() {
+		return id_prod;
+		
 	}
 
-	public void setQuant(int quant) {
-		this.quant = quant;
-	}
+
+
+
 
 	@Override
 	public boolean equals(Object other) {
@@ -60,7 +62,7 @@ public class ShopBean implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return nome_oggetto+"("+id+")"+prezzo+","+quant;
+		return nome_oggetto+"("+id+")"+prezzo;
 	}
 
 	
@@ -69,9 +71,9 @@ public class ShopBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	protected UUID id;
+	protected int id_prod;
 	protected String nome_oggetto;
 	protected float prezzo;
-	protected int quant;
 
 	
 }

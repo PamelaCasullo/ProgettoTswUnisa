@@ -103,8 +103,7 @@ public class UtenteModelDM implements IntModel<UtenteBean,String> {
 		
 		try (Connection connection = DBConnectionPool.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(insertSQL);){
 			
-		
-		
+
 			preparedStatement.setString(1, user.getNome_utente());
 			preparedStatement.setString(2, user.getEmail());
 			

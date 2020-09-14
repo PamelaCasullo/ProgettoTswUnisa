@@ -41,7 +41,7 @@
 
 <%@include file="../header.jsp"%>
 
-
+<input type="hidden" value="<%=request.getSession().getId()%>" id="session">
 <!--  GESTIONE CARRELLO:insert -->
 
 <div class="Shop_container" align="center">
@@ -61,12 +61,18 @@
 		%>
 			<tr>
 				<td><%=bean.getId() %> </td>
-				<td><%=bean.getNome_oggetto() %> </td>				
+				<td><%=bean.getNome_oggetto() %></td>				
 				<td><%=bean.getPrezzo() %></td>
-				<td><%=bean.getQuant() %></td>
+				<td><%=bean.getId_prod()%></td>
 				<td>
-				<a href="<%=response.encodeURL("ShopAdmin?action=delete&id="+bean.getId())%>">Rimuovi dal database</a>
-				<a href="<%=response.encodeURL("ShopAdmin?action=details&id="+bean.getId())%>">dettagli</a>
+				<form action="<%=request.getContextPath()+"/ShopAdmin" %>" method=GET>
+					<input type="hidden" name=action value=delete>
+					<input type="hidden" name=id value=<%=bean.getNome_oggetto()%>>
+					<input type="submit" value=delete >
+					<!-- <input type="submit" value=details>  -->
+		
+				</form>
+				
 				</td>
 			</tr>
 		
@@ -89,17 +95,15 @@
 				<th>ID</th>
 				<th>Nome</th>
 				<th>Prezzo</th>
-				<th>Quantità</th>
 			</tr>
 			<tr>
 				<td><%=product.getId()%></td>
 				<td><%=product.getNome_oggetto()%></td>
 				<td><%=product.getPrezzo()%></td>
-				<td><%=product.getQuant()%></td>
 			</tr>
 		</table>
 		
-		<form action="<%=response.encodeURL("ShopAdmin") %>" method=POST>
+		<form action="<%=request.getContextPath()+"/ShopAdmin" %>" method=GET>
 		<fieldset>
 		<legend><b> Update </b></legend>
 		<input type=hidden name=action value=update>
@@ -112,8 +116,6 @@
 
 		<input name=price type="number" step="any" min=0 ><%=product.getPrezzo() %><br>
 			
-		<label for=quantity>Quantità:</label>
-		<input name=quantity type=number min=1 ><%=product.getQuant() %><br>
 
 		
 		<input type=submit value=Update> 
@@ -125,7 +127,7 @@
 	} 
 %>
 
-	<form action="<%=response.encodeURL("ShopAdmin") %>" method=POST>
+	<form action="<%=request.getContextPath()+"/ShopAdmin" %>" method=GET>
 		<fieldset>
 		<legend><b> Insert </b></legend>
 		<input type=hidden name=action value=insert>
@@ -136,9 +138,7 @@
 		<label for=prezzo>Prezzo:</label>
 		<input name=prezzo type=number min=0 value=0 required><br>
 		
-			
-		<label for=quant>Quantità:</label>
-		<input name=quant type=number min=1 value=1 required><br>
+	
 		
 		<input type=submit value=Insert> 
 		<input type=reset value=Reset>

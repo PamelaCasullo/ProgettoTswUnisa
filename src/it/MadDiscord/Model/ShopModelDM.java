@@ -10,7 +10,7 @@ import java.util.UUID;
 
 import it.MadDiscord.DBConnectionPool;
 
-public class ShopModelDM implements IntModel<ShopBean,String> {
+public class ShopModelDM{
 	
 	public ShopBean doRetrieveBy(String id) throws SQLException {
 		
@@ -23,7 +23,7 @@ public class ShopModelDM implements IntModel<ShopBean,String> {
 		try (Connection connection = DBConnectionPool.getConnection(); ) {
 			
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setInt(1, Integer.parseInt(id));
+			preparedStatement.setString(1, id);
 			
 			System.out.println("doRetriveBy:"+preparedStatement.toString());
 			ResultSet rs= preparedStatement.executeQuery();
@@ -31,9 +31,10 @@ public class ShopModelDM implements IntModel<ShopBean,String> {
             while(rs.next()) {
 
             	bean.setId(UUID.fromString(rs.getString("id")));
+            	bean.setId_prod(Integer.parseInt("id_prod"));
                 bean.setNome_oggetto(rs.getString("nome_oggetto"));
                 bean.setPrezzo(rs.getInt("prezzo"));
-                bean.setQuant(rs.getInt("quant"));
+
             }
            System.out.println(bean);
 			}
@@ -41,7 +42,36 @@ public class ShopModelDM implements IntModel<ShopBean,String> {
 		return bean;
 		
 	}
+	public ShopBean doRetrieveById(String nome_oggetto) throws SQLException {
+		
+		PreparedStatement preparedStatement = null;
+		
+		ShopBean bean = new ShopBean();
+		
+		String selectSQL ="SELECT * FROM ShopTable WHERE nome_oggetto=?";
+		
+		try (Connection connection = DBConnectionPool.getConnection(); ) {
+			
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, nome_oggetto);
+			
+			System.out.println("doRetriveById:"+preparedStatement.toString());
+			ResultSet rs= preparedStatement.executeQuery();
+			
+            while(rs.next()) {
+            	bean.setId(UUID.fromString(rs.getString("id")));
+            	bean.setId_prod(Integer.parseInt("id_prod"));
+            
+                bean.setNome_oggetto(rs.getString("nome_oggetto"));
+                bean.setPrezzo(rs.getInt("prezzo"));
 
+            }
+           System.out.println(bean);
+			}
+			
+		return bean;
+		
+	}
 	public Collection<ShopBean> doRetrieveAll(String order) throws SQLException {
 		PreparedStatement preparedStatement = null;
 		
@@ -66,7 +96,6 @@ public class ShopModelDM implements IntModel<ShopBean,String> {
 				bean.setId(UUID.fromString(rs.getString("id")));
 				bean.setNome_oggetto(rs.getString("nome_oggetto"));
 				bean.setPrezzo(rs.getInt("prezzo"));
-				bean.setQuant(rs.getInt("quant"));
 				
 				products.add(bean);
 			}
@@ -75,67 +104,74 @@ public class ShopModelDM implements IntModel<ShopBean,String> {
 		return products;
 	}
 
-	public void doSave(ShopBean product) throws SQLException {
+	public int doSave(ShopBean product) throws SQLException {
+		
+		int r=0;
+		
 		PreparedStatement preparedStatement = null;
 		
-		String insertSQL = "INSERT INTO ShopTable" +
-		"(nome_oggetto, prezzo, quant)"+"VALUES( ?, ?, ?)";
+		String insertSQL = "INSERT INTO ShopTable(id, nome_oggetto, prezzo) VALUES(?,?,?)";
 		
 		try (Connection connection = DBConnectionPool.getConnection(); ) {
 			preparedStatement = connection.prepareStatement(insertSQL);
-		
-			preparedStatement.setString(1, product.getNome_oggetto());
-			preparedStatement.setFloat(2, product.getPrezzo());
-			preparedStatement.setInt(3, product.getQuant());
 			
-			System.out.println("doSave "+preparedStatement.toString());
+			preparedStatement.setString(1, product.getId().toString());
+			preparedStatement.setString(2, product.getNome_oggetto());
+			preparedStatement.setFloat(3, product.getPrezzo());
 			
 			preparedStatement.executeUpdate();
 			connection.commit();
 			
+			preparedStatement.close();
+			
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
+		r=1;
+		return r;
 		}
 
 
-	public void doUpdate(ShopBean product) throws SQLException {
+	public int doUpdate(ShopBean product) throws SQLException {
+		int r=0;
 		PreparedStatement preparedStatement = null;
 		
-		String updateSQL= "UPDATE ShopTable(id,nome_oggetto, prezzo, quant) SET nome_oggetto=?, prezzo=?, quant=? WHERE id=?";
+		String updateSQL= "UPDATE ShopTable(nome_oggetto, prezzo) SET nome_oggetto=?, prezzo=? WHERE id=?";
 		try (Connection connection = DBConnectionPool.getConnection(); ){
 			
 			preparedStatement = connection.prepareStatement(updateSQL);
 			
 			preparedStatement.setString(1, product.getNome_oggetto());
 			preparedStatement.setFloat(2, product.getPrezzo());
-			preparedStatement.setInt(3, product.getQuant());
-			preparedStatement.setString(4, product.getId().toString());
+			preparedStatement.setString(3, product.getId().toString());
+			
 			System.out.println("doUpdate: "+preparedStatement.toString());
 		
 			preparedStatement.executeUpdate();
 			connection.commit();
+			preparedStatement.close();
 			
 		}
+		r=1;
+		return r;
 	}
 		
 		
 
-	public void doDelete(ShopBean product) throws SQLException {
+	public void doDelete(ShopBean sBean) throws SQLException {
 		PreparedStatement preparedStatement = null;
 		
-		String deleteSQL= "DELETE FROM ShopTable WHERE id=?";
-		try (Connection connection = DBConnectionPool.getConnection(); ){
+		String deleteSQL= "DELETE FROM ShopTable WHERE nome_oggetto=?";
+		try (Connection connection = DBConnectionPool.getConnection();){
+			
 			preparedStatement = connection.prepareStatement(deleteSQL);
-			preparedStatement.setString(1, product.getId().toString());
-			System.out.println("DoDelete "+preparedStatement.toString());
-		
-			preparedStatement.executeUpdate();
+			preparedStatement.setString(1, sBean.nome_oggetto);
+			
+			System.out.println("doDelete="+preparedStatement);
+			preparedStatement.executeUpdate();	
 			connection.commit();
 		} 
 	}
 
-	@Override
-	public void doDelete(String product) throws SQLException {
-		// TODO Auto-generated method stub
-		
-	}
 }
+

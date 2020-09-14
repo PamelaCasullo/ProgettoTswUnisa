@@ -81,11 +81,11 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="<%=request.getContextPath()+"/Homepage.jsp"%>">PANNELLO DI CONTROLLO <span class="sr-only">(current)</span></a>
+        <a class="nav-link" style="cursor: default;">PANNELLO DI CONTROLLO <span class="sr-only">(current)</span></a>
       </li>
  
       <li class="nav-item">
-        <a class="nav-link" href="<%=request.getContextPath()+"/admin/gestioneShop.jsp"%>">Gestione Shop</a>
+        <a class="nav-link" href="<%=request.getContextPath()+"/admin/gestioneShop.jsp;jsessionid="+request.getSession().getId()%>">Gestione Shop</a>
       </li>
       <li>
       <a class="nav-link" href="<%=request.getContextPath()+"/admin/gestioneUtenti.jsp"%>">Gestione Utenti</a>
