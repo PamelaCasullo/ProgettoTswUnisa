@@ -25,6 +25,9 @@
 <html>
 <head>
 <title>GESTIONE UTENTI</title>
+
+<link rel="stylesheet" href="css/article.css">
+
 </head>
 
 <body>
@@ -32,7 +35,7 @@
 <input type="hidden" value="<%=request.getSession().getId()%>" id="session">
 
 <div class=Utenti style="color:white">
-<h1>Elenco degli utenti. Seleziona uno per visualizzarlo/modificarlo/eliminarlo.</h1>
+<h1>Elenco degli utenti.</h1>
 <div class="mostraUtenti"></div>
 <table style="color:white" border="" id="show">
 
@@ -48,10 +51,7 @@
 	%>
 			<tr>
 				<td><%=bean.getNome_utente() %></td>
-				<td>
-				<a href="<%=response.encodeURL("Utente?action=deleteUser&nome_utente="+bean.getNome_utente()) %>">Rimuovi dal database</a>
-
-				</td>
+				
 			</tr>
 	
 

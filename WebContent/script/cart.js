@@ -18,7 +18,7 @@ window.onload = function () {
         }
         document.getElementById("totalecarrello").innerText = '${totaleCarrello}€' 
     }
-    xmlHttpRequest.open("GET", 'CartServlet; jsessionid=${sessionID}?action=vedi', true)//action==vedi??
+    xmlHttpRequest.open("GET", 'ShopServlet; jsessionid=${sessionID}?action=vedi', true)//action==vedi??
     xmlHttpRequest.send();
 }
 
@@ -37,7 +37,7 @@ function refreshCarrello() {
         }
     document.getElementById("totalecarrello").innerText = '${totaleCarrello}€' 
 }
-xmlHttpRequest.open("GET", 'CartServlet; jsessionid=${sessionID}?action=vedi', true)//action==vedi??
+xmlHttpRequest.open("GET", 'ShopServlet; jsessionid=${sessionID}?action=vedi', true)//action==vedi??
 xmlHttpRequest.send();
 }
 
@@ -73,6 +73,6 @@ function eliminaDalCarrello(elemento) {
             refreshCarrello();
         }
     }
-    xmlHttpRequest.open("GET", 'CartServlet; jsessionid=${sessionID}?action=elimina&id_prodotto=${elemento.sBean.id}', true)
+    xmlHttpRequest.open("GET", 'ShopServlet; jsessionid=${sessionID}?action=elimina&id_prodotto=${elemento.sBean.id}', true)
     xmlHttpRequest.send();
 }
