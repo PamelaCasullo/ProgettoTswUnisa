@@ -44,9 +44,9 @@
 <input type="hidden" value="<%=request.getSession().getId()%>" id="session">
 <!--  GESTIONE CARRELLO:insert -->
 
-<div class="Shop_container" align="center">
-
-<table style="color:white">
+<div class="about" align="center">
+<h1>Inserisci un item<br><br></h1>
+<table>
 	<tr>
 		<th>ID</th>
 		<th>NOME</th>
@@ -63,11 +63,10 @@
 				<td><%=bean.getId() %> </td>
 				<td><%=bean.getNome_oggetto() %></td>				
 				<td><%=bean.getPrezzo() %></td>
-				<td><%=bean.getId_prod()%></td>
 				<td>
-				<form action="<%=request.getContextPath()+"/ShopAdmin" %>" method=GET>
-					<input type="hidden" name=action value=delete>
-					<input type="hidden" name=id value=<%=bean.getNome_oggetto()%>>
+				<form action="<%=request.getContextPath()+"/ShopAdmin?action=delete&id="+bean.getId_prod()%>" method=GET>
+					
+					
 					<input type="submit" value=delete >
 					<!-- <input type="submit" value=details>  -->
 		

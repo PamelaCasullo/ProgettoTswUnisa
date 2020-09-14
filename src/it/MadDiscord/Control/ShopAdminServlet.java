@@ -67,7 +67,8 @@ public class ShopAdminServlet extends HttpServlet {
 			case "delete": {
 					
 				String id_prod =request.getParameter("id");
-
+				
+				System.out.println("Id prodotto da cancellare "+id_prod);
 						
 				ShopBean bean = model.doRetrieveById(id_prod);
 

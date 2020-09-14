@@ -15,7 +15,8 @@
         <input id="sessionid" type="hidden" name="" value="<%=request.getSession().getId()%>">
     </form>
     
-    <div class="container-fluid">
+    <div class="about">
+    	<h1>Il Mio Carrello :(</h1>
     	<table class="table">
     		<thead>
     			<tr>

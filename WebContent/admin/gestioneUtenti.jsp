@@ -34,10 +34,10 @@
 <%@include file="../header.jsp"%>
 <input type="hidden" value="<%=request.getSession().getId()%>" id="session">
 
-<div class=Utenti style="color:white">
+<div class=about>
 <h1>Elenco degli utenti.</h1>
 <div class="mostraUtenti"></div>
-<table style="color:white" border="" id="show">
+<table border="" id="show">
 
 		<tr>
 			<th>Nome Utente</th>

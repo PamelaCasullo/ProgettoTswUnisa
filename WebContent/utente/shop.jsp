@@ -48,8 +48,11 @@
     </header>
 
 
-<div class="Shop_container" align="center">
-<table style="color:white">
+<div class="about" align="center">
+
+
+<h1>LISTA DEI PRODOTTI MARCHIATI MAD DISCORD</h1>
+<table>
 	<tr>
 		<th>ID</th>
 		<th>NOME</th>
