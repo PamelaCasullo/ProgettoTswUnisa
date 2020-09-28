@@ -37,7 +37,7 @@
 <div class=about>
 <h1>Elenco degli utenti.</h1>
 <div class="mostraUtenti"></div>
-<table border="" id="show">
+<table id="show">
 
 		<tr>
 			<th>Nome Utente</th>
